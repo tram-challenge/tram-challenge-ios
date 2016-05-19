@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3AD8F1431CEE4D6100C48237 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1421CEE4D6100C48237 /* main.m */; };
+		3AD8F1461CEE4D6100C48237 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1451CEE4D6100C48237 /* AppDelegate.m */; };
+		3AD8F1491CEE4D6100C48237 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1481CEE4D6100C48237 /* FirstViewController.m */; };
+		3AD8F14C1CEE4D6100C48237 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F14B1CEE4D6100C48237 /* SecondViewController.m */; };
+		3AD8F14F1CEE4D6100C48237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F14D1CEE4D6100C48237 /* Main.storyboard */; };
+		3AD8F1511CEE4D6100C48237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1501CEE4D6100C48237 /* Assets.xcassets */; };
+		3AD8F1541CEE4D6100C48237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1521CEE4D6100C48237 /* LaunchScreen.storyboard */; };
+		3AD8F15F1CEE4D6100C48237 /* TramChallengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F15E1CEE4D6100C48237 /* TramChallengeTests.m */; };
+		3AD8F16A1CEE4D6100C48237 /* TramChallengeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1691CEE4D6100C48237 /* TramChallengeUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3AD8F15B1CEE4D6100C48237 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AD8F1361CEE4D6000C48237 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AD8F13D1CEE4D6100C48237;
+			remoteInfo = TramChallenge;
+		};
+		3AD8F1661CEE4D6100C48237 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AD8F1361CEE4D6000C48237 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AD8F13D1CEE4D6100C48237;
+			remoteInfo = TramChallenge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3AD8F13E1CEE4D6100C48237 /* TramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AD8F1421CEE4D6100C48237 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3AD8F1441CEE4D6100C48237 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3AD8F1451CEE4D6100C48237 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3AD8F1471CEE4D6100C48237 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		3AD8F1481CEE4D6100C48237 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		3AD8F14A1CEE4D6100C48237 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		3AD8F14B1CEE4D6100C48237 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		3AD8F14E1CEE4D6100C48237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3AD8F1501CEE4D6100C48237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AD8F1531CEE4D6100C48237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3AD8F1551CEE4D6100C48237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AD8F15A1CEE4D6100C48237 /* TramChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TramChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AD8F15E1CEE4D6100C48237 /* TramChallengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TramChallengeTests.m; sourceTree = "<group>"; };
+		3AD8F1601CEE4D6100C48237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AD8F1651CEE4D6100C48237 /* TramChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TramChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AD8F1691CEE4D6100C48237 /* TramChallengeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TramChallengeUITests.m; sourceTree = "<group>"; };
+		3AD8F16B1CEE4D6100C48237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3AD8F13B1CEE4D6100C48237 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AD8F1571CEE4D6100C48237 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AD8F1621CEE4D6100C48237 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3AD8F1351CEE4D6000C48237 = {
+			isa = PBXGroup;
+			children = (
+				3AD8F1401CEE4D6100C48237 /* TramChallenge */,
+				3AD8F15D1CEE4D6100C48237 /* TramChallengeTests */,
+				3AD8F1681CEE4D6100C48237 /* TramChallengeUITests */,
+				3AD8F13F1CEE4D6100C48237 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3AD8F13F1CEE4D6100C48237 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AD8F13E1CEE4D6100C48237 /* TramChallenge.app */,
+				3AD8F15A1CEE4D6100C48237 /* TramChallengeTests.xctest */,
+				3AD8F1651CEE4D6100C48237 /* TramChallengeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3AD8F1401CEE4D6100C48237 /* TramChallenge */ = {
+			isa = PBXGroup;
+			children = (
+				3AD8F1441CEE4D6100C48237 /* AppDelegate.h */,
+				3AD8F1451CEE4D6100C48237 /* AppDelegate.m */,
+				3AD8F1471CEE4D6100C48237 /* FirstViewController.h */,
+				3AD8F1481CEE4D6100C48237 /* FirstViewController.m */,
+				3AD8F14A1CEE4D6100C48237 /* SecondViewController.h */,
+				3AD8F14B1CEE4D6100C48237 /* SecondViewController.m */,
+				3AD8F14D1CEE4D6100C48237 /* Main.storyboard */,
+				3AD8F1501CEE4D6100C48237 /* Assets.xcassets */,
+				3AD8F1521CEE4D6100C48237 /* LaunchScreen.storyboard */,
+				3AD8F1551CEE4D6100C48237 /* Info.plist */,
+				3AD8F1411CEE4D6100C48237 /* Supporting Files */,
+			);
+			path = TramChallenge;
+			sourceTree = "<group>";
+		};
+		3AD8F1411CEE4D6100C48237 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3AD8F1421CEE4D6100C48237 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3AD8F15D1CEE4D6100C48237 /* TramChallengeTests */ = {
+			isa = PBXGroup;
+			children = (
+				3AD8F15E1CEE4D6100C48237 /* TramChallengeTests.m */,
+				3AD8F1601CEE4D6100C48237 /* Info.plist */,
+			);
+			path = TramChallengeTests;
+			sourceTree = "<group>";
+		};
+		3AD8F1681CEE4D6100C48237 /* TramChallengeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3AD8F1691CEE4D6100C48237 /* TramChallengeUITests.m */,
+				3AD8F16B1CEE4D6100C48237 /* Info.plist */,
+			);
+			path = TramChallengeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3AD8F13D1CEE4D6100C48237 /* TramChallenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AD8F16E1CEE4D6100C48237 /* Build configuration list for PBXNativeTarget "TramChallenge" */;
+			buildPhases = (
+				3AD8F13A1CEE4D6100C48237 /* Sources */,
+				3AD8F13B1CEE4D6100C48237 /* Frameworks */,
+				3AD8F13C1CEE4D6100C48237 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TramChallenge;
+			productName = TramChallenge;
+			productReference = 3AD8F13E1CEE4D6100C48237 /* TramChallenge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3AD8F1591CEE4D6100C48237 /* TramChallengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AD8F1711CEE4D6100C48237 /* Build configuration list for PBXNativeTarget "TramChallengeTests" */;
+			buildPhases = (
+				3AD8F1561CEE4D6100C48237 /* Sources */,
+				3AD8F1571CEE4D6100C48237 /* Frameworks */,
+				3AD8F1581CEE4D6100C48237 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AD8F15C1CEE4D6100C48237 /* PBXTargetDependency */,
+			);
+			name = TramChallengeTests;
+			productName = TramChallengeTests;
+			productReference = 3AD8F15A1CEE4D6100C48237 /* TramChallengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3AD8F1641CEE4D6100C48237 /* TramChallengeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AD8F1741CEE4D6100C48237 /* Build configuration list for PBXNativeTarget "TramChallengeUITests" */;
+			buildPhases = (
+				3AD8F1611CEE4D6100C48237 /* Sources */,
+				3AD8F1621CEE4D6100C48237 /* Frameworks */,
+				3AD8F1631CEE4D6100C48237 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AD8F1671CEE4D6100C48237 /* PBXTargetDependency */,
+			);
+			name = TramChallengeUITests;
+			productName = TramChallengeUITests;
+			productReference = 3AD8F1651CEE4D6100C48237 /* TramChallengeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3AD8F1361CEE4D6000C48237 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Switchstep;
+				TargetAttributes = {
+					3AD8F13D1CEE4D6100C48237 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					3AD8F1591CEE4D6100C48237 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 3AD8F13D1CEE4D6100C48237;
+					};
+					3AD8F1641CEE4D6100C48237 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 3AD8F13D1CEE4D6100C48237;
+					};
+				};
+			};
+			buildConfigurationList = 3AD8F1391CEE4D6000C48237 /* Build configuration list for PBXProject "TramChallenge" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3AD8F1351CEE4D6000C48237;
+			productRefGroup = 3AD8F13F1CEE4D6100C48237 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3AD8F13D1CEE4D6100C48237 /* TramChallenge */,
+				3AD8F1591CEE4D6100C48237 /* TramChallengeTests */,
+				3AD8F1641CEE4D6100C48237 /* TramChallengeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3AD8F13C1CEE4D6100C48237 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AD8F1541CEE4D6100C48237 /* LaunchScreen.storyboard in Resources */,
+				3AD8F1511CEE4D6100C48237 /* Assets.xcassets in Resources */,
+				3AD8F14F1CEE4D6100C48237 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AD8F1581CEE4D6100C48237 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AD8F1631CEE4D6100C48237 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3AD8F13A1CEE4D6100C48237 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AD8F14C1CEE4D6100C48237 /* SecondViewController.m in Sources */,
+				3AD8F1461CEE4D6100C48237 /* AppDelegate.m in Sources */,
+				3AD8F1491CEE4D6100C48237 /* FirstViewController.m in Sources */,
+				3AD8F1431CEE4D6100C48237 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AD8F1561CEE4D6100C48237 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AD8F15F1CEE4D6100C48237 /* TramChallengeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AD8F1611CEE4D6100C48237 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AD8F16A1CEE4D6100C48237 /* TramChallengeUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3AD8F15C1CEE4D6100C48237 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AD8F13D1CEE4D6100C48237 /* TramChallenge */;
+			targetProxy = 3AD8F15B1CEE4D6100C48237 /* PBXContainerItemProxy */;
+		};
+		3AD8F1671CEE4D6100C48237 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AD8F13D1CEE4D6100C48237 /* TramChallenge */;
+			targetProxy = 3AD8F1661CEE4D6100C48237 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3AD8F14D1CEE4D6100C48237 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AD8F14E1CEE4D6100C48237 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3AD8F1521CEE4D6100C48237 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AD8F1531CEE4D6100C48237 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3AD8F16C1CEE4D6100C48237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3AD8F16D1CEE4D6100C48237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3AD8F16F1CEE4D6100C48237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TramChallenge/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.switchstep.TramChallenge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3AD8F1701CEE4D6100C48237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TramChallenge/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.switchstep.TramChallenge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3AD8F1721CEE4D6100C48237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TramChallengeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.switchstep.TramChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TramChallenge.app/TramChallenge";
+			};
+			name = Debug;
+		};
+		3AD8F1731CEE4D6100C48237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TramChallengeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.switchstep.TramChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TramChallenge.app/TramChallenge";
+			};
+			name = Release;
+		};
+		3AD8F1751CEE4D6100C48237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TramChallengeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.switchstep.TramChallengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TramChallenge;
+			};
+			name = Debug;
+		};
+		3AD8F1761CEE4D6100C48237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TramChallengeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.switchstep.TramChallengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TramChallenge;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3AD8F1391CEE4D6000C48237 /* Build configuration list for PBXProject "TramChallenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AD8F16C1CEE4D6100C48237 /* Debug */,
+				3AD8F16D1CEE4D6100C48237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AD8F16E1CEE4D6100C48237 /* Build configuration list for PBXNativeTarget "TramChallenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AD8F16F1CEE4D6100C48237 /* Debug */,
+				3AD8F1701CEE4D6100C48237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3AD8F1711CEE4D6100C48237 /* Build configuration list for PBXNativeTarget "TramChallengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AD8F1721CEE4D6100C48237 /* Debug */,
+				3AD8F1731CEE4D6100C48237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3AD8F1741CEE4D6100C48237 /* Build configuration list for PBXNativeTarget "TramChallengeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AD8F1751CEE4D6100C48237 /* Debug */,
+				3AD8F1761CEE4D6100C48237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3AD8F1361CEE4D6000C48237 /* Project object */;
+}
