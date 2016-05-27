@@ -15,7 +15,7 @@
 #import <SMCalloutView/SMCalloutView.h>
 #import "TCUtilities.h"
 
-@interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, TramLineSelectionDelegate>
+@interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, TramLineSelectionDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) MKMapView *mapView;
 
@@ -29,6 +29,7 @@
 @property (nonatomic) BOOL showingFilters;
 
 @property (nonatomic) UIButton *filterButton;
+@property (nonatomic, weak) SMCalloutView *activeCallout;
 
 @end
 
@@ -95,6 +96,10 @@
         [self.mapView addOverlay:polyline];
         self.overlays[name] = polyline;
     }
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapViewTapped:)];
+    tap.delegate = self;
+    [self.mapView addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -148,6 +153,7 @@
     CGRect rect = CGRectOffset([self.view convertRect:self.filterButton.bounds fromView:self.mapView], 0, 8);
     [callout presentCalloutFromRect:rect inView:self.view constrainedToView:self.view animated:YES];
 
+    self.activeCallout = callout;
     self.showingFilters = YES;
 }
 
@@ -226,5 +232,25 @@
 
     return polylineView;
 }
+
+#pragma mark - Gesture delegate
+
+- (void)mapViewTapped:(UITapGestureRecognizer *)sender
+{
+    if (self.showingFilters) {
+        [self dismissActiveCallout];
+    }
+}
+
+- (void)dismissActiveCallout
+{
+    if (self.activeCallout) {
+        [self.activeCallout dismissCalloutAnimated:YES];
+        self.activeCallout = nil;
+    }
+
+    self.showingFilters = NO;
+}
+
 
 @end
