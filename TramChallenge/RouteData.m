@@ -20,7 +20,7 @@
 
 + (NSArray<NSString *> *)routeNames
 {
-    return @[@"1A", @"2", @"3", @"4T", @"5", @"6T", @"7A", @"7B", @"8", @"9", @"10"];
+    return @[@"1A", @"2", @"3", @"4T", @"6T", @"7A", @"7B", @"8", @"9", @"10"];
 }
 
 + (UIColor *)colorForRouteName:(NSString *)routeName
@@ -30,10 +30,9 @@
       @"2"  : [UIColor greenColor],
       @"3"  : [UIColor cyanColor],
       @"4T" : [UIColor blueColor],
-      @"5"  : [UIColor magentaColor],
       @"6T" : [UIColor brownColor],
       @"7A" : [UIColor purpleColor],
-      @"7B" : [UIColor lightGrayColor],
+      @"7B" : [UIColor magentaColor],
       @"8"  : [UIColor orangeColor],
       @"9"  : [UIColor yellowColor],
       @"10" : [UIColor grayColor]
