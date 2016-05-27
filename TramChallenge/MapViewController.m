@@ -12,6 +12,8 @@
 #import "AppDelegate.h"
 #import "RouteData.h"
 #import "TramLineSelectionViewController.h"
+#import <SMCalloutView/SMCalloutView.h>
+#import "TCUtilities.h"
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, TramLineSelectionDelegate>
 
@@ -23,6 +25,10 @@
 @property (nonatomic) NSMutableDictionary *overlays;
 
 @property (nonatomic) TramLineSelectionViewController *filterListViewer;
+@property (nonatomic) UIView *filterListOverlay;
+@property (nonatomic) BOOL showingFilters;
+
+@property (nonatomic) UIButton *filterButton;
 
 @end
 
@@ -47,6 +53,13 @@
         listViewer.delegate = self;
         listViewer;
     });
+
+    self.filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.filterButton.frame = CGRectMake(22, 0, 70, 40);
+    self.filterButton.tintColor = [UIColor blackColor];
+    [self.filterButton addTarget:self action:@selector(showFilters:) forControlEvents:UIControlEventTouchUpInside];
+    self.filterButton.tc_title = @"Lines";
+    [self.mapView addSubview:self.filterButton];
 }
 
 - (void)viewDidLoad {
@@ -99,6 +112,46 @@
 
     [super updateViewConstraints];
 }
+
+#pragma mark - Line Filters
+
+- (IBAction)showFilters:(id)sender
+{
+    BOOL wasShowingFilters = self.showingFilters;
+
+    if (wasShowingFilters) {
+        if (self.filterListOverlay) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.filterListOverlay.alpha = 0;
+            } completion:^(BOOL finished) {
+                [self.filterListOverlay removeFromSuperview];
+            }];
+        }
+        return;
+    }
+
+    SMCalloutView *callout = [SMCalloutView new];
+    callout.permittedArrowDirection = SMCalloutArrowDirectionUp;
+
+    callout.contentView = ({
+        UIView *view = [UIView new];
+        CGSize preferredContentSize = self.filterListViewer.preferredContentSize;
+        CGFloat height = MIN(preferredContentSize.height, self.view.height - 104);
+        view.frame = CGRectMake(0, 0, preferredContentSize.width, height);
+        [view addSubview:self.filterListViewer.view];
+//        self.filterListViewer.view.frame = CGRectInset(view.bounds, 50, 22);
+        self.filterListViewer.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        self.filterListViewer.tableView.clipsToBounds = NO;
+        view;
+    });
+
+    CGRect rect = CGRectOffset([self.view convertRect:self.filterButton.bounds fromView:self.mapView], 0, 8);
+    [callout presentCalloutFromRect:rect inView:self.view constrainedToView:self.view animated:YES];
+
+    self.showingFilters = YES;
+}
+
+
 
 #pragma mark - TramLineSelectionDelegate
 

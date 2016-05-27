@@ -72,3 +72,12 @@ NSArray *tc_map(NSArray *objects, id (^block)(id object, NSInteger index))
 }
 
 @end
+
+@implementation UIView (TCUtilities)
+
+- (CGFloat)x      { return self.center.x - self.bounds.size.width / 2;  }
+- (CGFloat)y      { return self.center.y - self.bounds.size.height / 2; }
+- (CGFloat)width  { return self.bounds.size.width;  }
+- (CGFloat)height { return self.bounds.size.height; }
+
+@end

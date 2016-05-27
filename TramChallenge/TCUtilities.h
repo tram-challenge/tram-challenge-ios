@@ -33,3 +33,12 @@ NSArray *tc_map(NSArray *objects, id (^block)(id object, NSInteger index));
 @property (nonatomic) UIColor *tc_titleColor;
 
 @end
+
+@interface UIView (TCUtilities)
+
+@property (nonatomic, readonly) CGFloat x;
+@property (nonatomic, readonly) CGFloat y;
+@property (nonatomic, readonly) CGFloat width;
+@property (nonatomic, readonly) CGFloat height;
+
+@end
