@@ -22,7 +22,7 @@
 @property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) BOOL userLocationUpdated;
 
-@property (nonatomic) NSMutableDictionary *overlays;
+@property (nonatomic) NSMutableDictionary<NSString *, MKPolyline *> *overlays;
 
 @property (nonatomic) TramLineSelectionViewController *filterListViewer;
 @property (nonatomic) UIView *filterListOverlay;
@@ -139,7 +139,7 @@
         CGFloat height = MIN(preferredContentSize.height, self.view.height - 104);
         view.frame = CGRectMake(0, 0, preferredContentSize.width, height);
         [view addSubview:self.filterListViewer.view];
-//        self.filterListViewer.view.frame = CGRectInset(view.bounds, 50, 22);
+        self.filterListViewer.view.frame = CGRectInset(view.bounds, -10, -10);
         self.filterListViewer.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         self.filterListViewer.tableView.clipsToBounds = NO;
         view;
@@ -157,7 +157,18 @@
 
 - (void)lineListDidChangeSelection:(TramLineSelectionViewController *)list
 {
-    
+    if (list.selectedLines.count) {
+        for (NSString *lineName in [RouteData routeNames]) {
+            [self.mapView removeOverlay:self.overlays[lineName]];
+        }
+        for (NSString *lineName in list.selectedLines) {
+            [self.mapView addOverlay:self.overlays[lineName]];
+        }
+    } else {
+        for (NSString *lineName in [RouteData routeNames]) {
+            [self.mapView addOverlay:self.overlays[lineName]];
+        }
+    }
 }
 
 #pragma mark - CLLocationManagerDelegate

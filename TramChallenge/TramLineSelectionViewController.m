@@ -43,7 +43,7 @@
     [super viewDidLoad];
 
     UITableView *tableView = self.tableView;
-    tableView.rowHeight = 52;
+    tableView.rowHeight = 42;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.showsVerticalScrollIndicator = NO;
 
@@ -52,7 +52,7 @@
 
 - (CGSize)preferredContentSize
 {
-    return CGSizeMake(192, [self lines].count * 52 - 20);
+    return CGSizeMake(50, [self lines].count * 42);
 }
 
 #pragma mark - UITableViewDataSource + UITableViewDelegate
@@ -153,6 +153,8 @@
 {
     self.button.tc_title = lineName;
     self.button.alpha = selected ? 1.0 : 0.4;
+
+    self.button.layer.backgroundColor = [RouteData colorForRouteName:lineName].CGColor;
 }
 
 
