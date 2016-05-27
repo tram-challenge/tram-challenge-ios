@@ -19,7 +19,7 @@
 @property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) BOOL userLocationUpdated;
 
-@property (nonnull) MKPolylineView *lineView;
+@property (nonatomic) NSMutableDictionary *overlays;
 
 @end
 
@@ -36,6 +36,8 @@
         [self.view addSubview:mapView];
         mapView;
     });
+
+    self.overlays = [NSMutableDictionary new];
 }
 
 - (void)viewDidLoad {
@@ -67,12 +69,9 @@
             i++;
         }
         MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinates count:i];
+        polyline.title = name;
         [self.mapView addOverlay:polyline];
-
-        self.lineView = [[MKPolylineView alloc] initWithPolyline:polyline];
-        self.lineView.strokeColor = [RouteData colorForRouteName:name];
-        self.lineView.lineWidth = 5;
-        break;
+        self.overlays[name] = polyline;
     }
 }
 
@@ -139,9 +138,14 @@
 {
 }
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
+- (MKPolylineRenderer *)mapView:(MKMapView *)mapView viewForOverlay:(MKPolyline *)overlay
 {
-    return self.lineView;
+    MKPolylineRenderer *polylineView = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
+
+    polylineView.strokeColor =  [RouteData colorForRouteName:overlay.title];
+    polylineView.lineWidth = 4.0;
+
+    return polylineView;
 }
 
 @end
