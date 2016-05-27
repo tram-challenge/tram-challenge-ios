@@ -11,8 +11,9 @@
 #import <Masonry/Masonry.h>
 #import "AppDelegate.h"
 #import "RouteData.h"
+#import "TramLineSelectionViewController.h"
 
-@interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
+@interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, TramLineSelectionDelegate>
 
 @property (nonatomic) MKMapView *mapView;
 
@@ -20,6 +21,8 @@
 @property (nonatomic) BOOL userLocationUpdated;
 
 @property (nonatomic) NSMutableDictionary *overlays;
+
+@property (nonatomic) TramLineSelectionViewController *filterListViewer;
 
 @end
 
@@ -38,6 +41,12 @@
     });
 
     self.overlays = [NSMutableDictionary new];
+
+    self.filterListViewer = ({
+        TramLineSelectionViewController *listViewer = [TramLineSelectionViewController new];
+        listViewer.delegate = self;
+        listViewer;
+    });
 }
 
 - (void)viewDidLoad {
@@ -91,6 +100,12 @@
     [super updateViewConstraints];
 }
 
+#pragma mark - TramLineSelectionDelegate
+
+- (void)lineListDidChangeSelection:(TramLineSelectionViewController *)list
+{
+    
+}
 
 #pragma mark - CLLocationManagerDelegate
 
