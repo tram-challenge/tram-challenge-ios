@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FA3C6AFFE0A586F5163C790 /* libPods-TramChallenge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E35DD7175AA906B977DC6E5 /* libPods-TramChallenge.a */; };
 		3AD8F1431CEE4D6100C48237 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1421CEE4D6100C48237 /* main.m */; };
 		3AD8F1461CEE4D6100C48237 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1451CEE4D6100C48237 /* AppDelegate.m */; };
 		3AD8F1491CEE4D6100C48237 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1481CEE4D6100C48237 /* MapViewController.m */; };
@@ -53,7 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		343F320E6F1C590334972EC0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AD823BB27B49371C63375A0 /* Pods-TramChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TramChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TramChallenge/Pods-TramChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		2C4566A50CFBEF6808DCFA68 /* Pods-TramChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TramChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-TramChallenge/Pods-TramChallenge.release.xcconfig"; sourceTree = "<group>"; };
+		2E35DD7175AA906B977DC6E5 /* libPods-TramChallenge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TramChallenge.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD8F13E1CEE4D6100C48237 /* TramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD8F1421CEE4D6100C48237 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3AD8F1441CEE4D6100C48237 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -103,7 +106,7 @@
 			files = (
 				3AD8F1C71CF8CA1B00C48237 /* CloudKit.framework in Frameworks */,
 				3AD8F1781CEE5CA000C48237 /* MapKit.framework in Frameworks */,
-				50A5568CA94E671B51E1FDCC /* libPods.a in Frameworks */,
+				1FA3C6AFFE0A586F5163C790 /* libPods-TramChallenge.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +135,8 @@
 				3AD8F15D1CEE4D6100C48237 /* TramChallengeTests */,
 				3AD8F1681CEE4D6100C48237 /* TramChallengeUITests */,
 				3AD8F13F1CEE4D6100C48237 /* Products */,
-				47383C3A882B4581D000FA03 /* Pods */,
 				C89E7406104B6BE82C72A3A0 /* Frameworks */,
+				F9E15A01380F59C9AF078400 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,23 +220,25 @@
 			path = TramChallenge/Data;
 			sourceTree = "<group>";
 		};
-		47383C3A882B4581D000FA03 /* Pods */ = {
+		C89E7406104B6BE82C72A3A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				500634BA753A63420011A134 /* Pods.debug.xcconfig */,
-				5FA47513F05A4FAA4BA7CD43 /* Pods.release.xcconfig */,
+				3AD8F1771CEE5CA000C48237 /* MapKit.framework */,
+				2E35DD7175AA906B977DC6E5 /* libPods-TramChallenge.a */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C89E7406104B6BE82C72A3A0 /* Frameworks */ = {
+		F9E15A01380F59C9AF078400 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				3AD8F1C61CF8CA1B00C48237 /* CloudKit.framework */,
 				3AD8F1771CEE5CA000C48237 /* MapKit.framework */,
 				343F320E6F1C590334972EC0 /* libPods.a */,
+				2AD823BB27B49371C63375A0 /* Pods-TramChallenge.debug.xcconfig */,
+				2C4566A50CFBEF6808DCFA68 /* Pods-TramChallenge.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,12 +248,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AD8F16E1CEE4D6100C48237 /* Build configuration list for PBXNativeTarget "TramChallenge" */;
 			buildPhases = (
-				C5F90ACB452F036972C759DF /* Check Pods Manifest.lock */,
+				F59A07D8772122D90A248C1C /* 📦 Check Pods Manifest.lock */,
 				3AD8F13A1CEE4D6100C48237 /* Sources */,
 				3AD8F13B1CEE4D6100C48237 /* Frameworks */,
 				3AD8F13C1CEE4D6100C48237 /* Resources */,
-				FA627D55D10C1D63236E8AC1 /* Embed Pods Frameworks */,
-				2AD2A88D7B060545702E132E /* Copy Pods Resources */,
+				EA704B21A5F77C957700818C /* 📦 Embed Pods Frameworks */,
+				78BE54793047249E98FF2A45 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -385,49 +390,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2AD2A88D7B060545702E132E /* Copy Pods Resources */ = {
+		78BE54793047249E98FF2A45 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TramChallenge/Pods-TramChallenge-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C5F90ACB452F036972C759DF /* Check Pods Manifest.lock */ = {
+		EA704B21A5F77C957700818C /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TramChallenge/Pods-TramChallenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F59A07D8772122D90A248C1C /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FA627D55D10C1D63236E8AC1 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -582,7 +587,7 @@
 		};
 		3AD8F16F1CEE4D6100C48237 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 500634BA753A63420011A134 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 2AD823BB27B49371C63375A0 /* Pods-TramChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TramChallenge/TramChallenge.entitlements;
@@ -596,7 +601,7 @@
 		};
 		3AD8F1701CEE4D6100C48237 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5FA47513F05A4FAA4BA7CD43 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 2C4566A50CFBEF6808DCFA68 /* Pods-TramChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TramChallenge/TramChallenge.entitlements;
