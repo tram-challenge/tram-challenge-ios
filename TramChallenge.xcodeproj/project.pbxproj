@@ -9,13 +9,27 @@
 /* Begin PBXBuildFile section */
 		3AD8F1431CEE4D6100C48237 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1421CEE4D6100C48237 /* main.m */; };
 		3AD8F1461CEE4D6100C48237 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1451CEE4D6100C48237 /* AppDelegate.m */; };
-		3AD8F1491CEE4D6100C48237 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1481CEE4D6100C48237 /* FirstViewController.m */; };
+		3AD8F1491CEE4D6100C48237 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1481CEE4D6100C48237 /* MapViewController.m */; };
 		3AD8F14C1CEE4D6100C48237 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F14B1CEE4D6100C48237 /* SecondViewController.m */; };
 		3AD8F14F1CEE4D6100C48237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F14D1CEE4D6100C48237 /* Main.storyboard */; };
 		3AD8F1511CEE4D6100C48237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1501CEE4D6100C48237 /* Assets.xcassets */; };
 		3AD8F1541CEE4D6100C48237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1521CEE4D6100C48237 /* LaunchScreen.storyboard */; };
 		3AD8F15F1CEE4D6100C48237 /* TramChallengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F15E1CEE4D6100C48237 /* TramChallengeTests.m */; };
 		3AD8F16A1CEE4D6100C48237 /* TramChallengeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1691CEE4D6100C48237 /* TramChallengeUITests.m */; };
+		3AD8F1781CEE5CA000C48237 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD8F1771CEE5CA000C48237 /* MapKit.framework */; };
+		3AD8F1A81CF4DF8400C48237 /* RouteData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1A71CF4DF8400C48237 /* RouteData.m */; };
+		3AD8F1B41CF4E19200C48237 /* 1A.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1A91CF4E19200C48237 /* 1A.coords.txt */; };
+		3AD8F1B51CF4E19200C48237 /* 2.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1AA1CF4E19200C48237 /* 2.coords.txt */; };
+		3AD8F1B61CF4E19200C48237 /* 3.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1AB1CF4E19200C48237 /* 3.coords.txt */; };
+		3AD8F1B71CF4E19200C48237 /* 4T.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1AC1CF4E19200C48237 /* 4T.coords.txt */; };
+		3AD8F1B81CF4E19200C48237 /* 5.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1AD1CF4E19200C48237 /* 5.coords.txt */; };
+		3AD8F1B91CF4E19200C48237 /* 6T.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1AE1CF4E19200C48237 /* 6T.coords.txt */; };
+		3AD8F1BA1CF4E19200C48237 /* 7A.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1AF1CF4E19200C48237 /* 7A.coords.txt */; };
+		3AD8F1BB1CF4E19200C48237 /* 7B.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1B01CF4E19200C48237 /* 7B.coords.txt */; };
+		3AD8F1BC1CF4E19200C48237 /* 8.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1B11CF4E19200C48237 /* 8.coords.txt */; };
+		3AD8F1BD1CF4E19200C48237 /* 9.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1B21CF4E19200C48237 /* 9.coords.txt */; };
+		3AD8F1BE1CF4E19200C48237 /* 10.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1B31CF4E19200C48237 /* 10.coords.txt */; };
+		50A5568CA94E671B51E1FDCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 343F320E6F1C590334972EC0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +50,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		343F320E6F1C590334972EC0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD8F13E1CEE4D6100C48237 /* TramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD8F1421CEE4D6100C48237 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3AD8F1441CEE4D6100C48237 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3AD8F1451CEE4D6100C48237 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3AD8F1471CEE4D6100C48237 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		3AD8F1481CEE4D6100C48237 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		3AD8F1471CEE4D6100C48237 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		3AD8F1481CEE4D6100C48237 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		3AD8F14A1CEE4D6100C48237 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		3AD8F14B1CEE4D6100C48237 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		3AD8F14E1CEE4D6100C48237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +69,22 @@
 		3AD8F1651CEE4D6100C48237 /* TramChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TramChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD8F1691CEE4D6100C48237 /* TramChallengeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TramChallengeUITests.m; sourceTree = "<group>"; };
 		3AD8F16B1CEE4D6100C48237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AD8F1771CEE5CA000C48237 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3AD8F1A61CF4DF8400C48237 /* RouteData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteData.h; sourceTree = "<group>"; };
+		3AD8F1A71CF4DF8400C48237 /* RouteData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteData.m; sourceTree = "<group>"; };
+		3AD8F1A91CF4E19200C48237 /* 1A.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 1A.coords.txt; sourceTree = "<group>"; };
+		3AD8F1AA1CF4E19200C48237 /* 2.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 2.coords.txt; sourceTree = "<group>"; };
+		3AD8F1AB1CF4E19200C48237 /* 3.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 3.coords.txt; sourceTree = "<group>"; };
+		3AD8F1AC1CF4E19200C48237 /* 4T.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 4T.coords.txt; sourceTree = "<group>"; };
+		3AD8F1AD1CF4E19200C48237 /* 5.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 5.coords.txt; sourceTree = "<group>"; };
+		3AD8F1AE1CF4E19200C48237 /* 6T.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 6T.coords.txt; sourceTree = "<group>"; };
+		3AD8F1AF1CF4E19200C48237 /* 7A.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 7A.coords.txt; sourceTree = "<group>"; };
+		3AD8F1B01CF4E19200C48237 /* 7B.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 7B.coords.txt; sourceTree = "<group>"; };
+		3AD8F1B11CF4E19200C48237 /* 8.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 8.coords.txt; sourceTree = "<group>"; };
+		3AD8F1B21CF4E19200C48237 /* 9.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 9.coords.txt; sourceTree = "<group>"; };
+		3AD8F1B31CF4E19200C48237 /* 10.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 10.coords.txt; sourceTree = "<group>"; };
+		500634BA753A63420011A134 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5FA47513F05A4FAA4BA7CD43 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AD8F1781CEE5CA000C48237 /* MapKit.framework in Frameworks */,
+				50A5568CA94E671B51E1FDCC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,10 +117,13 @@
 		3AD8F1351CEE4D6000C48237 = {
 			isa = PBXGroup;
 			children = (
+				3AD8F1791CF4DF1A00C48237 /* Data */,
 				3AD8F1401CEE4D6100C48237 /* TramChallenge */,
 				3AD8F15D1CEE4D6100C48237 /* TramChallengeTests */,
 				3AD8F1681CEE4D6100C48237 /* TramChallengeUITests */,
 				3AD8F13F1CEE4D6100C48237 /* Products */,
+				47383C3A882B4581D000FA03 /* Pods */,
+				C89E7406104B6BE82C72A3A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,8 +142,10 @@
 			children = (
 				3AD8F1441CEE4D6100C48237 /* AppDelegate.h */,
 				3AD8F1451CEE4D6100C48237 /* AppDelegate.m */,
-				3AD8F1471CEE4D6100C48237 /* FirstViewController.h */,
-				3AD8F1481CEE4D6100C48237 /* FirstViewController.m */,
+				3AD8F1471CEE4D6100C48237 /* MapViewController.h */,
+				3AD8F1481CEE4D6100C48237 /* MapViewController.m */,
+				3AD8F1A61CF4DF8400C48237 /* RouteData.h */,
+				3AD8F1A71CF4DF8400C48237 /* RouteData.m */,
 				3AD8F14A1CEE4D6100C48237 /* SecondViewController.h */,
 				3AD8F14B1CEE4D6100C48237 /* SecondViewController.m */,
 				3AD8F14D1CEE4D6100C48237 /* Main.storyboard */,
@@ -145,6 +183,43 @@
 			path = TramChallengeUITests;
 			sourceTree = "<group>";
 		};
+		3AD8F1791CF4DF1A00C48237 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3AD8F1A91CF4E19200C48237 /* 1A.coords.txt */,
+				3AD8F1AA1CF4E19200C48237 /* 2.coords.txt */,
+				3AD8F1AB1CF4E19200C48237 /* 3.coords.txt */,
+				3AD8F1AC1CF4E19200C48237 /* 4T.coords.txt */,
+				3AD8F1AD1CF4E19200C48237 /* 5.coords.txt */,
+				3AD8F1AE1CF4E19200C48237 /* 6T.coords.txt */,
+				3AD8F1AF1CF4E19200C48237 /* 7A.coords.txt */,
+				3AD8F1B01CF4E19200C48237 /* 7B.coords.txt */,
+				3AD8F1B11CF4E19200C48237 /* 8.coords.txt */,
+				3AD8F1B21CF4E19200C48237 /* 9.coords.txt */,
+				3AD8F1B31CF4E19200C48237 /* 10.coords.txt */,
+			);
+			name = Data;
+			path = TramChallenge/Data;
+			sourceTree = "<group>";
+		};
+		47383C3A882B4581D000FA03 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				500634BA753A63420011A134 /* Pods.debug.xcconfig */,
+				5FA47513F05A4FAA4BA7CD43 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C89E7406104B6BE82C72A3A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AD8F1771CEE5CA000C48237 /* MapKit.framework */,
+				343F320E6F1C590334972EC0 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,9 +227,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AD8F16E1CEE4D6100C48237 /* Build configuration list for PBXNativeTarget "TramChallenge" */;
 			buildPhases = (
+				C5F90ACB452F036972C759DF /* Check Pods Manifest.lock */,
 				3AD8F13A1CEE4D6100C48237 /* Sources */,
 				3AD8F13B1CEE4D6100C48237 /* Frameworks */,
 				3AD8F13C1CEE4D6100C48237 /* Resources */,
+				FA627D55D10C1D63236E8AC1 /* Embed Pods Frameworks */,
+				2AD2A88D7B060545702E132E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,6 +290,12 @@
 				TargetAttributes = {
 					3AD8F13D1CEE4D6100C48237 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = ATQ7JK2L54;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					3AD8F1591CEE4D6100C48237 = {
 						CreatedOnToolsVersion = 7.3;
@@ -248,6 +332,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AD8F1B41CF4E19200C48237 /* 1A.coords.txt in Resources */,
+				3AD8F1B51CF4E19200C48237 /* 2.coords.txt in Resources */,
+				3AD8F1B61CF4E19200C48237 /* 3.coords.txt in Resources */,
+				3AD8F1B71CF4E19200C48237 /* 4T.coords.txt in Resources */,
+				3AD8F1B81CF4E19200C48237 /* 5.coords.txt in Resources */,
+				3AD8F1B91CF4E19200C48237 /* 6T.coords.txt in Resources */,
+				3AD8F1BA1CF4E19200C48237 /* 7A.coords.txt in Resources */,
+				3AD8F1BB1CF4E19200C48237 /* 7B.coords.txt in Resources */,
+				3AD8F1BC1CF4E19200C48237 /* 8.coords.txt in Resources */,
+				3AD8F1BD1CF4E19200C48237 /* 9.coords.txt in Resources */,
+				3AD8F1BE1CF4E19200C48237 /* 10.coords.txt in Resources */,
 				3AD8F1541CEE4D6100C48237 /* LaunchScreen.storyboard in Resources */,
 				3AD8F1511CEE4D6100C48237 /* Assets.xcassets in Resources */,
 				3AD8F14F1CEE4D6100C48237 /* Main.storyboard in Resources */,
@@ -270,6 +365,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2AD2A88D7B060545702E132E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5F90ACB452F036972C759DF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA627D55D10C1D63236E8AC1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3AD8F13A1CEE4D6100C48237 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -277,7 +420,8 @@
 			files = (
 				3AD8F14C1CEE4D6100C48237 /* SecondViewController.m in Sources */,
 				3AD8F1461CEE4D6100C48237 /* AppDelegate.m in Sources */,
-				3AD8F1491CEE4D6100C48237 /* FirstViewController.m in Sources */,
+				3AD8F1A81CF4DF8400C48237 /* RouteData.m in Sources */,
+				3AD8F1491CEE4D6100C48237 /* MapViewController.m in Sources */,
 				3AD8F1431CEE4D6100C48237 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,8 +561,10 @@
 		};
 		3AD8F16F1CEE4D6100C48237 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 500634BA753A63420011A134 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TramChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.switchstep.TramChallenge;
@@ -428,8 +574,10 @@
 		};
 		3AD8F1701CEE4D6100C48237 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FA47513F05A4FAA4BA7CD43 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TramChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.switchstep.TramChallenge;
@@ -502,6 +650,7 @@
 				3AD8F1701CEE4D6100C48237 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3AD8F1711CEE4D6100C48237 /* Build configuration list for PBXNativeTarget "TramChallengeTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +659,7 @@
 				3AD8F1731CEE4D6100C48237 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3AD8F1741CEE4D6100C48237 /* Build configuration list for PBXNativeTarget "TramChallengeUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +668,7 @@
 				3AD8F1761CEE4D6100C48237 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
