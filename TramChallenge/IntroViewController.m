@@ -6,13 +6,13 @@
 //  Copyright © 2016 Switchstep. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "IntroViewController.h"
 
-@interface SecondViewController ()
+@interface IntroViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation IntroViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

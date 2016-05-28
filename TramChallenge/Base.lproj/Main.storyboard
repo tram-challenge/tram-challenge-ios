@@ -48,7 +48,7 @@
         <!--Challenge-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController title="Challenge" id="8rJ-Kc-sve" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController title="Challenge" id="8rJ-Kc-sve" customClass="IntroViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -58,9 +58,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6yv-wz-isK">
-                                <rect key="frame" x="20" y="40" width="320" height="244"/>
+                                <rect key="frame" x="20" y="40" width="320" height="259"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
                                         <rect key="frame" x="61" y="0.0" width="198" height="41"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Welcome to the 
@@ -72,7 +72,7 @@ Helsinki Tram Challenge</string>
                                             <rect key="frame" x="61" y="0.0" width="198" height="0.0"/>
                                         </variation>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="tramsbutton" translatesAutoresizingMaskIntoConstraints="NO" id="M2e-XU-N61">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="tramsbutton" translatesAutoresizingMaskIntoConstraints="NO" id="M2e-XU-N61">
                                         <rect key="frame" x="123" y="41" width="74" height="74"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="74" id="4tW-Dz-ybc"/>
@@ -82,7 +82,7 @@ Helsinki Tram Challenge</string>
                                             <rect key="frame" x="123" y="0.0" width="74" height="74"/>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="You complete the challenge by visiting all the Helsinki tram stops. You're only allowed to ride the tram and walk. Good luck!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="GNI-iu-XE9">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="You complete the challenge by visiting all the Helsinki tram stops. You're only allowed to ride the tram and walk. Good luck!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="GNI-iu-XE9">
                                         <rect key="frame" x="0.0" y="115" width="320" height="84"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -96,8 +96,8 @@ Helsinki Tram Challenge</string>
                                             <rect key="frame" x="0.0" y="74" width="320" height="72"/>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8L-9H-Z3T">
-                                        <rect key="frame" x="96" y="199" width="128" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8L-9H-Z3T">
+                                        <rect key="frame" x="96" y="199" width="128" height="60"/>
                                         <color key="backgroundColor" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="qaV-A8-lvW"/>
