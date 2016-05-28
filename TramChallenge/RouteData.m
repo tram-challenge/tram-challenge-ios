@@ -9,7 +9,6 @@
 #import "RouteData.h"
 #import "TCUtilities.h"
 #import "TCAPIAdaptor.h"
-#import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import "TCTramStop.h"
 
 @interface RouteData ()
@@ -54,13 +53,18 @@ static RouteData *_RouteData;
         successBlock();
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [UIAlertView showWithTitle:NSLocalizedString(@"Communication error", nil)
-                           message:NSLocalizedString(@"Can't fetch stops", nil)
-                 cancelButtonTitle:NSLocalizedString(@"Retry", nil)
-                 otherButtonTitles:nil
-                          tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex){
-                              [self fetchStopsSuccess:successBlock];
-                              }];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Communication error"
+                                                                           message:@"Can't fetch stops"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* retryAction = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {
+                                                                  [self fetchStopsSuccess:successBlock];
+                                                              }];
+            
+            [alert addAction:retryAction];
+            
+            [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:nil];
         });
     }];
 }

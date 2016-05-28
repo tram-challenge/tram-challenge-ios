@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FA3C6AFFE0A586F5163C790 /* libPods-TramChallenge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E35DD7175AA906B977DC6E5 /* libPods-TramChallenge.a */; };
 		3AD8F1431CEE4D6100C48237 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1421CEE4D6100C48237 /* main.m */; };
 		3AD8F1461CEE4D6100C48237 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1451CEE4D6100C48237 /* AppDelegate.m */; };
 		3AD8F1491CEE4D6100C48237 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1481CEE4D6100C48237 /* MapViewController.m */; };
@@ -37,10 +36,11 @@
 		3AD8F1DE1CF9A4D300C48237 /* 2.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1CD1CF9A32700C48237 /* 2.coords.txt */; };
 		3AD8F1DF1CF9A4D700C48237 /* 3.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1CE1CF9A32700C48237 /* 3.coords.txt */; };
 		3AD8F1E21CF9A66D00C48237 /* TCTramStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1E11CF9A66D00C48237 /* TCTramStop.m */; };
+		3AD8F1E61CF9A88600C48237 /* TCTramRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1E51CF9A88600C48237 /* TCTramRoute.m */; };
+		C609100BEC42073636CF7C40 /* Pods_TramChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5F9192E7DED712CD1A069C /* Pods_TramChallenge.framework */; };
 		CFDD7DCF1CF9ACE100460757 /* AttemptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DCE1CF9ACE100460757 /* AttemptViewController.m */; };
 		CFDD7DD51CF9B15800460757 /* TCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DD41CF9B15800460757 /* TCTabBarController.m */; };
 		CFDD7DD81CF9B33200460757 /* ChallengeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DD71CF9B33200460757 /* ChallengeNavigationController.m */; };
-		3AD8F1E61CF9A88600C48237 /* TCTramRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1E51CF9A88600C48237 /* TCTramRoute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,6 @@
 /* Begin PBXFileReference section */
 		2AD823BB27B49371C63375A0 /* Pods-TramChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TramChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TramChallenge/Pods-TramChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		2C4566A50CFBEF6808DCFA68 /* Pods-TramChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TramChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-TramChallenge/Pods-TramChallenge.release.xcconfig"; sourceTree = "<group>"; };
-		2E35DD7175AA906B977DC6E5 /* libPods-TramChallenge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TramChallenge.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD8F13E1CEE4D6100C48237 /* TramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD8F1421CEE4D6100C48237 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3AD8F1441CEE4D6100C48237 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,14 +107,15 @@
 		3AD8F1D21CF9A32700C48237 /* 6T.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 6T.coords.txt; sourceTree = "<group>"; };
 		3AD8F1E01CF9A66D00C48237 /* TCTramStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTramStop.h; sourceTree = "<group>"; };
 		3AD8F1E11CF9A66D00C48237 /* TCTramStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTramStop.m; sourceTree = "<group>"; };
+		3AD8F1E41CF9A88600C48237 /* TCTramRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTramRoute.h; sourceTree = "<group>"; };
+		3AD8F1E51CF9A88600C48237 /* TCTramRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTramRoute.m; sourceTree = "<group>"; };
+		6D5F9192E7DED712CD1A069C /* Pods_TramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFDD7DCD1CF9ACE100460757 /* AttemptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttemptViewController.h; sourceTree = "<group>"; };
 		CFDD7DCE1CF9ACE100460757 /* AttemptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttemptViewController.m; sourceTree = "<group>"; };
 		CFDD7DD31CF9B15800460757 /* TCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTabBarController.h; sourceTree = "<group>"; };
 		CFDD7DD41CF9B15800460757 /* TCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTabBarController.m; sourceTree = "<group>"; };
 		CFDD7DD61CF9B33200460757 /* ChallengeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeNavigationController.h; sourceTree = "<group>"; };
 		CFDD7DD71CF9B33200460757 /* ChallengeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeNavigationController.m; sourceTree = "<group>"; };
-		3AD8F1E41CF9A88600C48237 /* TCTramRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTramRoute.h; sourceTree = "<group>"; };
-		3AD8F1E51CF9A88600C48237 /* TCTramRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTramRoute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +125,7 @@
 			files = (
 				3AD8F1C71CF8CA1B00C48237 /* CloudKit.framework in Frameworks */,
 				3AD8F1781CEE5CA000C48237 /* MapKit.framework in Frameworks */,
-				1FA3C6AFFE0A586F5163C790 /* libPods-TramChallenge.a in Frameworks */,
+				C609100BEC42073636CF7C40 /* Pods_TramChallenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +264,7 @@
 		C89E7406104B6BE82C72A3A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2E35DD7175AA906B977DC6E5 /* libPods-TramChallenge.a */,
+				6D5F9192E7DED712CD1A069C /* Pods_TramChallenge.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
