@@ -98,8 +98,10 @@ static TCAPIAdaptor *_TCAPIAdaptor;
                              @"icloud_user_id" : [self cloudID]};
     [self put:path with:params success:^(AFHTTPRequestOperation *operation, id result) {
         lg(@"stop visited ok");
+        successBlock();
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
         lg(@"error %@", error);
+        if (failureBlock) failureBlock(error, status, info);
     }];
 }
 
@@ -111,8 +113,10 @@ static TCAPIAdaptor *_TCAPIAdaptor;
                              @"icloud_user_id" : [self cloudID]};
     [self put:path with:params success:^(AFHTTPRequestOperation *operation, id result) {
         lg(@"stop unvisited ok");
+        successBlock();
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
         lg(@"error %@", error);
+        if (failureBlock) failureBlock(error, status, info);
     }];
 }
 
