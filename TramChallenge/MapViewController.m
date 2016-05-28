@@ -14,6 +14,7 @@
 #import "TramLineSelectionViewController.h"
 #import <SMCalloutView/SMCalloutView.h>
 #import "TCUtilities.h"
+#import "TCTramRoute.h"
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, TramLineSelectionDelegate, UIGestureRecognizerDelegate>
 
@@ -60,7 +61,6 @@
     self.filterButton.tintColor = [UIColor blackColor];
     [self.filterButton addTarget:self action:@selector(showFilters:) forControlEvents:UIControlEventTouchUpInside];
     [self.filterButton setImage:[UIImage imageNamed:@"tramsbutton"] forState:UIControlStateNormal];
-//    self.filterButton.enabled = NO;
     [self.mapView addSubview:self.filterButton];
 }
 
@@ -84,10 +84,8 @@
     }
 
 
-//    [RouteData ]
-
     for (NSString *name in [RouteData routeNames]) {
-        NSArray *coords = [RouteData coordsForRoute:name];
+        NSArray *coords = [[RouteData instance] coordsForRoute:name];
         CLLocationCoordinate2D coordinates[coords.count];
         int i = 0;
         for (NSArray *coord in coords) {
@@ -103,6 +101,10 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapViewTapped:)];
     tap.delegate = self;
     [self.mapView addGestureRecognizer:tap];
+
+    [[RouteData instance] fetchStopsSuccess:^{
+        lg(@"%@", [[RouteData instance] stopsForRoute:@"1A"]);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

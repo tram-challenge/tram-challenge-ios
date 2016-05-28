@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -172,6 +173,7 @@ Helsinki Tram Challenge</string>
                         <viewControllerLayoutGuide type="bottom" id="nA8-Rz-zHs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qOj-Kx-lai">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMK-rz-0RB">
@@ -217,8 +219,8 @@ Helsinki Tram Challenge</string>
                                 <exclude reference="dMK-rz-0RB"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GPm-lC-igr"/>
                                 <exclude reference="AvF-FI-eqI"/>
+                                <exclude reference="GPm-lC-igr"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -226,8 +228,8 @@ Helsinki Tram Challenge</string>
                                 <include reference="dMK-rz-0RB"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GPm-lC-igr"/>
                                 <include reference="AvF-FI-eqI"/>
+                                <include reference="GPm-lC-igr"/>
                             </mask>
                         </variation>
                     </view>

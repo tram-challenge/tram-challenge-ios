@@ -10,7 +10,7 @@
 #import "TCUtilities.h"
 #import <AFNetworking/AFNetworking.h>
 
-static NSString * const apiURL = @"https://dev.tramchallenge.com";
+static NSString * const apiURL = @"https://tramchallenge.com";
 
 @interface TCAPIAdaptor ()
 
@@ -20,10 +20,22 @@ static NSString * const apiURL = @"https://dev.tramchallenge.com";
 
 @implementation TCAPIAdaptor
 
+static TCAPIAdaptor *_TCAPIAdaptor;
+
++ (TCAPIAdaptor *)instance
+{
+    static dispatch_once_t pred;
+
+    dispatch_once(&pred, ^{
+        _TCAPIAdaptor = [[self alloc] init];
+    });
+    return _TCAPIAdaptor;
+}
+
 - (void)getRoutesWithSuccess:(void (^)(NSArray *routes))successBlock
                             failure:(TCErrorBlock)failureBlock
 {
-    NSString *path = @"api/routes";
+    NSString *path = @"api/stops";
 
     [self get:path with:nil success:^(AFHTTPRequestOperation *operation, id result) {
         NSArray *routes = [NSArray tc_cast:result];

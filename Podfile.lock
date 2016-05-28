@@ -22,17 +22,20 @@ PODS:
     - AFNetworking/NSURLSession
   - Masonry (0.6.4)
   - SMCalloutView (2.1.5)
+  - UIAlertView+Blocks (0.8.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.4)
   - Masonry (~> 0.5)
   - SMCalloutView
+  - UIAlertView+Blocks (~> 0.8.1)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   SMCalloutView: 5c0ee363dc8e7204b2fda17dfad38c93e9e23481
+  UIAlertView+Blocks: 45c3d3b7194906702d3e9a14c7ece5581505646d
 
-PODFILE CHECKSUM: 4300637cfffb7eea37f56a642e61f6d5a8e7edb4
+PODFILE CHECKSUM: e84da14719bcb334de3151c0eade2ed4e1a74326
 
 COCOAPODS: 1.0.0

@@ -12,6 +12,8 @@ typedef void (^TCErrorBlock)(NSError *error, NSInteger status, NSDictionary *inf
 
 @interface TCAPIAdaptor : NSObject
 
++ (TCAPIAdaptor *)instance;
+
 - (void)getRoutesWithSuccess:(void (^)(NSArray *routes))successBlock
                      failure:(TCErrorBlock)failureBlock;
 @end

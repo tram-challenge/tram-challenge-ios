@@ -40,6 +40,7 @@
 		CFDD7DCF1CF9ACE100460757 /* AttemptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DCE1CF9ACE100460757 /* AttemptViewController.m */; };
 		CFDD7DD51CF9B15800460757 /* TCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DD41CF9B15800460757 /* TCTabBarController.m */; };
 		CFDD7DD81CF9B33200460757 /* ChallengeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DD71CF9B33200460757 /* ChallengeNavigationController.m */; };
+		3AD8F1E61CF9A88600C48237 /* TCTramRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1E51CF9A88600C48237 /* TCTramRoute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		CFDD7DD41CF9B15800460757 /* TCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTabBarController.m; sourceTree = "<group>"; };
 		CFDD7DD61CF9B33200460757 /* ChallengeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeNavigationController.h; sourceTree = "<group>"; };
 		CFDD7DD71CF9B33200460757 /* ChallengeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeNavigationController.m; sourceTree = "<group>"; };
+		3AD8F1E41CF9A88600C48237 /* TCTramRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTramRoute.h; sourceTree = "<group>"; };
+		3AD8F1E51CF9A88600C48237 /* TCTramRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTramRoute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +251,8 @@
 			children = (
 				3AD8F1A61CF4DF8400C48237 /* RouteData.h */,
 				3AD8F1A71CF4DF8400C48237 /* RouteData.m */,
+				3AD8F1E41CF9A88600C48237 /* TCTramRoute.h */,
+				3AD8F1E51CF9A88600C48237 /* TCTramRoute.m */,
 				3AD8F1E01CF9A66D00C48237 /* TCTramStop.h */,
 				3AD8F1E11CF9A66D00C48237 /* TCTramStop.m */,
 				3AD8F1C81CF998AC00C48237 /* TCAPIAdaptor.h */,
@@ -482,6 +487,7 @@
 				3AD8F1461CEE4D6100C48237 /* AppDelegate.m in Sources */,
 				3AD8F1C41CF8C51A00C48237 /* TCUtilities.m in Sources */,
 				3AD8F1A81CF4DF8400C48237 /* RouteData.m in Sources */,
+				3AD8F1E61CF9A88600C48237 /* TCTramRoute.m in Sources */,
 				3AD8F1E21CF9A66D00C48237 /* TCTramStop.m in Sources */,
 				CFDD7DD81CF9B33200460757 /* ChallengeNavigationController.m in Sources */,
 				3AD8F1491CEE4D6100C48237 /* MapViewController.m in Sources */,
