@@ -107,8 +107,8 @@
     if (self) {
         _button = ({
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            button.tc_titleColor = [UIColor blackColor];
-            button.titleLabel.font = [UIFont systemFontOfSize:16];
+            button.tc_titleColor = [UIColor whiteColor];
+            button.titleLabel.font = [UIFont boldSystemFontOfSize:16];
             button.titleLabel.numberOfLines = 0;
             button.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
             button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);

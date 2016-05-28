@@ -26,16 +26,16 @@
 + (UIColor *)colorForRouteName:(NSString *)routeName
 {
     return (UIColor *)(@{
-      @"1A" : [UIColor redColor],
-      @"2"  : [UIColor greenColor],
-      @"3"  : [UIColor cyanColor],
-      @"4T" : [UIColor blueColor],
-      @"6T" : [UIColor brownColor],
-      @"7A" : [UIColor purpleColor],
-      @"7B" : [UIColor magentaColor],
-      @"8"  : [UIColor orangeColor],
-      @"9"  : [UIColor yellowColor],
-      @"10" : [UIColor grayColor]
+      @"1A" : [UIColor colorWithRed:0.50 green:0.75 blue:0.88 alpha:1.0],
+      @"2"  : [UIColor colorWithRed:0.00 green:0.65 blue:0.39 alpha:1.0],
+      @"3"  : [UIColor colorWithRed:0.55 green:0.78 blue:0.59 alpha:1.0],
+      @"4T" : [UIColor colorWithRed:0.79 green:0.11 blue:0.31 alpha:1.0],
+      @"6T" : [UIColor colorWithRed:0.58 green:0.27 blue:0.59 alpha:1.0],
+      @"7A" : [UIColor colorWithRed:0.97 green:0.68 blue:0.17 alpha:1.0],
+      @"7B" : [UIColor colorWithRed:0.97 green:0.68 blue:0.17 alpha:1.0],
+      @"8"  : [UIColor colorWithRed:0.80 green:0.47 blue:0.15 alpha:1.0],
+      @"9"  : [UIColor colorWithRed:0.80 green:0.09 blue:0.53 alpha:1.0],
+      @"10" : [UIColor colorWithRed:0.77 green:0.73 blue:0.17 alpha:1.0]
       }[routeName]);
 }
 
