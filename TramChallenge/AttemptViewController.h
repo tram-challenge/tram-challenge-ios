@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MZTimerLabel/MZTimerLabel.h>
+#import <MBCircularProgressBar/MBCircularProgressBarView.h>
 
 @interface AttemptViewController : UIViewController
 
@@ -18,5 +19,8 @@
 @property (weak, nonatomic) IBOutlet MZTimerLabel *timeElapsedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalStopsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stopsVisitedLabel;
+@property (assign, nonatomic) NSInteger stopsVisited;
+@property (assign, nonatomic) NSInteger totalStops;
+@property (weak, nonatomic) IBOutlet MBCircularProgressBarView *progressView;
 
 @end

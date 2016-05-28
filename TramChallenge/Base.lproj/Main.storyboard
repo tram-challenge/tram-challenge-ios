@@ -359,9 +359,8 @@ Helsinki Tram Challenge</string>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="NzI-pp-weB"/>
-                                        <exclude reference="Fy5-5I-2mR"/>
-                                        <exclude reference="Ij9-fB-uEs"/>
-                                        <exclude reference="VcO-vU-GwT"/>
+                                        <exclude reference="H7l-uB-quJ"/>
+                                        <exclude reference="ieU-uU-HLf"/>
                                         <exclude reference="4og-ls-6xi"/>
                                         <exclude reference="tHN-BZ-aGD"/>
                                         <exclude reference="bEh-Zi-F0Y"/>
@@ -369,8 +368,9 @@ Helsinki Tram Challenge</string>
                                         <exclude reference="XFY-b8-1lJ"/>
                                         <exclude reference="bBd-bd-Bgg"/>
                                         <exclude reference="uZT-ID-mKS"/>
-                                        <exclude reference="H7l-uB-quJ"/>
-                                        <exclude reference="ieU-uU-HLf"/>
+                                        <exclude reference="Fy5-5I-2mR"/>
+                                        <exclude reference="Ij9-fB-uEs"/>
+                                        <exclude reference="VcO-vU-GwT"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -383,9 +383,8 @@ Helsinki Tram Challenge</string>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="NzI-pp-weB"/>
-                                        <include reference="Fy5-5I-2mR"/>
-                                        <include reference="Ij9-fB-uEs"/>
-                                        <include reference="VcO-vU-GwT"/>
+                                        <include reference="H7l-uB-quJ"/>
+                                        <include reference="ieU-uU-HLf"/>
                                         <include reference="4og-ls-6xi"/>
                                         <include reference="tHN-BZ-aGD"/>
                                         <include reference="bEh-Zi-F0Y"/>
@@ -393,8 +392,9 @@ Helsinki Tram Challenge</string>
                                         <include reference="XFY-b8-1lJ"/>
                                         <include reference="bBd-bd-Bgg"/>
                                         <include reference="uZT-ID-mKS"/>
-                                        <include reference="H7l-uB-quJ"/>
-                                        <include reference="ieU-uU-HLf"/>
+                                        <include reference="Fy5-5I-2mR"/>
+                                        <include reference="Ij9-fB-uEs"/>
+                                        <include reference="VcO-vU-GwT"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -445,21 +445,21 @@ Helsinki Tram Challenge</string>
                                 <exclude reference="Aez-Ww-IqB"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="AgJ-qR-DTa"/>
-                                <exclude reference="yiJ-he-Qaa"/>
+                                <exclude reference="AvF-FI-eqI"/>
+                                <exclude reference="GPm-lC-igr"/>
+                                <exclude reference="fm9-at-WAz"/>
+                                <exclude reference="rrX-59-xC8"/>
+                                <exclude reference="vd4-KS-C92"/>
+                                <exclude reference="736-oO-M6d"/>
+                                <exclude reference="HNg-dd-sPR"/>
                                 <exclude reference="TEQ-Ti-lbX"/>
                                 <exclude reference="7Mp-fZ-Lzs"/>
                                 <exclude reference="AzG-Rv-5AI"/>
                                 <exclude reference="YqV-IE-SkC"/>
                                 <exclude reference="kyO-ap-b85"/>
                                 <exclude reference="mjY-ri-yqi"/>
-                                <exclude reference="736-oO-M6d"/>
-                                <exclude reference="HNg-dd-sPR"/>
-                                <exclude reference="GPm-lC-igr"/>
-                                <exclude reference="fm9-at-WAz"/>
-                                <exclude reference="AvF-FI-eqI"/>
-                                <exclude reference="rrX-59-xC8"/>
-                                <exclude reference="vd4-KS-C92"/>
+                                <exclude reference="AgJ-qR-DTa"/>
+                                <exclude reference="yiJ-he-Qaa"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -472,26 +472,27 @@ Helsinki Tram Challenge</string>
                                 <include reference="Aez-Ww-IqB"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="AgJ-qR-DTa"/>
-                                <include reference="yiJ-he-Qaa"/>
+                                <include reference="AvF-FI-eqI"/>
+                                <include reference="GPm-lC-igr"/>
+                                <include reference="fm9-at-WAz"/>
+                                <include reference="rrX-59-xC8"/>
+                                <include reference="vd4-KS-C92"/>
+                                <include reference="736-oO-M6d"/>
+                                <include reference="HNg-dd-sPR"/>
                                 <include reference="TEQ-Ti-lbX"/>
                                 <include reference="7Mp-fZ-Lzs"/>
                                 <include reference="AzG-Rv-5AI"/>
                                 <include reference="YqV-IE-SkC"/>
                                 <include reference="kyO-ap-b85"/>
                                 <include reference="mjY-ri-yqi"/>
-                                <include reference="736-oO-M6d"/>
-                                <include reference="HNg-dd-sPR"/>
-                                <include reference="GPm-lC-igr"/>
-                                <include reference="fm9-at-WAz"/>
-                                <include reference="AvF-FI-eqI"/>
-                                <include reference="rrX-59-xC8"/>
-                                <include reference="vd4-KS-C92"/>
+                                <include reference="AgJ-qR-DTa"/>
+                                <include reference="yiJ-he-Qaa"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="abortChallengeButton" destination="dMK-rz-0RB" id="ci4-a9-XxY"/>
+                        <outlet property="progressView" destination="Hiq-eC-uqO" id="JrT-J7-5Cl"/>
                         <outlet property="statsView" destination="5mf-XI-f6b" id="1i9-Nf-82v"/>
                         <outlet property="stopsVisitedLabel" destination="PYm-Wg-Th0" id="HJg-M4-N8z"/>
                         <outlet property="timeElapsedLabel" destination="Nfl-zO-YZu" id="dxv-TY-MhU"/>

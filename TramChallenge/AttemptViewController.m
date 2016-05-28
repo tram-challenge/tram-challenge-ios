@@ -29,12 +29,16 @@
     self.stopsVisitedLabel.font = [UIFont monospacedDigitSystemFontOfSize:34 weight:UIFontWeightBold];
     
     [self.timeElapsedLabel start];
+    
+    // TODO: set total stops from API data
+    self.totalStops = 134;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    // TODO: Update progress
+    // TODO: update real progress
+    self.stopsVisited = 59;
 }
 
 - (IBAction)abortChallenge:(id)sender {
@@ -55,5 +59,23 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+- (void)setTotalStops:(NSInteger)totalStops {
+    _totalStops = totalStops;
+    self.totalStopsLabel.text = [NSString stringWithFormat:@"%d", totalStops];
+    [self updateProgress];
+}
+
+- (void)setStopsVisited:(NSInteger)stopsVisited {
+    _stopsVisited = stopsVisited;
+    self.stopsVisitedLabel.text = [NSString stringWithFormat:@"%d", stopsVisited];
+    [self updateProgress];
+}
+
+- (void)updateProgress {
+    CGFloat progress = round(100.0 * self.stopsVisited / self.totalStops);
+    self.progressView.value = progress;
+}
+
 
 @end
