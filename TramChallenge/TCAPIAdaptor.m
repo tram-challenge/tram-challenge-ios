@@ -18,9 +18,6 @@ static NSString * const apiURL = @"https://tramchallenge.com";
 
 @property (nonatomic) NSInteger spinnerCount;
 
-@property (nonatomic) NSString *attemptID;
-@property (nonatomic) NSString *startedAt;
-
 @end
 
 @implementation TCAPIAdaptor

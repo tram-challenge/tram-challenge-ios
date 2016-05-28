@@ -12,6 +12,9 @@ typedef void (^TCErrorBlock)(NSError *error, NSInteger status, NSDictionary *inf
 
 @interface TCAPIAdaptor : NSObject
 
+@property (nonatomic) NSString *attemptID;
+@property (nonatomic) NSString *startedAt;
+
 + (TCAPIAdaptor *)instance;
 
 - (void)getRoutesWithSuccess:(void (^)(NSArray *routes))successBlock
