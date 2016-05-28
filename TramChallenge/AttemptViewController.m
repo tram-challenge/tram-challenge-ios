@@ -22,6 +22,19 @@
     self.abortChallengeButton.layer.cornerRadius = 4;
     self.abortChallengeButton.layer.borderWidth = 2;
     self.abortChallengeButton.layer.borderColor = [[UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1.0] CGColor];
+    
+    self.statsView.layer.cornerRadius = 4;
+    self.timeElapsedLabel.font = [UIFont monospacedDigitSystemFontOfSize:34 weight:UIFontWeightBold];
+    self.totalStopsLabel.font = [UIFont monospacedDigitSystemFontOfSize:34 weight:UIFontWeightBold];
+    self.stopsVisitedLabel.font = [UIFont monospacedDigitSystemFontOfSize:34 weight:UIFontWeightBold];
+    
+    [self.timeElapsedLabel start];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // TODO: Update progress
 }
 
 - (IBAction)abortChallenge:(id)sender {

@@ -22,6 +22,7 @@ PODS:
     - AFNetworking/NSURLSession
   - Masonry (0.6.4)
   - MBCircularProgressBar (0.3.2)
+  - MZTimerLabel (0.5.4)
   - SMCalloutView (2.1.5)
   - UIAlertView+Blocks (0.8.1)
 
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.4)
   - Masonry (~> 0.5)
   - MBCircularProgressBar
+  - MZTimerLabel
   - SMCalloutView
   - UIAlertView+Blocks (~> 0.8.1)
 
@@ -36,9 +38,10 @@ SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MBCircularProgressBar: da24e75aa8a231564f10eb8d6d942fa78343486c
+  MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   SMCalloutView: 5c0ee363dc8e7204b2fda17dfad38c93e9e23481
   UIAlertView+Blocks: 45c3d3b7194906702d3e9a14c7ece5581505646d
 
-PODFILE CHECKSUM: b881c344e5b81b75260de438714293905e6b66d5
+PODFILE CHECKSUM: ee72886418702f49baaa8d9d30bb84946e1e5eee
 
 COCOAPODS: 1.0.0

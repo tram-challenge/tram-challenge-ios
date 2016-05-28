@@ -86,6 +86,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MBCircularProgressBar/MBCircularProgressBar.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MZTimerLabel/MZTimerLabel.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Masonry/Masonry.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SMCalloutView/SMCalloutView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/UIAlertView+Blocks/UIAlertView_Blocks.framework"
@@ -93,6 +94,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MBCircularProgressBar/MBCircularProgressBar.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MZTimerLabel/MZTimerLabel.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Masonry/Masonry.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SMCalloutView/SMCalloutView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/UIAlertView+Blocks/UIAlertView_Blocks.framework"

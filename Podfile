@@ -10,4 +10,5 @@ target "TramChallenge" do
   pod 'AFNetworking', '~> 2.4'
   pod 'UIAlertView+Blocks', '~> 0.8.1'
   pod 'MBCircularProgressBar'
+  pod 'MZTimerLabel'
 end
