@@ -8,6 +8,8 @@
 
 #import "StopsViewController.h"
 #import "RouteData.h"
+#import "TCTramRoute.h"
+#import "TCTramStop.h"
 
 @interface StopsViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -20,7 +22,7 @@
     [super viewDidLoad];
 
     NSUInteger numberOfPages = [[RouteData routeNames] count];
-    
+
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
@@ -36,15 +38,34 @@
     for (int i = 0; i < numberOfPages; i++) {
         
         NSString *routeName = [[RouteData routeNames] objectAtIndex: i];
+        NSMutableArray *stops = [[NSMutableArray alloc] init];
         
         UIView *page = [[UIView alloc] initWithFrame:CGRectMake(self.scrollView.frame.size.width * i, 0.0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
         
-        UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, page.frame.size.width-20.0, 40.0)];
-        titleLbl.backgroundColor = [UIColor clearColor];
-        titleLbl.textColor = [UIColor blackColor];
-        titleLbl.font = [UIFont boldSystemFontOfSize:16.0];
-        titleLbl.text = routeName;
+        UILabel *numberLbl = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
+        numberLbl.backgroundColor = [RouteData colorForRouteName: routeName];
+        numberLbl.textColor = [UIColor whiteColor];
+        numberLbl.font = [UIFont boldSystemFontOfSize:16.0];
+        numberLbl.text = routeName;
+        numberLbl.clipsToBounds = YES;
+        numberLbl.layer.cornerRadius = 5;
+        numberLbl.textAlignment = NSTextAlignmentCenter;
+        [page addSubview:numberLbl];
+        
+        UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(70, 20.0, page.frame.size.width-20.0, 40.0)];
+        titleLbl.textColor = [RouteData colorForRouteName: routeName];
+        titleLbl.font = [UIFont boldSystemFontOfSize:18.0];
         [page addSubview:titleLbl];
+        
+        [[RouteData instance] fetchStopsSuccess:^{
+            
+            for (TCTramStop *stop in [[RouteData instance] stopsForRoute:routeName]) {
+                [stops addObject:stop.name];
+            }
+            NSString *startStop = stops[0];
+            NSString *endStop = stops[stops.count-1];
+            titleLbl.text = [NSString stringWithFormat:@"%@ - %@", startStop, endStop];
+        }];
         
         [self.scrollView addSubview:page];
 
