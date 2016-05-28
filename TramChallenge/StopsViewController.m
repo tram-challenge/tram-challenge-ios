@@ -21,8 +21,6 @@
 - (void)viewDidLayoutSubviews {
     NSUInteger numberOfPages = [[RouteData routeNames] count];
     
-    NSLog(@"%f", self.scrollView.frame.size.height);
-
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
