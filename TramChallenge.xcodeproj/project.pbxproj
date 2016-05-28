@@ -36,6 +36,7 @@
 		3AD8F1DD1CF9A46900C48237 /* 6T.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1D21CF9A32700C48237 /* 6T.coords.txt */; };
 		3AD8F1DE1CF9A4D300C48237 /* 2.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1CD1CF9A32700C48237 /* 2.coords.txt */; };
 		3AD8F1DF1CF9A4D700C48237 /* 3.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1CE1CF9A32700C48237 /* 3.coords.txt */; };
+		3AD8F1E21CF9A66D00C48237 /* TCTramStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1E11CF9A66D00C48237 /* TCTramStop.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,8 @@
 		3AD8F1D01CF9A32700C48237 /* 4T.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 4T.coords.txt; sourceTree = "<group>"; };
 		3AD8F1D11CF9A32700C48237 /* 6.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 6.coords.txt; sourceTree = "<group>"; };
 		3AD8F1D21CF9A32700C48237 /* 6T.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 6T.coords.txt; sourceTree = "<group>"; };
+		3AD8F1E01CF9A66D00C48237 /* TCTramStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTramStop.h; sourceTree = "<group>"; };
+		3AD8F1E11CF9A66D00C48237 /* TCTramStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTramStop.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,10 +169,7 @@
 				3AD8F1C01CF8C23900C48237 /* TramLineSelectionViewController.m */,
 				3AD8F1C21CF8C51A00C48237 /* TCUtilities.h */,
 				3AD8F1C31CF8C51A00C48237 /* TCUtilities.m */,
-				3AD8F1A61CF4DF8400C48237 /* RouteData.h */,
-				3AD8F1A71CF4DF8400C48237 /* RouteData.m */,
-				3AD8F1C81CF998AC00C48237 /* TCAPIAdaptor.h */,
-				3AD8F1C91CF998AC00C48237 /* TCAPIAdaptor.m */,
+				3AD8F1E31CF9A68000C48237 /* Model */,
 				3AD8F14A1CEE4D6100C48237 /* SecondViewController.h */,
 				3AD8F14B1CEE4D6100C48237 /* SecondViewController.m */,
 				3AD8F14D1CEE4D6100C48237 /* Main.storyboard */,
@@ -226,6 +226,19 @@
 			);
 			name = Data;
 			path = TramChallenge/Data;
+			sourceTree = "<group>";
+		};
+		3AD8F1E31CF9A68000C48237 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3AD8F1A61CF4DF8400C48237 /* RouteData.h */,
+				3AD8F1A71CF4DF8400C48237 /* RouteData.m */,
+				3AD8F1E01CF9A66D00C48237 /* TCTramStop.h */,
+				3AD8F1E11CF9A66D00C48237 /* TCTramStop.m */,
+				3AD8F1C81CF998AC00C48237 /* TCAPIAdaptor.h */,
+				3AD8F1C91CF998AC00C48237 /* TCAPIAdaptor.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		C89E7406104B6BE82C72A3A0 /* Frameworks */ = {
@@ -454,6 +467,7 @@
 				3AD8F1461CEE4D6100C48237 /* AppDelegate.m in Sources */,
 				3AD8F1C41CF8C51A00C48237 /* TCUtilities.m in Sources */,
 				3AD8F1A81CF4DF8400C48237 /* RouteData.m in Sources */,
+				3AD8F1E21CF9A66D00C48237 /* TCTramStop.m in Sources */,
 				3AD8F1491CEE4D6100C48237 /* MapViewController.m in Sources */,
 				3AD8F1CA1CF998AC00C48237 /* TCAPIAdaptor.m in Sources */,
 				3AD8F1431CEE4D6100C48237 /* main.m in Sources */,
