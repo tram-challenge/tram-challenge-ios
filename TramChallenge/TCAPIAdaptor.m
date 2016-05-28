@@ -60,7 +60,7 @@ static TCAPIAdaptor *_TCAPIAdaptor;
         NSDictionary *dict = [NSDictionary tc_cast:result];
         self.attemptID = dict[@"id"];
         self.startedAt = dict[@"started_at"];
-        self.elapsedTime = dict[@"elapsed_time"];
+        self.elapsedTime = [NSNumber tc_cast:dict[@"elapsed_time"]];
         self.currentTime = dict[@"current_time"];
 
         for (NSDictionary *stopDict in dict[@"stops"]) {

@@ -14,7 +14,7 @@ typedef void (^TCErrorBlock)(NSError *error, NSInteger status, NSDictionary *inf
 
 @property (nonatomic) NSString *attemptID;
 @property (nonatomic) NSString *startedAt;
-@property (nonatomic) NSString *elapsedTime;
+@property (nonatomic) NSNumber *elapsedTime;
 @property (nonatomic) NSString *currentTime;
 
 + (TCAPIAdaptor *)instance;
