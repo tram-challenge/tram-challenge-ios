@@ -72,7 +72,7 @@
             tableView.delegate = self;
             tableView.dataSource = self;
             tableView.rowHeight = 42;
-            tableView.allowsSelection = NO;
+            tableView.allowsMultipleSelection = YES;
             tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             tableView.showsVerticalScrollIndicator = NO;
             tableView.tag = i;
@@ -107,6 +107,16 @@
     return [[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] count];
 }
 
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = (UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    UIView *transparentBackground = [[UIView alloc] initWithFrame:cell.bounds];
+    transparentBackground.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    transparentBackground.backgroundColor = [UIColor clearColor];
+    cell.selectedBackgroundView = transparentBackground;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"StopsTableCell";
@@ -117,6 +127,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     cell.textLabel.text = [[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:@"stop-unvisited.png"];
+    cell.imageView.highlightedImage = [UIImage imageNamed:@"stop-visited.png"];
     return cell;
 }
 
