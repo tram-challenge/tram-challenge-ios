@@ -19,12 +19,6 @@
 		3AD8F16A1CEE4D6100C48237 /* TramChallengeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1691CEE4D6100C48237 /* TramChallengeUITests.m */; };
 		3AD8F1781CEE5CA000C48237 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD8F1771CEE5CA000C48237 /* MapKit.framework */; };
 		3AD8F1A81CF4DF8400C48237 /* RouteData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1A71CF4DF8400C48237 /* RouteData.m */; };
-		3AD8F1B41CF4E19200C48237 /* 1A.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1A91CF4E19200C48237 /* 1A.coords.txt */; };
-		3AD8F1B51CF4E19200C48237 /* 2.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1AA1CF4E19200C48237 /* 2.coords.txt */; };
-		3AD8F1B61CF4E19200C48237 /* 3.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1AB1CF4E19200C48237 /* 3.coords.txt */; };
-		3AD8F1B71CF4E19200C48237 /* 4T.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1AC1CF4E19200C48237 /* 4T.coords.txt */; };
-		3AD8F1B81CF4E19200C48237 /* 5.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1AD1CF4E19200C48237 /* 5.coords.txt */; };
-		3AD8F1B91CF4E19200C48237 /* 6T.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1AE1CF4E19200C48237 /* 6T.coords.txt */; };
 		3AD8F1BA1CF4E19200C48237 /* 7A.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1AF1CF4E19200C48237 /* 7A.coords.txt */; };
 		3AD8F1BB1CF4E19200C48237 /* 7B.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1B01CF4E19200C48237 /* 7B.coords.txt */; };
 		3AD8F1BC1CF4E19200C48237 /* 8.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1B11CF4E19200C48237 /* 8.coords.txt */; };
@@ -34,6 +28,9 @@
 		3AD8F1C41CF8C51A00C48237 /* TCUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1C31CF8C51A00C48237 /* TCUtilities.m */; };
 		3AD8F1C71CF8CA1B00C48237 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD8F1C61CF8CA1B00C48237 /* CloudKit.framework */; };
 		3AD8F1CA1CF998AC00C48237 /* TCAPIAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1C91CF998AC00C48237 /* TCAPIAdaptor.m */; };
+		3AD8F1D81CF9A32700C48237 /* 1.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1CB1CF9A32700C48237 /* 1.coords.txt */; };
+		3AD8F1D91CF9A32700C48237 /* 4.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1CF1CF9A32700C48237 /* 4.coords.txt */; };
+		3AD8F1DA1CF9A32700C48237 /* 6.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1D11CF9A32700C48237 /* 6.coords.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,12 +75,6 @@
 		3AD8F1771CEE5CA000C48237 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3AD8F1A61CF4DF8400C48237 /* RouteData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteData.h; sourceTree = "<group>"; };
 		3AD8F1A71CF4DF8400C48237 /* RouteData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteData.m; sourceTree = "<group>"; };
-		3AD8F1A91CF4E19200C48237 /* 1A.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 1A.coords.txt; sourceTree = "<group>"; };
-		3AD8F1AA1CF4E19200C48237 /* 2.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 2.coords.txt; sourceTree = "<group>"; };
-		3AD8F1AB1CF4E19200C48237 /* 3.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 3.coords.txt; sourceTree = "<group>"; };
-		3AD8F1AC1CF4E19200C48237 /* 4T.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 4T.coords.txt; sourceTree = "<group>"; };
-		3AD8F1AD1CF4E19200C48237 /* 5.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 5.coords.txt; sourceTree = "<group>"; };
-		3AD8F1AE1CF4E19200C48237 /* 6T.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 6T.coords.txt; sourceTree = "<group>"; };
 		3AD8F1AF1CF4E19200C48237 /* 7A.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 7A.coords.txt; sourceTree = "<group>"; };
 		3AD8F1B01CF4E19200C48237 /* 7B.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 7B.coords.txt; sourceTree = "<group>"; };
 		3AD8F1B11CF4E19200C48237 /* 8.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 8.coords.txt; sourceTree = "<group>"; };
@@ -97,6 +88,14 @@
 		3AD8F1C61CF8CA1B00C48237 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3AD8F1C81CF998AC00C48237 /* TCAPIAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAPIAdaptor.h; sourceTree = "<group>"; };
 		3AD8F1C91CF998AC00C48237 /* TCAPIAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAPIAdaptor.m; sourceTree = "<group>"; };
+		3AD8F1CB1CF9A32700C48237 /* 1.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 1.coords.txt; sourceTree = "<group>"; };
+		3AD8F1CC1CF9A32700C48237 /* 1A.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 1A.coords.txt; sourceTree = "<group>"; };
+		3AD8F1CD1CF9A32700C48237 /* 2.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 2.coords.txt; sourceTree = "<group>"; };
+		3AD8F1CE1CF9A32700C48237 /* 3.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 3.coords.txt; sourceTree = "<group>"; };
+		3AD8F1CF1CF9A32700C48237 /* 4.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 4.coords.txt; sourceTree = "<group>"; };
+		3AD8F1D01CF9A32700C48237 /* 4T.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 4T.coords.txt; sourceTree = "<group>"; };
+		3AD8F1D11CF9A32700C48237 /* 6.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 6.coords.txt; sourceTree = "<group>"; };
+		3AD8F1D21CF9A32700C48237 /* 6T.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 6T.coords.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,12 +205,14 @@
 		3AD8F1791CF4DF1A00C48237 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				3AD8F1A91CF4E19200C48237 /* 1A.coords.txt */,
-				3AD8F1AA1CF4E19200C48237 /* 2.coords.txt */,
-				3AD8F1AB1CF4E19200C48237 /* 3.coords.txt */,
-				3AD8F1AC1CF4E19200C48237 /* 4T.coords.txt */,
-				3AD8F1AD1CF4E19200C48237 /* 5.coords.txt */,
-				3AD8F1AE1CF4E19200C48237 /* 6T.coords.txt */,
+				3AD8F1CB1CF9A32700C48237 /* 1.coords.txt */,
+				3AD8F1CC1CF9A32700C48237 /* 1A.coords.txt */,
+				3AD8F1CD1CF9A32700C48237 /* 2.coords.txt */,
+				3AD8F1CE1CF9A32700C48237 /* 3.coords.txt */,
+				3AD8F1CF1CF9A32700C48237 /* 4.coords.txt */,
+				3AD8F1D01CF9A32700C48237 /* 4T.coords.txt */,
+				3AD8F1D11CF9A32700C48237 /* 6.coords.txt */,
+				3AD8F1D21CF9A32700C48237 /* 6T.coords.txt */,
 				3AD8F1AF1CF4E19200C48237 /* 7A.coords.txt */,
 				3AD8F1B01CF4E19200C48237 /* 7B.coords.txt */,
 				3AD8F1B11CF4E19200C48237 /* 8.coords.txt */,
@@ -356,12 +357,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AD8F1B41CF4E19200C48237 /* 1A.coords.txt in Resources */,
-				3AD8F1B51CF4E19200C48237 /* 2.coords.txt in Resources */,
-				3AD8F1B61CF4E19200C48237 /* 3.coords.txt in Resources */,
-				3AD8F1B71CF4E19200C48237 /* 4T.coords.txt in Resources */,
-				3AD8F1B81CF4E19200C48237 /* 5.coords.txt in Resources */,
-				3AD8F1B91CF4E19200C48237 /* 6T.coords.txt in Resources */,
+				3AD8F1D81CF9A32700C48237 /* 1.coords.txt in Resources */,
+				3AD8F1D91CF9A32700C48237 /* 4.coords.txt in Resources */,
+				3AD8F1DA1CF9A32700C48237 /* 6.coords.txt in Resources */,
 				3AD8F1BA1CF4E19200C48237 /* 7A.coords.txt in Resources */,
 				3AD8F1BB1CF4E19200C48237 /* 7B.coords.txt in Resources */,
 				3AD8F1BC1CF4E19200C48237 /* 8.coords.txt in Resources */,

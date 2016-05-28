@@ -60,6 +60,7 @@
     self.filterButton.tintColor = [UIColor blackColor];
     [self.filterButton addTarget:self action:@selector(showFilters:) forControlEvents:UIControlEventTouchUpInside];
     [self.filterButton setImage:[UIImage imageNamed:@"tramsbutton"] forState:UIControlStateNormal];
+    self.filterButton.enabled = NO;
     [self.mapView addSubview:self.filterButton];
 }
 
@@ -82,6 +83,8 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
 
+
+//    [RouteData ]
 
     for (NSString *name in [RouteData routeNames]) {
         NSArray *coords = [RouteData coordsForRoute:name];

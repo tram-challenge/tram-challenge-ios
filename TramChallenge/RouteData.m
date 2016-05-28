@@ -20,7 +20,7 @@
 
 + (NSArray<NSString *> *)routeNames
 {
-    return @[@"1A", @"2", @"3", @"4T", @"6T", @"7A", @"7B", @"8", @"9", @"10"];
+    return @[@"1", @"1A", @"2", @"3", @"4", @"4T", @"6", @"6T", @"7A", @"7B", @"8", @"9", @"10"];
 }
 
 + (UIColor *)colorForRouteName:(NSString *)routeName
