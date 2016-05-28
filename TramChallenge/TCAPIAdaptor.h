@@ -32,4 +32,6 @@ typedef void (^TCErrorBlock)(NSError *error, NSInteger status, NSDictionary *inf
 - (void)markUnvisited:(NSString *)stopID success:(void (^)())successBlock
               failure:(TCErrorBlock)failureBlock;
 
+- (BOOL)attemptInProgress;
+
 @end

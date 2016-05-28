@@ -10,8 +10,9 @@
 #import "RouteData.h"
 #import "TCTramRoute.h"
 #import "TCTramStop.h"
+#import "TCAPIAdaptor.h"
 
-@interface StopsViewController () <UIScrollViewDelegate, UITableViewDelegate>
+@interface StopsViewController () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic) NSMutableArray *PageControlBtns;
 @property (nonatomic) NSMutableDictionary *routes;
@@ -37,7 +38,7 @@
     for (int i = 0; i < numberOfPages; i++) {
         
         NSString *routeName = [[RouteData routeNames] objectAtIndex: i];
-        NSMutableArray *stops = [[NSMutableArray alloc] init];
+        NSMutableArray<TCTramStop *> *stops = [[NSMutableArray alloc] init];
         
         UIView *page = [[UIView alloc] initWithFrame:CGRectMake(self.scrollView.frame.size.width * i, 0.0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
 
@@ -60,11 +61,11 @@
         [[RouteData instance] fetchStopsSuccess:^{
             
             for (TCTramStop *stop in [[RouteData instance] stopsForRoute:routeName]) {
-                [stops addObject:stop.name];
+                [stops addObject:stop];
             }
             [self.routes setObject:stops forKey:[NSString stringWithFormat:@"%d", i]];
-            NSString *startStop = stops[0];
-            NSString *endStop = stops[stops.count-1];
+            NSString *startStop = stops[0].name;
+            NSString *endStop = stops[stops.count-1].name;
             titleLbl.text = [NSString stringWithFormat:@"%@ - %@", startStop, endStop];
             
             UITableView *tableView = [[UITableView alloc] initWithFrame: CGRectMake(20, 80, self.scrollView.frame.size.width, self.scrollView.frame.size.height - 120) style:UITableViewStylePlain];
@@ -116,6 +117,18 @@
     cell.selectedBackgroundView = transparentBackground;
 }
 
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [[TCAPIAdaptor instance] attemptInProgress];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row] markVisited];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+        [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row] markUnvisited];
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -126,7 +139,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    cell.textLabel.text = [[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row] name];
     cell.imageView.image = [UIImage imageNamed:@"stop-unvisited.png"];
     cell.imageView.highlightedImage = [UIImage imageNamed:@"stop-visited.png"];
     return cell;

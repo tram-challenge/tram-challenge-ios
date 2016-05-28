@@ -40,6 +40,10 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     return id ?: @"Test";
 }
 
+- (BOOL)attemptInProgress {
+    return self.attemptID != nil;
+}
+
 - (void)getRoutesWithSuccess:(void (^)(NSArray *routes))successBlock
                             failure:(TCErrorBlock)failureBlock
 {
@@ -85,6 +89,7 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     NSDictionary *params = @{@"icloud_user_id" : [self cloudID]};
     [self put:path with:params success:^(AFHTTPRequestOperation *operation, id result) {
         successBlock();
+        self.attemptID = nil;
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
         if (failureBlock) failureBlock();
     }];
