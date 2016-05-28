@@ -25,7 +25,7 @@
 {
     UIColor *baseColor = [RouteData colorForRouteName:self.routeName];
     if (stop.visited) {
-        return [self setSaturation:baseColor amount:0.25];
+        return [self setSaturation:baseColor amount:0.15];
     }
     return baseColor;
 }

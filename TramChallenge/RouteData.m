@@ -126,6 +126,16 @@ static RouteData *_RouteData;
     return [self.stops filteredSetUsingPredicate:pred];
 }
 
+- (void)markStopAsVisited:(NSString *)stopID
+{
+    for (TCTramStop *stop in [self stops]) {
+        if ([stop.id isEqualToString:stopID]) {
+            stop.visited = YES;
+            break;
+        }
+    }
+}
+
 + (NSArray<NSString *> *)routeNames
 {
     return @[@"1", @"1A", @"2", @"3", @"4", @"4T", @"6", @"6T", @"7A", @"7B", @"8", @"9", @"10"];

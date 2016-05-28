@@ -8,6 +8,7 @@
 
 #import "IntroViewController.h"
 #import "TCAPIAdaptor.h"
+#import "RouteData.h"
 
 @interface IntroViewController ()
 
@@ -19,6 +20,12 @@
     [super viewDidLoad];
     
     self.startChallengeButton.layer.cornerRadius = 8;
+
+    self.startChallengeButton.enabled = NO;
+
+    [[RouteData instance] fetchStopsSuccess:^{
+        self.startChallengeButton.enabled = YES;
+    }];
 }
 
 - (IBAction)startChallenge:(id)sender {

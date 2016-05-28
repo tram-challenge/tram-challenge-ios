@@ -65,7 +65,7 @@ static TCAPIAdaptor *_TCAPIAdaptor;
 
         for (NSDictionary *stopDict in dict[@"stops"]) {
             NSString *stopID = stopDict[@"id"];
-            if (stopDict[@"visited_at"]) {
+            if (stopDict[@"visited_at"] != [NSNull null]) {
                 [[RouteData instance] markStopAsVisited:stopID];
             }
         }

@@ -27,6 +27,9 @@
 - (NSSet<TCTramStop *> *)visitedStops;
 - (NSSet<TCTramStop *> *)unvisitedStops;
 
+/**
+ Does not send to backend, just marks locally
+ */
 - (void)markStopAsVisited:(NSString *)stopID;
 
 @end

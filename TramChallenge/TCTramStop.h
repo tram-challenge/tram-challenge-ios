@@ -20,7 +20,7 @@
 @property (nonatomic) NSArray<NSString *> *hsl_ids;
 @property (nonatomic) NSArray<NSString *> *stop_numbers;
 
-@property (nonatomic, readonly) BOOL visited;
+@property (nonatomic) BOOL visited;
 
 - (void)markVisited;
 - (void)markUnvisited;
