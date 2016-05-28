@@ -10,6 +10,13 @@
 #import "TCUtilities.h"
 #import "TCAPIAdaptor.h"
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
+#import "TCTramStop.h"
+
+@interface RouteData ()
+
+@property (nonatomic) NSMutableDictionary<NSString *, NSMutableArray<TCTramStop *> *> *routes;
+
+@end
 
 @implementation RouteData
 
@@ -25,17 +32,44 @@ static RouteData *_RouteData;
     return _RouteData;
 }
 
-- (void)fetchStopsSuccess:(void (^)())successBlock failure:(void (^)())failureBlock
+- (void)fetchStopsSuccess:(void (^)())successBlock
 {
-    [[TCAPIAdaptor instance] getRoutesWithSuccess:^(NSArray *routes) {
-        
+    if (self.routes) {successBlock(); return;}
+
+    [[TCAPIAdaptor instance] getRoutesWithSuccess:^(NSArray *stops) {
+        [self setupRoutes];
+        for (NSDictionary *stopDict in stops) {
+            TCTramStop *stop = [TCTramStop new];
+            stop.id = stopDict[@"id"];
+            stop.name = stopDict[@"name"];
+            stop.stop_numbers = stopDict[@"stop_numbers"];
+            stop.hsl_ids = stopDict[@"hsl_ids"];
+            stop.links = stopDict[@"links"];
+            CLLocationCoordinate2D coord =  {.latitude =  [stopDict[@"latitude"] floatValue], .longitude =  [stopDict[@"longitude"] floatValue]};
+            stop.coord = coord;
+            for (NSString *route in [NSArray tc_cast:stopDict[@"routes"]]) {
+                [self.routes[route] addObject:stop];
+            }
+        }
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
-        [UIAlertView showWithTitle:NSLocalizedString(@"Communication error", nil)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIAlertView showWithTitle:NSLocalizedString(@"Communication error", nil)
                            message:NSLocalizedString(@"Can't fetch stops", nil)
                  cancelButtonTitle:NSLocalizedString(@"Retry", nil)
                  otherButtonTitles:nil
-                          tapBlock:nil];
+                          tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex){
+                              [self fetchStopsSuccess:successBlock];
+                              }];
+        });
     }];
+}
+
+- (void)setupRoutes
+{
+    self.routes = [NSMutableDictionary dictionary];
+    for (NSString *name in [self.class routeNames]) {
+        self.routes[name] = [NSMutableArray array];
+    }
 }
 
 - (NSArray *)coordsForRoute:(NSString *)routeName

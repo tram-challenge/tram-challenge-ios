@@ -14,6 +14,7 @@
 #import "TramLineSelectionViewController.h"
 #import <SMCalloutView/SMCalloutView.h>
 #import "TCUtilities.h"
+#import "TCTramRoute.h"
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, TramLineSelectionDelegate, UIGestureRecognizerDelegate>
 
@@ -100,6 +101,10 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapViewTapped:)];
     tap.delegate = self;
     [self.mapView addGestureRecognizer:tap];
+
+    [[RouteData instance] fetchStopsSuccess:^{
+
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

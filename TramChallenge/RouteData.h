@@ -19,4 +19,6 @@
 + (NSArray *)routeNames;
 + (UIColor *)colorForRouteName:(NSString *)routeName;
 
+- (void)fetchStopsSuccess:(void (^)())successBlock;
+
 @end

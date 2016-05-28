@@ -18,5 +18,6 @@
 @property (nonatomic) NSArray<NSString *> *routes;
 @property (nonatomic) NSArray<NSDictionary<NSString *, NSString *> *> *links;
 @property (nonatomic) NSArray<NSString *> *hsl_ids;
+@property (nonatomic) NSArray<NSString *> *stop_numbers;
 
 @end
