@@ -49,8 +49,15 @@
         TCTramStop *s2 = obj2;
         NSInteger pos1 = [s1.stop_positions[self.routeName] integerValue];
         NSInteger pos2 = [s2.stop_positions[self.routeName] integerValue];
-        return pos1 > pos2 ? NSOrderedAscending : NSOrderedDescending;
+        if ([self reverse]) return pos1 < pos2 ? NSOrderedAscending : NSOrderedDescending;
+        else return pos1 > pos2 ? NSOrderedAscending : NSOrderedDescending;
     }];
+}
+
+- (BOOL)reverse
+{
+    NSArray *reversers = @[@"1A", @"4", @"6", @"6T", @"7B", @"10"];
+    return [reversers containsObject:[self routeName]];
 }
 
 @end
