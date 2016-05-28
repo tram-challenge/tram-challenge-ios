@@ -23,6 +23,29 @@ NSArray *tc_map(NSArray *objects, id (^block)(id object, NSInteger index))
     return [NSArray arrayWithArray:results];
 }
 
+static NSMutableDictionary *counters;
+
++ (void)executeMostRecentAfter:(NSTimeInterval)delay identifier:(NSString *)identifier block:(void (^)())block
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        counters = [NSMutableDictionary dictionary];
+    });
+
+    NSString *idString = [identifier copy];
+
+    if (!counters[idString]) counters[idString] = @0;
+    NSInteger curCounter = [counters[idString] integerValue];
+    NSUInteger counterInteger = curCounter + 1;
+    NSNumber *nextValue = @(counterInteger);
+    counters[idString] = nextValue;
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (counterInteger == [counters[idString] integerValue]) {
+            block();
+        }
+    });
+}
 
 @end
 

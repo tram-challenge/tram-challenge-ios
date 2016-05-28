@@ -1,15 +1,38 @@
 PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - Masonry (0.6.4)
   - SMCalloutView (2.1.5)
 
 DEPENDENCIES:
+  - AFNetworking (~> 2.4)
   - Masonry (~> 0.5)
   - SMCalloutView
 
 SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   SMCalloutView: 5c0ee363dc8e7204b2fda17dfad38c93e9e23481
 
-PODFILE CHECKSUM: b301d62239e1fc1555fe9ed8e6da37bf85f86062
+PODFILE CHECKSUM: 4300637cfffb7eea37f56a642e61f6d5a8e7edb4
 
 COCOAPODS: 1.0.0
