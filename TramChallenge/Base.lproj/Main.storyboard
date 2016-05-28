@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -115,7 +115,6 @@ Helsinki Tram Challenge</string>
                                         </variation>
                                         <connections>
                                             <action selector="startChallenge:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="deG-u6-dpO"/>
-                                            <segue destination="bk0-dL-rfo" kind="show" animates="NO" id="6H4-Pg-hnP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -162,6 +161,7 @@ Helsinki Tram Challenge</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="startChallengeButton" destination="c8L-9H-Z3T" id="hpk-Qd-Mmx"/>
+                        <segue destination="bk0-dL-rfo" kind="show" identifier="StartChallengeSegue" animates="NO" id="yTL-VL-0cZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -177,7 +177,7 @@ Helsinki Tram Challenge</string>
                         <viewControllerLayoutGuide type="bottom" id="nA8-Rz-zHs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qOj-Kx-lai">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMK-rz-0RB">
@@ -212,72 +212,6 @@ Helsinki Tram Challenge</string>
                                     <action selector="abortChallenge:" destination="bk0-dL-rfo" eventType="touchUpInside" id="yA5-ft-dW0"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hiq-eC-uqO" customClass="MBCircularProgressBarView">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Hiq-eC-uqO" secondAttribute="height" multiplier="1:1" id="BDT-25-FWt"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" priority="750" constant="200" id="UGo-Ng-5AM"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="200" id="dZS-xf-0rK"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showValueString" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="17"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="valueFontSize">
-                                        <real key="value" value="42"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="unitString" value="%"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="unitFontSize">
-                                        <real key="value" value="42"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showUnitString" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
-                                        <real key="value" value="100"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progressRotationAngle">
-                                        <real key="value" value="50"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progressCapType">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="unitFontName" value=".SFUIText-Heavy"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="valueFontName" value=".SFUIText-Heavy"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="emptyLineWidth">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
-                                        <color key="value" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyLineColor">
-                                        <color key="value" red="0.85490196078431369" green="0.86274509803921573" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                        <color key="value" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="BDT-25-FWt"/>
-                                        <exclude reference="UGo-Ng-5AM"/>
-                                        <exclude reference="dZS-xf-0rK"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="BDT-25-FWt"/>
-                                        <include reference="UGo-Ng-5AM"/>
-                                        <include reference="dZS-xf-0rK"/>
-                                    </mask>
-                                </variation>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5mf-XI-f6b">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
@@ -417,6 +351,72 @@ Helsinki Tram Challenge</string>
                                 <color key="textColor" red="0.71372549019999998" green="0.72156862749999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hiq-eC-uqO" customClass="MBCircularProgressBarView">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hiq-eC-uqO" secondAttribute="height" multiplier="1:1" id="BDT-25-FWt"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" priority="750" constant="200" id="UGo-Ng-5AM"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="200" id="dZS-xf-0rK"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showValueString" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="valueFontSize">
+                                        <real key="value" value="42"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="unitString" value="%"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="unitFontSize">
+                                        <real key="value" value="42"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showUnitString" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressRotationAngle">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressCapType">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="unitFontName" value=".SFUIText-Heavy"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="valueFontName" value=".SFUIText-Heavy"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="emptyLineWidth">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                        <color key="value" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyLineColor">
+                                        <color key="value" red="0.85490196078431369" green="0.86274509803921573" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                        <color key="value" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BDT-25-FWt"/>
+                                        <exclude reference="UGo-Ng-5AM"/>
+                                        <exclude reference="dZS-xf-0rK"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="BDT-25-FWt"/>
+                                        <include reference="UGo-Ng-5AM"/>
+                                        <include reference="dZS-xf-0rK"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -439,14 +439,13 @@ Helsinki Tram Challenge</string>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="dMK-rz-0RB"/>
-                                <exclude reference="Hiq-eC-uqO"/>
                                 <exclude reference="5mf-XI-f6b"/>
                                 <exclude reference="U3K-N4-aM4"/>
                                 <exclude reference="As5-AX-K9J"/>
                                 <exclude reference="Aez-Ww-IqB"/>
+                                <exclude reference="Hiq-eC-uqO"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="AvF-FI-eqI"/>
                                 <exclude reference="GPm-lC-igr"/>
                                 <exclude reference="fm9-at-WAz"/>
                                 <exclude reference="rrX-59-xC8"/>
@@ -454,6 +453,7 @@ Helsinki Tram Challenge</string>
                                 <exclude reference="736-oO-M6d"/>
                                 <exclude reference="HNg-dd-sPR"/>
                                 <exclude reference="TEQ-Ti-lbX"/>
+                                <exclude reference="AvF-FI-eqI"/>
                                 <exclude reference="7Mp-fZ-Lzs"/>
                                 <exclude reference="AzG-Rv-5AI"/>
                                 <exclude reference="YqV-IE-SkC"/>
@@ -466,14 +466,13 @@ Helsinki Tram Challenge</string>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="dMK-rz-0RB"/>
-                                <include reference="Hiq-eC-uqO"/>
                                 <include reference="5mf-XI-f6b"/>
                                 <include reference="U3K-N4-aM4"/>
                                 <include reference="As5-AX-K9J"/>
                                 <include reference="Aez-Ww-IqB"/>
+                                <include reference="Hiq-eC-uqO"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="AvF-FI-eqI"/>
                                 <include reference="GPm-lC-igr"/>
                                 <include reference="fm9-at-WAz"/>
                                 <include reference="rrX-59-xC8"/>
@@ -481,6 +480,7 @@ Helsinki Tram Challenge</string>
                                 <include reference="736-oO-M6d"/>
                                 <include reference="HNg-dd-sPR"/>
                                 <include reference="TEQ-Ti-lbX"/>
+                                <include reference="AvF-FI-eqI"/>
                                 <include reference="7Mp-fZ-Lzs"/>
                                 <include reference="AzG-Rv-5AI"/>
                                 <include reference="YqV-IE-SkC"/>
@@ -502,7 +502,7 @@ Helsinki Tram Challenge</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVf-2O-e2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="775.5" y="1471"/>
+            <point key="canvasLocation" x="750" y="1449"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

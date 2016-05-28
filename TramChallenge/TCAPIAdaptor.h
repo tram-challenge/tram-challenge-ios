@@ -20,7 +20,7 @@ typedef void (^TCErrorBlock)(NSError *error, NSInteger status, NSDictionary *inf
 - (void)getRoutesWithSuccess:(void (^)(NSArray *routes))successBlock
                      failure:(TCErrorBlock)failureBlock;
 
-- (void)startAttempt:(void (^)(NSString *cloudID))successBlock
-             failure:(TCErrorBlock)failureBlock;
+- (void)startAttempt:(void (^)())successBlock
+             failure:(void (^)())failureBlock;
 
 @end

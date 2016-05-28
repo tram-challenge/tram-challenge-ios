@@ -51,8 +51,8 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     } failure:failureBlock];
 }
 
-- (void)startAttempt:(void (^)(NSString *cloudID))successBlock
-            failure:(TCErrorBlock)failureBlock
+- (void)startAttempt:(void (^)())successBlock
+            failure:(void (^)())failureBlock
 {
     NSString *path = @"api/attempts";
     NSDictionary *params = @{@"icloud_user_id" : [self cloudID]};
@@ -68,9 +68,11 @@ static TCAPIAdaptor *_TCAPIAdaptor;
             }
         }
 
-        // TODO: Trigger transition
+        successBlock();
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
-
+        if (failureBlock) {
+            failureBlock();
+        }
     }];
 }
 

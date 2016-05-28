@@ -22,10 +22,12 @@
 }
 
 - (IBAction)startChallenge:(id)sender {
-    [[TCAPIAdaptor instance] startAttempt:^(NSString *cloudID) {
-        
+    self.startChallengeButton.enabled = NO;
+    [[TCAPIAdaptor instance] startAttempt:^() {
+        [self performSegueWithIdentifier:@"StartChallengeSegue" sender:sender];
+        self.startChallengeButton.enabled = YES;
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
-
+        self.startChallengeButton.enabled = YES;
     }];
 }
 
