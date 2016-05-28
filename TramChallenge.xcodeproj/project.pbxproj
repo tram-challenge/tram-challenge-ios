@@ -33,7 +33,7 @@
 		3AD8F1C11CF8C23900C48237 /* TramLineSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1C01CF8C23900C48237 /* TramLineSelectionViewController.m */; };
 		3AD8F1C41CF8C51A00C48237 /* TCUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1C31CF8C51A00C48237 /* TCUtilities.m */; };
 		3AD8F1C71CF8CA1B00C48237 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD8F1C61CF8CA1B00C48237 /* CloudKit.framework */; };
-		50A5568CA94E671B51E1FDCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 343F320E6F1C590334972EC0 /* libPods.a */; };
+		3AD8F1CA1CF998AC00C48237 /* TCAPIAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1C91CF998AC00C48237 /* TCAPIAdaptor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,8 +95,8 @@
 		3AD8F1C31CF8C51A00C48237 /* TCUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCUtilities.m; sourceTree = "<group>"; };
 		3AD8F1C51CF8C9FC00C48237 /* TramChallenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TramChallenge.entitlements; sourceTree = "<group>"; };
 		3AD8F1C61CF8CA1B00C48237 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		500634BA753A63420011A134 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		5FA47513F05A4FAA4BA7CD43 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		3AD8F1C81CF998AC00C48237 /* TCAPIAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAPIAdaptor.h; sourceTree = "<group>"; };
+		3AD8F1C91CF998AC00C48237 /* TCAPIAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAPIAdaptor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +164,8 @@
 				3AD8F1C31CF8C51A00C48237 /* TCUtilities.m */,
 				3AD8F1A61CF4DF8400C48237 /* RouteData.h */,
 				3AD8F1A71CF4DF8400C48237 /* RouteData.m */,
+				3AD8F1C81CF998AC00C48237 /* TCAPIAdaptor.h */,
+				3AD8F1C91CF998AC00C48237 /* TCAPIAdaptor.m */,
 				3AD8F14A1CEE4D6100C48237 /* SecondViewController.h */,
 				3AD8F14B1CEE4D6100C48237 /* SecondViewController.m */,
 				3AD8F14D1CEE4D6100C48237 /* Main.storyboard */,
@@ -223,7 +225,6 @@
 		C89E7406104B6BE82C72A3A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3AD8F1771CEE5CA000C48237 /* MapKit.framework */,
 				2E35DD7175AA906B977DC6E5 /* libPods-TramChallenge.a */,
 			);
 			name = Frameworks;
@@ -234,7 +235,6 @@
 			children = (
 				3AD8F1C61CF8CA1B00C48237 /* CloudKit.framework */,
 				3AD8F1771CEE5CA000C48237 /* MapKit.framework */,
-				343F320E6F1C590334972EC0 /* libPods.a */,
 				2AD823BB27B49371C63375A0 /* Pods-TramChallenge.debug.xcconfig */,
 				2C4566A50CFBEF6808DCFA68 /* Pods-TramChallenge.release.xcconfig */,
 			);
@@ -447,6 +447,7 @@
 				3AD8F1C41CF8C51A00C48237 /* TCUtilities.m in Sources */,
 				3AD8F1A81CF4DF8400C48237 /* RouteData.m in Sources */,
 				3AD8F1491CEE4D6100C48237 /* MapViewController.m in Sources */,
+				3AD8F1CA1CF998AC00C48237 /* TCAPIAdaptor.m in Sources */,
 				3AD8F1431CEE4D6100C48237 /* main.m in Sources */,
 				3AD8F1C11CF8C23900C48237 /* TramLineSelectionViewController.m in Sources */,
 			);

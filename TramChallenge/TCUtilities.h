@@ -9,9 +9,22 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#ifdef DEBUG
+
+# define lg(fmt, ...) NSLog(@"%@", [NSString stringWithFormat:(fmt), ##__VA_ARGS__])
+
+#else
+
+# define lg(...) ((void)0)
+
+#endif
+
+
 @interface TCUtilities : NSObject
 
 NSArray *tc_map(NSArray *objects, id (^block)(id object, NSInteger index));
+
++ (void)executeMostRecentAfter:(NSTimeInterval)delay identifier:(NSString *)identifier block:(void (^)())block;
 
 @end
 
