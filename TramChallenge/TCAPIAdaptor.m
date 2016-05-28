@@ -93,7 +93,7 @@ static TCAPIAdaptor *_TCAPIAdaptor;
 - (void)markVisited:(NSString *)stopID success:(void (^)())successBlock
             failure:(TCErrorBlock)failureBlock
 {
-    NSString *path = @"api/stops";
+    NSString *path = [NSString stringWithFormat:@"api/stops/%@", stopID];
     NSDictionary *params = @{@"stop" : @{@"visited" : @YES},
                              @"icloud_user_id" : [self cloudID]};
     [self put:path with:params success:^(AFHTTPRequestOperation *operation, id result) {
@@ -106,7 +106,7 @@ static TCAPIAdaptor *_TCAPIAdaptor;
 - (void)markUnvisited:(NSString *)stopID success:(void (^)())successBlock
             failure:(TCErrorBlock)failureBlock
 {
-    NSString *path = @"api/stops";
+    NSString *path = [NSString stringWithFormat:@"api/stops/%@", stopID];
     NSDictionary *params = @{@"stop" : @{@"visited" : @NO},
                              @"icloud_user_id" : [self cloudID]};
     [self put:path with:params success:^(AFHTTPRequestOperation *operation, id result) {
@@ -177,6 +177,7 @@ static TCAPIAdaptor *_TCAPIAdaptor;
 
     NSURL *baseURL = [NSURL URLWithString:apiURL];
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
 
     [self spinnerOn];
     [manager PUT:resource parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

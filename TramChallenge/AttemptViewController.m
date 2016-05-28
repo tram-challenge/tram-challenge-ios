@@ -9,6 +9,7 @@
 #import "AttemptViewController.h"
 #import "RouteData.h"
 #import "TCAPIAdaptor.h"
+#import "TCTramStop.h"
 
 @implementation AttemptViewController
 
