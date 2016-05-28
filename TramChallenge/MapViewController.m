@@ -16,6 +16,7 @@
 #import "TCUtilities.h"
 #import "TCTramRoute.h"
 #import "TCTramStop.h"
+#import "TCAPIAdaptor.h"
 
 #pragma mark - Annotation class
 
@@ -56,6 +57,46 @@
 }
 @end
 
+#pragma mark - Veh annotation class
+
+@interface TCVehAnnotation : NSObject <MKAnnotation>
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readonly, copy) NSString *title;
+@property (nonatomic) UIColor *color;
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title;
+@end
+
+@implementation TCVehAnnotation
+- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title
+{
+    self = [super init];
+    if (self) {
+        _coordinate = coordinate;
+        _title = title;
+    }
+    return self;
+}
+@end
+
+#pragma mark - Veh annotation view
+
+@interface TCVehAnnotationView : MKAnnotationView
+@property (nonatomic) UIColor *color;
+@end
+
+@implementation TCVehAnnotationView
+- (void)drawRect:(CGRect)rect
+{
+    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(3, 3, 14, 14)];
+    [[UIColor whiteColor] setFill];
+    [ovalPath fill];
+    [self.color setStroke];
+    ovalPath.lineWidth = 5;
+    [ovalPath stroke];
+}
+@end
+
+
 #pragma mark - MapViewController
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, TramLineSelectionDelegate, UIGestureRecognizerDelegate>
@@ -67,6 +108,7 @@
 
 @property (nonatomic) NSMutableDictionary<NSString *, MKPolyline *> *overlays;
 @property (nonatomic) NSMutableDictionary<NSString *, NSMutableArray<TCAnnotation *> *> *annotations;
+@property (nonatomic) NSMutableDictionary<NSString *, TCVehAnnotation *> *vehAnnotations;
 
 @property (nonatomic) TramLineSelectionViewController *filterListViewer;
 @property (nonatomic) UIView *filterListOverlay;
@@ -74,6 +116,8 @@
 
 @property (nonatomic) UIBarButtonItem *filterButton;
 @property (nonatomic, weak) SMCalloutView *activeCallout;
+
+@property (nonatomic) NSTimer *vehTimer;
 
 @end
 
@@ -166,6 +210,52 @@
                 [self.annotations[name] addObject:annotation];
             }
         }
+    }];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    self.vehTimer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(updateVeh) userInfo:nil repeats:YES];
+    [self.vehTimer fire];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.vehTimer invalidate];
+}
+
+- (void)updateVeh
+{
+    NSMutableArray *seen = [NSMutableArray array];
+    [[TCAPIAdaptor instance] tramPositions:^(NSDictionary *pos) {
+        lg(@"%@", pos);
+        for (NSString *vehID in pos) {
+            TCVehAnnotation *annotation = self.vehAnnotations[vehID];
+            NSArray *data = [NSArray tc_cast:pos[vehID]];
+            CLLocationCoordinate2D coord = {.latitude = [data[0] floatValue], .longitude =  [data[1] floatValue]};
+            NSString *longName = [NSString tc_cast:data[2]];
+            NSString *routeName = [longName substringFromIndex:3];
+            if (annotation) {
+                [seen addObject:annotation];
+                annotation.coordinate = coord;
+            } else {
+                TCVehAnnotation *newAnnotation = [[TCVehAnnotation alloc] initWithCoordinate:coord title:routeName];
+                [self.mapView addAnnotation:newAnnotation];
+                self.vehAnnotations[vehID] = newAnnotation;
+                [self.mapView addAnnotation:newAnnotation];
+                [seen addObject:newAnnotation];
+            }
+        }
+        NSMutableDictionary<NSString *, TCVehAnnotation *> *newVehAnnotations;
+        for (NSString *vehID in self.vehAnnotations) {
+            TCVehAnnotation *annotation = self.vehAnnotations[vehID];
+            if ([seen containsObject:annotation]) {
+                newVehAnnotations[vehID] = annotation;
+            } else {
+                [self.mapView removeAnnotation:annotation];
+            }
+        }
+        self.vehAnnotations = newVehAnnotations;
     }];
 }
 
@@ -321,7 +411,8 @@
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
     TCAnnotationView *pinView = nil;
-    if (annotation != mapView.userLocation) {
+    TCVehAnnotationView *pinvehView = nil;
+    if ([annotation isKindOfClass:[TCAnnotation class]]) {
         static NSString *defaultPinID = @"com.switchstep.stop";
         pinView = (TCAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
         if (pinView == nil) pinView = [[TCAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID];
@@ -331,6 +422,16 @@
         pinView.backgroundColor = [UIColor clearColor];
         [pinView setNeedsDisplay];
         return pinView;
+    } else if ([annotation isKindOfClass:[TCVehAnnotation class]]) {
+        static NSString *defaultVehPinID = @"com.switchstep.veh";
+        pinvehView = (TCVehAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultVehPinID];
+        if (pinvehView == nil) pinvehView = [[TCVehAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultVehPinID];
+        pinvehView.color = ((TCVehAnnotation *)annotation).color;
+        pinvehView.frame = CGRectMake(0, 0, 25, 25);
+        pinvehView.canShowCallout = YES;
+        pinvehView.backgroundColor = [UIColor clearColor];
+        [pinvehView setNeedsDisplay];
+        return pinvehView;
     } else {
         return nil;
     }

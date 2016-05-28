@@ -34,4 +34,10 @@ typedef void (^TCErrorBlock)(NSError *error, NSInteger status, NSDictionary *inf
 
 - (BOOL)attemptInProgress;
 
+/**
+ Result dict keys are unique vehicle id
+ Values are arrays containing lat, long and line id (eg "1007A")
+ */
+- (void)tramPositions:(void (^)(NSDictionary *))successBlock;
+
 @end

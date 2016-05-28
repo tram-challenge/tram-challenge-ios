@@ -13,6 +13,7 @@
 #import "RouteData.h"
 
 static NSString * const apiURL = @"https://tramchallenge.com";
+static NSString *const digitransportURL = @"https://api.digitransit.fi";
 
 @interface TCAPIAdaptor ()
 
@@ -125,6 +126,24 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     }];
 }
 
+- (void)tramPositions:(void (^)(NSDictionary *))successBlock
+{
+    NSString *path = @"realtime/vehicle-positions/v1/hfp/journey/tram/#";
+    [self getDigitransport:path with:nil success:^(AFHTTPRequestOperation *operation, id result) {
+        NSDictionary *dict = [NSDictionary tc_cast:result];
+        NSMutableDictionary *resDict = [NSMutableDictionary dictionary];
+        for (NSString *key in dict) {
+            NSDictionary *itemDict = [NSDictionary tc_cast:dict[key]];
+            NSDictionary *item = [NSDictionary tc_cast:itemDict[@"VP"]];
+            resDict[item[@"veh"]] = @[item[@"lat"], item[@"long"], item[@"line"]];
+        }
+        successBlock(resDict);
+    } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
+
+    }];
+}
+
+
 #pragma mark - HTTP interface
 
 - (void)get:(NSString *)resource
@@ -135,6 +154,30 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     lg(@"GET API call: %@ params: %@", resource, params);
 
     NSURL *baseURL = [NSURL URLWithString:apiURL];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+
+    [self spinnerOn];
+    AFHTTPRequestOperation *op = [manager GET:resource parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self spinnerOff];
+#ifdef MOR_GET_RESPONSE_DEBUGGING
+        lg(@"GET response: %@", responseObject);
+#endif
+        if (successBlock) successBlock(operation, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self spinnerOff];
+        [self handleFailureWithBlock:failureBlock forError:error inOperation:operation];
+    }];
+    lg(@"URL: %@", op.request.URL);
+}
+
+- (void)getDigitransport:(NSString *)resource
+       with:(NSDictionary *)params
+    success:(void (^)(AFHTTPRequestOperation *operation, id result))successBlock
+    failure:(TCErrorBlock)failureBlock
+{
+    lg(@"GET API call: %@ params: %@", resource, params);
+
+    NSURL *baseURL = [NSURL URLWithString:digitransportURL];
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
 
     [self spinnerOn];
