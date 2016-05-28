@@ -66,6 +66,7 @@
 @property (nonatomic) BOOL userLocationUpdated;
 
 @property (nonatomic) NSMutableDictionary<NSString *, MKPolyline *> *overlays;
+@property (nonatomic) NSMutableDictionary<NSString *, NSMutableArray<TCAnnotation *> *> *annotations;
 
 @property (nonatomic) TramLineSelectionViewController *filterListViewer;
 @property (nonatomic) UIView *filterListOverlay;
@@ -145,10 +146,15 @@
     [self.mapView addGestureRecognizer:tap];
 
     [[RouteData instance] fetchStopsSuccess:^{
-        for (TCTramStop *stop in [[RouteData instance] stopsForRoute:@"1"]) {
-            TCAnnotation *annotation = [[TCAnnotation alloc] initWithCoordinate:stop.coord title:stop.name];
-            annotation.color = [RouteData colorForRouteName:@"1"];
-            [self.mapView addAnnotation:annotation];
+        self.annotations = [NSMutableDictionary dictionary];
+        for (NSString *name in [RouteData routeNames]) {
+            self.annotations[name] = [NSMutableArray array];
+            for (TCTramStop *stop in [[RouteData instance] stopsForRoute:name]) {
+                TCAnnotation *annotation = [[TCAnnotation alloc] initWithCoordinate:stop.coord title:stop.name];
+                annotation.color = [RouteData colorForRouteName:name];
+                [self.mapView addAnnotation:annotation];
+                [self.annotations[name] addObject:annotation];
+            }
         }
     }];
 }
@@ -208,14 +214,38 @@
 {
     if (list.selectedLines.count) {
         for (NSString *lineName in [RouteData routeNames]) {
-            [self.mapView removeOverlay:self.overlays[lineName]];
+            if (![list.selectedLines containsObject:lineName]) {
+                [self.mapView removeOverlay:self.overlays[lineName]];
+            }
         }
         for (NSString *lineName in list.selectedLines) {
             [self.mapView addOverlay:self.overlays[lineName]];
         }
+        for (NSString *lineName in [RouteData routeNames]) {
+            if (![list.selectedLines containsObject:lineName]) {
+                for (TCAnnotation *annotation in self.annotations[lineName]) {
+                    [self.mapView removeAnnotation:annotation];
+                }
+            }
+        }
+        for (NSString *lineName in list.selectedLines) {
+            for (TCAnnotation *annotation in self.annotations[lineName]) {
+                if (![_mapView.annotations containsObject:annotation]) {
+                    [self.mapView addAnnotation:annotation];
+                }
+            }
+        }
     } else {
         for (NSString *lineName in [RouteData routeNames]) {
             [self.mapView addOverlay:self.overlays[lineName]];
+        }
+
+        for (NSString *lineName in [RouteData routeNames]) {
+            for (TCAnnotation *annotation in self.annotations[lineName]) {
+                if (![_mapView.annotations containsObject:annotation]) {
+                    [self.mapView addAnnotation:annotation];
+                }
+            }
         }
     }
 }
@@ -287,6 +317,7 @@
         pinView.frame = CGRectMake(0, 0, 25, 25);
         pinView.canShowCallout = YES;
         pinView.backgroundColor = [UIColor clearColor];
+        [pinView setNeedsDisplay];
         return pinView;
     } else {
         return nil;
