@@ -43,6 +43,24 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     } failure:failureBlock];
 }
 
+- (void)startAttempt:(void (^)(NSString *cloudID))successBlock
+            failure:(TCErrorBlock)failureBlock
+{
+    NSString *path = @"api/";
+}
+
+
+- (void)markVisited:(void (^)(NSString *stopID))successBlock
+            failure:(TCErrorBlock)failureBlock
+{
+    NSString *path = @"api/";
+}
+
+- (void)markUnvisited:(void (^)(NSString *stopID))successBlock
+            failure:(TCErrorBlock)failureBlock
+{
+
+}
 
 #pragma mark - HTTP interface
 
@@ -69,6 +87,33 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     }];
     lg(@"URL: %@", op.request.URL);
 }
+
+- (void)post:(NSString *)resource
+        with:(NSDictionary *)params
+     success:(void (^)(AFHTTPRequestOperation *operation, id result))successBlock
+     failure:(TCErrorBlock)failureBlock
+{
+    lg(@"POST API call: %@ params: %@", resource, params);
+
+    NSURL *baseURL = [NSURL URLWithString:apiURL];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+
+    // Server can respond with empty response, or plain text, so allow that
+    AFCompoundResponseSerializer *serializer = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[[AFJSONResponseSerializer serializer], [AFHTTPResponseSerializer serializer]]];
+    manager.responseSerializer = serializer;
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+
+    [self spinnerOn];
+    [manager POST:resource parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self spinnerOff];
+        lg(@"POST response: %@", responseObject);
+        if (successBlock) successBlock(operation, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self spinnerOff];
+        [self handleFailureWithBlock:failureBlock forError:error inOperation:operation];
+    }];
+}
+
 
 - (void)handleFailureWithBlock:(TCErrorBlock)failureBlock
                       forError:(NSError *)error
