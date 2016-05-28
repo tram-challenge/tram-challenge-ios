@@ -24,4 +24,6 @@
 
 - (TCTramRoute *)routeForRouteName:(NSString *)name;
 
+- (void)markStopAsVisited:(NSString *)stopID;
+
 @end

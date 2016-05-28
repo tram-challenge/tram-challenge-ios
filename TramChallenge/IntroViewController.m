@@ -7,6 +7,7 @@
 //
 
 #import "IntroViewController.h"
+#import "TCAPIAdaptor.h"
 
 @interface IntroViewController ()
 
@@ -18,6 +19,14 @@
     [super viewDidLoad];
     
     self.startChallengeButton.layer.cornerRadius = 8;
+}
+
+- (IBAction)startChallenge:(id)sender {
+    [[TCAPIAdaptor instance] startAttempt:^(NSString *cloudID) {
+        
+    } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
+
+    }];
 }
 
 @end

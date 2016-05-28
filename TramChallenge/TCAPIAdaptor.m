@@ -9,12 +9,17 @@
 #import "TCAPIAdaptor.h"
 #import "TCUtilities.h"
 #import <AFNetworking/AFNetworking.h>
+#import "AppDelegate.h"
+#import "RouteData.h"
 
 static NSString * const apiURL = @"https://tramchallenge.com";
 
 @interface TCAPIAdaptor ()
 
 @property (nonatomic) NSInteger spinnerCount;
+
+@property (nonatomic) NSString *attemptID;
+@property (nonatomic) NSString *startedAt;
 
 @end
 
@@ -32,6 +37,12 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     return _TCAPIAdaptor;
 }
 
+- (NSString *)cloudID
+{
+    NSString *id = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).cloudID;
+    return id ?: @"Test";
+}
+
 - (void)getRoutesWithSuccess:(void (^)(NSArray *routes))successBlock
                             failure:(TCErrorBlock)failureBlock
 {
@@ -46,7 +57,24 @@ static TCAPIAdaptor *_TCAPIAdaptor;
 - (void)startAttempt:(void (^)(NSString *cloudID))successBlock
             failure:(TCErrorBlock)failureBlock
 {
-    NSString *path = @"api/";
+    NSString *path = @"api/attempts";
+    NSDictionary *params = @{@"icloud_user_id" : [self cloudID]};
+    [self post:path with:params success:^(AFHTTPRequestOperation *operation, id result) {
+        NSDictionary *dict = [NSDictionary tc_cast:result];
+        self.attemptID = dict[@"id"];
+        self.startedAt = dict[@"started_at"];
+
+        for (NSDictionary *stopDict in dict[@"stops"]) {
+            NSString *stopID = stopDict[@"id"];
+            if (stopDict[@"viited_at"]) {
+                [[RouteData instance] markStopAsVisited:stopID];
+            }
+        }
+
+        // TODO: Trigger transition
+    } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
+
+    }];
 }
 
 
