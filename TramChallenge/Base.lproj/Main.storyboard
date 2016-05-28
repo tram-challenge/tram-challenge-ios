@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Map-->
@@ -106,14 +107,12 @@ Helsinki Tram Challenge</string>
                                         <state key="normal" title="Start Challenge">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="67" y="146" width="186" height="45"/>
                                         </variation>
+                                        <connections>
+                                            <segue destination="bk0-dL-rfo" kind="show" animates="NO" id="6H4-Pg-hnP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -156,15 +155,94 @@ Helsinki Tram Challenge</string>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Tram Challenge" id="MKV-q1-nE9"/>
+                    <connections>
+                        <outlet property="startChallengeButton" destination="c8L-9H-Z3T" id="hpk-Qd-Mmx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1562" y="360"/>
+            <point key="canvasLocation" x="775.5" y="672"/>
+        </scene>
+        <!--Tram Challenge-->
+        <scene sceneID="eOE-gV-8H2">
+            <objects>
+                <viewController title="Tram Challenge" id="bk0-dL-rfo" customClass="AttemptViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SvR-CI-2nk"/>
+                        <viewControllerLayoutGuide type="bottom" id="nA8-Rz-zHs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qOj-Kx-lai">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMK-rz-0RB">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="168" id="Cfa-tF-8V7"/>
+                                    <constraint firstAttribute="height" constant="33" id="TqO-Ax-r7q"/>
+                                    <constraint firstAttribute="width" constant="168" id="Wo2-KR-Lei"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="mYa-8e-hdC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="ABORT CHALLENGE">
+                                    <color key="titleColor" red="0.5607843137254902" green="0.55686274509803924" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Cfa-tF-8V7"/>
+                                        <exclude reference="TqO-Ax-r7q"/>
+                                        <exclude reference="Wo2-KR-Lei"/>
+                                        <exclude reference="mYa-8e-hdC"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Cfa-tF-8V7"/>
+                                        <include reference="TqO-Ax-r7q"/>
+                                        <include reference="Wo2-KR-Lei"/>
+                                        <include reference="mYa-8e-hdC"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="abortChallenge:" destination="bk0-dL-rfo" eventType="touchUpInside" id="yA5-ft-dW0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nA8-Rz-zHs" firstAttribute="top" secondItem="dMK-rz-0RB" secondAttribute="bottom" constant="18" id="AvF-FI-eqI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dMK-rz-0RB" secondAttribute="trailing" constant="4" id="GPm-lC-igr"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="dMK-rz-0RB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="GPm-lC-igr"/>
+                                <exclude reference="AvF-FI-eqI"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="dMK-rz-0RB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="GPm-lC-igr"/>
+                                <include reference="AvF-FI-eqI"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="abortChallengeButton" destination="dMK-rz-0RB" id="ci4-a9-XxY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IVf-2O-e2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="775.5" y="1471"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="TCTabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -180,7 +258,7 @@ Helsinki Tram Challenge</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-216" y="-392"/>
         </scene>
         <!--Stops-->
         <scene sceneID="ehL-cb-r6Q">
@@ -200,7 +278,7 @@ Helsinki Tram Challenge</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbc-Fn-8Xl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="1035"/>
+            <point key="canvasLocation" x="-1182" y="-341"/>
         </scene>
         <!--Leaderboard-->
         <scene sceneID="t6b-1S-9gk">
@@ -220,11 +298,12 @@ Helsinki Tram Challenge</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqZ-qK-euM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-1057.5" y="651"/>
         </scene>
         <!--Challenge-->
         <scene sceneID="MMX-YG-CiQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f0N-M2-JgP" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f0N-M2-JgP" customClass="ChallengeNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Challenge" image="stopwatch" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="KDp-VY-A90">
@@ -242,7 +321,7 @@ Helsinki Tram Challenge</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yID-EJ-cwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="-312" y="672"/>
         </scene>
     </scenes>
     <resources>

@@ -10,6 +10,7 @@
 
 @interface IntroViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *startChallengeButton;
 
 @end
 

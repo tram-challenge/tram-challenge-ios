@@ -37,6 +37,9 @@
 		3AD8F1DE1CF9A4D300C48237 /* 2.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1CD1CF9A32700C48237 /* 2.coords.txt */; };
 		3AD8F1DF1CF9A4D700C48237 /* 3.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1CE1CF9A32700C48237 /* 3.coords.txt */; };
 		3AD8F1E21CF9A66D00C48237 /* TCTramStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1E11CF9A66D00C48237 /* TCTramStop.m */; };
+		CFDD7DCF1CF9ACE100460757 /* AttemptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DCE1CF9ACE100460757 /* AttemptViewController.m */; };
+		CFDD7DD51CF9B15800460757 /* TCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DD41CF9B15800460757 /* TCTabBarController.m */; };
+		CFDD7DD81CF9B33200460757 /* ChallengeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DD71CF9B33200460757 /* ChallengeNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +107,12 @@
 		3AD8F1D21CF9A32700C48237 /* 6T.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 6T.coords.txt; sourceTree = "<group>"; };
 		3AD8F1E01CF9A66D00C48237 /* TCTramStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTramStop.h; sourceTree = "<group>"; };
 		3AD8F1E11CF9A66D00C48237 /* TCTramStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTramStop.m; sourceTree = "<group>"; };
+		CFDD7DCD1CF9ACE100460757 /* AttemptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttemptViewController.h; sourceTree = "<group>"; };
+		CFDD7DCE1CF9ACE100460757 /* AttemptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttemptViewController.m; sourceTree = "<group>"; };
+		CFDD7DD31CF9B15800460757 /* TCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTabBarController.h; sourceTree = "<group>"; };
+		CFDD7DD41CF9B15800460757 /* TCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTabBarController.m; sourceTree = "<group>"; };
+		CFDD7DD61CF9B33200460757 /* ChallengeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeNavigationController.h; sourceTree = "<group>"; };
+		CFDD7DD71CF9B33200460757 /* ChallengeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +186,12 @@
 				3AD8F1521CEE4D6100C48237 /* LaunchScreen.storyboard */,
 				3AD8F1551CEE4D6100C48237 /* Info.plist */,
 				3AD8F1411CEE4D6100C48237 /* Supporting Files */,
+				CFDD7DCD1CF9ACE100460757 /* AttemptViewController.h */,
+				CFDD7DCE1CF9ACE100460757 /* AttemptViewController.m */,
+				CFDD7DD31CF9B15800460757 /* TCTabBarController.h */,
+				CFDD7DD41CF9B15800460757 /* TCTabBarController.m */,
+				CFDD7DD61CF9B33200460757 /* ChallengeNavigationController.h */,
+				CFDD7DD71CF9B33200460757 /* ChallengeNavigationController.m */,
 			);
 			path = TramChallenge;
 			sourceTree = "<group>";
@@ -468,9 +483,12 @@
 				3AD8F1C41CF8C51A00C48237 /* TCUtilities.m in Sources */,
 				3AD8F1A81CF4DF8400C48237 /* RouteData.m in Sources */,
 				3AD8F1E21CF9A66D00C48237 /* TCTramStop.m in Sources */,
+				CFDD7DD81CF9B33200460757 /* ChallengeNavigationController.m in Sources */,
 				3AD8F1491CEE4D6100C48237 /* MapViewController.m in Sources */,
+				CFDD7DCF1CF9ACE100460757 /* AttemptViewController.m in Sources */,
 				3AD8F1CA1CF998AC00C48237 /* TCAPIAdaptor.m in Sources */,
 				3AD8F1431CEE4D6100C48237 /* main.m in Sources */,
+				CFDD7DD51CF9B15800460757 /* TCTabBarController.m in Sources */,
 				3AD8F1C11CF8C23900C48237 /* TramLineSelectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
