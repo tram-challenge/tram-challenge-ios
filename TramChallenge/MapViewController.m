@@ -15,6 +15,48 @@
 #import <SMCalloutView/SMCalloutView.h>
 #import "TCUtilities.h"
 #import "TCTramRoute.h"
+#import "TCTramStop.h"
+
+#pragma mark - Annotation class
+
+@interface TCAnnotation : NSObject <MKAnnotation>
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readonly, copy) NSString *title;
+@property (nonatomic) UIColor *color;
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title;
+@end
+
+@implementation TCAnnotation
+- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title
+{
+    self = [super init];
+    if (self) {
+        _coordinate = coordinate;
+        _title = title;
+    }
+    return self;
+}
+@end
+
+#pragma mark - Annotation view
+
+@interface TCAnnotationView : MKAnnotationView
+@property (nonatomic) UIColor *color;
+@end
+
+@implementation TCAnnotationView
+- (void)drawRect:(CGRect)rect
+{
+    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(3, 3, 14, 14)];
+    [[UIColor whiteColor] setFill];
+    [ovalPath fill];
+    [self.color setStroke];
+    ovalPath.lineWidth = 5;
+    [ovalPath stroke];
+}
+@end
+
+#pragma mark - MapViewController
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, TramLineSelectionDelegate, UIGestureRecognizerDelegate>
 
@@ -103,7 +145,11 @@
     [self.mapView addGestureRecognizer:tap];
 
     [[RouteData instance] fetchStopsSuccess:^{
-        lg(@"%@", [[RouteData instance] stopsForRoute:@"1A"]);
+        for (TCTramStop *stop in [[RouteData instance] stopsForRoute:@"1"]) {
+            TCAnnotation *annotation = [[TCAnnotation alloc] initWithCoordinate:stop.coord title:stop.name];
+            annotation.color = [RouteData colorForRouteName:@"1"];
+            [self.mapView addAnnotation:annotation];
+        }
     }];
 }
 
@@ -225,9 +271,26 @@
     MKPolylineRenderer *polylineView = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
 
     polylineView.strokeColor =  [RouteData colorForRouteName:overlay.title];
-    polylineView.lineWidth = 4.0;
+    polylineView.lineWidth = 6.0;
 
     return polylineView;
+}
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    TCAnnotationView *pinView = nil;
+    if (annotation != mapView.userLocation) {
+        static NSString *defaultPinID = @"com.switchstep.stop";
+        pinView = (TCAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
+        if (pinView == nil) pinView = [[TCAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID];
+        pinView.color = ((TCAnnotation *)annotation).color;
+        pinView.frame = CGRectMake(0, 0, 25, 25);
+        pinView.canShowCallout = YES;
+        pinView.backgroundColor = [UIColor clearColor];
+        return pinView;
+    } else {
+        return nil;
+    }
 }
 
 #pragma mark - Gesture delegate
