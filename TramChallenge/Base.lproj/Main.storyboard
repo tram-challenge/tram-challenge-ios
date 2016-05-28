@@ -576,24 +576,30 @@ Helsinki Tram Challenge</string>
             <point key="canvasLocation" x="-2160" y="-313"/>
         </scene>
         <!--Leaderboard-->
-        <scene sceneID="t6b-1S-9gk">
+        <scene sceneID="OKR-7i-mPi">
             <objects>
-                <viewController title="Leaderboard" id="Er1-AZ-n3j" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VsU-xK-HzD"/>
-                        <viewControllerLayoutGuide type="bottom" id="njL-aN-ewN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0q6-Vr-ZDY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <tableViewController id="VOd-Ec-cDa" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pZL-vp-8SW">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="doU-jI-RTa"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eqZ-qK-euM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6o8-sd-0Bx">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6o8-sd-0Bx" id="wIR-59-wXo">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VOd-Ec-cDa" id="6WD-db-E6r"/>
+                            <outlet property="delegate" destination="VOd-Ec-cDa" id="BkV-kp-AGO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Leaderboard" id="3b6-DR-B6h"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yZ9-el-Kv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-139.5" y="651"/>
+            <point key="canvasLocation" x="-244.5" y="672"/>
         </scene>
         <!--Challenge-->
         <scene sceneID="MMX-YG-CiQ">
@@ -628,10 +634,13 @@ Helsinki Tram Challenge</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Er1-AZ-n3j" kind="relationship" relationship="rootViewController" id="1Zg-Va-O3W"/>
+                        <segue destination="VOd-Ec-cDa" kind="relationship" relationship="rootViewController" id="IIp-Hc-4B0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYX-BW-yIH" userLabel="First Responder" sceneMemberID="firstResponder"/>
