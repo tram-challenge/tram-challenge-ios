@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "TCUtilities.h"
+@import CloudKit;
 
 @interface AppDelegate ()
 
@@ -18,6 +20,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self.window setTintColor:[UIColor colorWithRed:0 green:0.6 blue:0.36 alpha:1]];
     // Override point for customization after application launch.
+
+    [self fetchCloudID];
+
     return YES;
 }
 
@@ -41,6 +46,23 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)fetchCloudID
+{
+    [[CKContainer defaultContainer] fetchUserRecordIDWithCompletionHandler:^(CKRecordID * _Nullable recordID, NSError * _Nullable error) {
+        lg(@"CLOUDKIT Fetching User Record ID");
+
+        if (error) {
+            lg(@"[%@] Error loading CloudKit user: %@", self.class, error);
+            self.cloudID = @"Anon";
+        }
+
+        if (recordID) {
+            lg(@"CLOUDKIT Found User Record ID: %@ xxxxx %@", recordID, recordID.recordName);
+            self.cloudID = recordID.recordName;
+        }
+    }];
 }
 
 @end
