@@ -8,6 +8,8 @@
 
 #import "RouteData.h"
 #import "TCUtilities.h"
+#import "TCAPIAdaptor.h"
+#import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 
 @implementation RouteData
 
@@ -21,6 +23,19 @@ static RouteData *_RouteData;
         _RouteData = [[self alloc] init];
     });
     return _RouteData;
+}
+
+- (void)fetchStopsSuccess:(void (^)())successBlock failure:(void (^)())failureBlock
+{
+    [[TCAPIAdaptor instance] getRoutesWithSuccess:^(NSArray *routes) {
+        
+    } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
+        [UIAlertView showWithTitle:NSLocalizedString(@"Communication error", nil)
+                           message:NSLocalizedString(@"Can't fetch stops", nil)
+                 cancelButtonTitle:NSLocalizedString(@"Retry", nil)
+                 otherButtonTitles:nil
+                          tapBlock:nil];
+    }];
 }
 
 - (NSArray *)coordsForRoute:(NSString *)routeName
