@@ -11,9 +11,10 @@
 #import "TCTramRoute.h"
 #import "TCTramStop.h"
 
-@interface StopsViewController () <UIScrollViewDelegate>
+@interface StopsViewController () <UIScrollViewDelegate, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic) NSMutableArray *PageControlBtns;
+@property (nonatomic) NSMutableDictionary *routes;
 @end
 
 @implementation StopsViewController
@@ -27,6 +28,7 @@
     self.scrollView.contentSize = CGSizeMake(numberOfPages * self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     
     self.PageControlBtns = [[NSMutableArray alloc] init];
+    self.routes = [[NSMutableDictionary alloc] init];
 
     int btnSize = 22;
     int btnMargin = 2;
@@ -38,7 +40,7 @@
         NSMutableArray *stops = [[NSMutableArray alloc] init];
         
         UIView *page = [[UIView alloc] initWithFrame:CGRectMake(self.scrollView.frame.size.width * i, 0.0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
-        
+
         UILabel *numberLbl = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
         numberLbl.backgroundColor = [RouteData colorForRouteName: routeName];
         numberLbl.textColor = [UIColor whiteColor];
@@ -47,6 +49,7 @@
         numberLbl.clipsToBounds = YES;
         numberLbl.layer.cornerRadius = 5;
         numberLbl.textAlignment = NSTextAlignmentCenter;
+
         [page addSubview:numberLbl];
         
         UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(70, 20.0, page.frame.size.width-20.0, 40.0)];
@@ -59,9 +62,21 @@
             for (TCTramStop *stop in [[RouteData instance] stopsForRoute:routeName]) {
                 [stops addObject:stop.name];
             }
+            [self.routes setObject:stops forKey:[NSString stringWithFormat:@"%d", i]];
             NSString *startStop = stops[0];
             NSString *endStop = stops[stops.count-1];
             titleLbl.text = [NSString stringWithFormat:@"%@ - %@", startStop, endStop];
+            
+            UITableView *tableView = [[UITableView alloc] initWithFrame: CGRectMake(20, 80, self.scrollView.frame.size.width, self.scrollView.frame.size.height - 120) style:UITableViewStylePlain];
+            tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+            tableView.delegate = self;
+            tableView.dataSource = self;
+            tableView.rowHeight = 42;
+            tableView.allowsSelection = NO;
+            tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            tableView.showsVerticalScrollIndicator = NO;
+            tableView.tag = i;
+            [page addSubview:tableView];
         }];
         
         [self.scrollView addSubview:page];
@@ -80,6 +95,29 @@
         
         [self.PageControlBtns addObject:pageControlBtn];
     }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *simpleTableIdentifier = @"StopsTableCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    cell.textLabel.text = [[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row];
+    return cell;
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)sender
