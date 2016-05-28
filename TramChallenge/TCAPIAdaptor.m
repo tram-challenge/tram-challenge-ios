@@ -78,6 +78,17 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     }];
 }
 
+- (void)abortAttempt:(void (^)())successBlock
+             failure:(void (^)())failureBlock
+{
+    NSString *path = [NSString stringWithFormat:@"api/attempts/%@", self.attemptID];
+    NSDictionary *params = @{@"icloud_user_id" : [self cloudID]};
+    [self put:path with:params success:^(AFHTTPRequestOperation *operation, id result) {
+        successBlock();
+    } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
+        if (failureBlock) failureBlock();
+    }];
+}
 
 - (void)markVisited:(NSString *)stopID success:(void (^)())successBlock
             failure:(TCErrorBlock)failureBlock

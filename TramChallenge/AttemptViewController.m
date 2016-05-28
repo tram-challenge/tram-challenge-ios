@@ -57,7 +57,9 @@
     
     UIAlertAction* yesAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive
                                                           handler:^(UIAlertAction * action) {
+                                                              [[TCAPIAdaptor instance] abortAttempt:^{
                                                                   [self.navigationController popToRootViewControllerAnimated:NO];
+                                                              } failure:^{}];
                                                           }];
     
     UIAlertAction* noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel

@@ -24,6 +24,8 @@ typedef void (^TCErrorBlock)(NSError *error, NSInteger status, NSDictionary *inf
 
 - (void)startAttempt:(void (^)())successBlock
              failure:(void (^)())failureBlock;
+- (void)abortAttempt:(void (^)())successBlock
+             failure:(void (^)())failureBlock;
 
 - (void)markVisited:(NSString *)stopID success:(void (^)())successBlock
             failure:(TCErrorBlock)failureBlock;
