@@ -8,7 +8,7 @@
 
 #import "AttemptViewController.h"
 #import "RouteData.h"
-#import "TCTramStop.h"
+#import "TCAPIAdaptor.h"
 
 @implementation AttemptViewController
 
@@ -30,6 +30,7 @@
     self.totalStopsLabel.font = [UIFont monospacedDigitSystemFontOfSize:34 weight:UIFontWeightBold];
     self.stopsVisitedLabel.font = [UIFont monospacedDigitSystemFontOfSize:34 weight:UIFontWeightBold];
     
+    [self.timeElapsedLabel setStopWatchTime:TCAPIAdaptor.instance.elapsedTime.doubleValue];
     [self.timeElapsedLabel start];
     
     self.totalStops = 0;
