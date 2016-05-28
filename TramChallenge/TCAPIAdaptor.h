@@ -14,6 +14,8 @@ typedef void (^TCErrorBlock)(NSError *error, NSInteger status, NSDictionary *inf
 
 @property (nonatomic) NSString *attemptID;
 @property (nonatomic) NSString *startedAt;
+@property (nonatomic) NSString *elapsedTime;
+@property (nonatomic) NSString *currentTime;
 
 + (TCAPIAdaptor *)instance;
 
@@ -22,5 +24,10 @@ typedef void (^TCErrorBlock)(NSError *error, NSInteger status, NSDictionary *inf
 
 - (void)startAttempt:(void (^)())successBlock
              failure:(void (^)())failureBlock;
+
+- (void)markVisited:(NSString *)stopID success:(void (^)())successBlock
+            failure:(TCErrorBlock)failureBlock;
+- (void)markUnvisited:(NSString *)stopID success:(void (^)())successBlock
+              failure:(TCErrorBlock)failureBlock;
 
 @end

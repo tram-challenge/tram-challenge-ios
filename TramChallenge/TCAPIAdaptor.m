@@ -60,6 +60,8 @@ static TCAPIAdaptor *_TCAPIAdaptor;
         NSDictionary *dict = [NSDictionary tc_cast:result];
         self.attemptID = dict[@"id"];
         self.startedAt = dict[@"started_at"];
+        self.elapsedTime = dict[@"elapsed_time"];
+        self.currentTime = dict[@"current_time"];
 
         for (NSDictionary *stopDict in dict[@"stops"]) {
             NSString *stopID = stopDict[@"id"];
@@ -77,16 +79,30 @@ static TCAPIAdaptor *_TCAPIAdaptor;
 }
 
 
-- (void)markVisited:(void (^)(NSString *stopID))successBlock
+- (void)markVisited:(NSString *)stopID success:(void (^)())successBlock
             failure:(TCErrorBlock)failureBlock
 {
-    NSString *path = @"api/";
+    NSString *path = @"api/stops";
+    NSDictionary *params = @{@"stop" : @{@"visited" : @YES},
+                             @"icloud_user_id" : [self cloudID]};
+    [self put:path with:params success:^(AFHTTPRequestOperation *operation, id result) {
+        lg(@"stop visited ok");
+    } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
+        lg(@"error %@", error);
+    }];
 }
 
-- (void)markUnvisited:(void (^)(NSString *stopID))successBlock
+- (void)markUnvisited:(NSString *)stopID success:(void (^)())successBlock
             failure:(TCErrorBlock)failureBlock
 {
-
+    NSString *path = @"api/stops";
+    NSDictionary *params = @{@"stop" : @{@"visited" : @NO},
+                             @"icloud_user_id" : [self cloudID]};
+    [self put:path with:params success:^(AFHTTPRequestOperation *operation, id result) {
+        lg(@"stop unvisited ok");
+    } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
+        lg(@"error %@", error);
+    }];
 }
 
 #pragma mark - HTTP interface
@@ -141,6 +157,26 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     }];
 }
 
+- (void)put:(NSString *)resource
+       with:(NSDictionary *)params
+    success:(void (^)(AFHTTPRequestOperation *operation, id result))successBlock
+    failure:(TCErrorBlock)failureBlock
+{
+    lg(@"PUT API call: %@ params: %@", resource, params);
+
+    NSURL *baseURL = [NSURL URLWithString:apiURL];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+
+    [self spinnerOn];
+    [manager PUT:resource parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self spinnerOff];
+        lg(@"PUT response: %@", responseObject);
+        if (successBlock) successBlock(operation, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self spinnerOff];
+        [self handleFailureWithBlock:failureBlock forError:error inOperation:operation];
+    }];
+}
 
 - (void)handleFailureWithBlock:(TCErrorBlock)failureBlock
                       forError:(NSError *)error
