@@ -7,6 +7,8 @@
 //
 
 #import "AttemptViewController.h"
+#import "RouteData.h"
+#import "TCTramStop.h"
 
 @implementation AttemptViewController
 
@@ -30,15 +32,21 @@
     
     [self.timeElapsedLabel start];
     
-    // TODO: set total stops from API data
-    self.totalStops = 134;
+    self.totalStops = 0;
+    self.stopsVisited = 0;
+    
+    self.totalStopsLabel.text = @"";
+
+    [[RouteData instance] fetchStopsSuccess:^{
+        self.totalStops = RouteData.instance.stops.count;
+        self.stopsVisited = RouteData.instance.visitedStops.count;
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // TODO: update real progress
-    self.stopsVisited = 59;
+    self.stopsVisited = RouteData.instance.visitedStops.count;
 }
 
 - (IBAction)abortChallenge:(id)sender {
@@ -73,8 +81,12 @@
 }
 
 - (void)updateProgress {
-    CGFloat progress = round(100.0 * self.stopsVisited / self.totalStops);
-    self.progressView.value = progress;
+    if (self.totalStops == 0) {
+        self.progressView.value = 0;
+    } else {
+        CGFloat progress = floor(100.0 * self.stopsVisited / self.totalStops);
+        self.progressView.value = progress;
+    }
 }
 
 

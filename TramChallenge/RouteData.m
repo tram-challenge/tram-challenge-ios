@@ -98,6 +98,34 @@ static RouteData *_RouteData;
     return json[@"line"];
 }
 
+- (NSSet<TCTramStop *> *)stops {
+    NSMutableSet<TCTramStop *> *stops = [NSMutableSet set];
+    
+    for (NSString *routeName in self.class.routeNames) {
+        for (TCTramStop *stop in [self stopsForRoute:routeName]) {
+            [stops addObject:stop];
+        }
+    }
+    
+    return stops;
+}
+
+- (NSSet<TCTramStop *> *)visitedStops {
+    NSPredicate *pred = [NSPredicate predicateWithBlock:^BOOL(TCTramStop *stop, NSDictionary *bindings) {
+        return stop.visited;
+    }];
+    
+    return [self.stops filteredSetUsingPredicate:pred];
+}
+
+- (NSSet<TCTramStop *> *)unvisitedStops {
+    NSPredicate *pred = [NSPredicate predicateWithBlock:^BOOL(TCTramStop *stop, NSDictionary *bindings) {
+        return !stop.visited;
+    }];
+    
+    return [self.stops filteredSetUsingPredicate:pred];
+}
+
 + (NSArray<NSString *> *)routeNames
 {
     return @[@"1", @"1A", @"2", @"3", @"4", @"4T", @"6", @"6T", @"7A", @"7B", @"8", @"9", @"10"];

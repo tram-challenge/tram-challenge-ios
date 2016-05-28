@@ -23,6 +23,9 @@
 - (NSArray<TCTramStop *> *)stopsForRoute:(NSString *)routeName;
 
 - (TCTramRoute *)routeForRouteName:(NSString *)name;
+- (NSSet<TCTramStop *> *)stops;
+- (NSSet<TCTramStop *> *)visitedStops;
+- (NSSet<TCTramStop *> *)unvisitedStops;
 
 - (void)markStopAsVisited:(NSString *)stopID;
 
