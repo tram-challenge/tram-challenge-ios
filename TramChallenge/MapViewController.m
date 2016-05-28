@@ -72,7 +72,7 @@
 @property (nonatomic) UIView *filterListOverlay;
 @property (nonatomic) BOOL showingFilters;
 
-@property (nonatomic) UIButton *filterButton;
+@property (nonatomic) UIBarButtonItem *filterButton;
 @property (nonatomic, weak) SMCalloutView *activeCallout;
 
 @end
@@ -99,13 +99,22 @@
         listViewer;
     });
 
-    self.filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.filterButton.frame = CGRectMake(10, 22, 40, 40);
-    self.filterButton.tintColor = [UIColor blackColor];
-    [self.filterButton addTarget:self action:@selector(showFilters:) forControlEvents:UIControlEventTouchUpInside];
-    [self.filterButton setImage:[UIImage imageNamed:@"tramsbutton"] forState:UIControlStateNormal];
-    [self.mapView addSubview:self.filterButton];
+    UIImage *buttonImage = [self imageWithImage:[UIImage imageNamed:@"tramsbuttonpng"] scaledToSize:CGSizeMake(34,34)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:buttonImage style:UIBarButtonItemStylePlain target:self action:@selector(showFilters:)];
+    self.filterButton = self.navigationItem.leftBarButtonItem;
 }
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return [newImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -200,7 +209,9 @@
         view;
     });
 
-    CGRect rect = CGRectOffset([self.view convertRect:self.filterButton.bounds fromView:self.mapView], 16, 26);
+// TODO: Find a way to get the rect from the barbuttonitem
+//    CGRect rect = CGRectOffset([self.view convertRect:self.filterButton.bounds fromView:self.mapView], 16, 26);
+    CGRect rect = CGRectMake(0,0,50,50); // Fudged for now
     [callout presentCalloutFromRect:rect inView:self.view constrainedToView:self.view animated:YES];
 
     self.activeCallout = callout;
