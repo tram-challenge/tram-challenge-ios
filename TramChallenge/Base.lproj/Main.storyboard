@@ -43,11 +43,11 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map" id="acW-dT-cKf"/>
+                    <navigationItem key="navigationItem" title="Map" id="jYe-pO-pXp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="2586" y="-320"/>
         </scene>
         <!--Challenge-->
         <scene sceneID="wg7-f3-ORb">
@@ -166,7 +166,7 @@ Helsinki Tram Challenge</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="775.5" y="672"/>
+            <point key="canvasLocation" x="1693.5" y="672"/>
         </scene>
         <!--Tram Challenge-->
         <scene sceneID="eOE-gV-8H2">
@@ -516,19 +516,19 @@ Helsinki Tram Challenge</string>
                     </tabBar>
                     <connections>
                         <segue destination="f0N-M2-JgP" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="SDC-Hg-th3" kind="relationship" relationship="viewControllers" id="5BR-0E-Beg"/>
-                        <segue destination="Er1-AZ-n3j" kind="relationship" relationship="viewControllers" id="HgC-Mh-JaN"/>
+                        <segue destination="QkQ-dI-tpN" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="awI-AB-KM9" kind="relationship" relationship="viewControllers" id="5BR-0E-Beg"/>
+                        <segue destination="UgF-6R-0R4" kind="relationship" relationship="viewControllers" id="HgC-Mh-JaN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-216" y="-392"/>
+            <point key="canvasLocation" x="702" y="-392"/>
         </scene>
         <!--Stops-->
         <scene sceneID="ehL-cb-r6Q">
             <objects>
-                <viewController title="Stops" id="SDC-Hg-th3" customClass="StopsViewController" sceneMemberID="viewController">
+                <viewController title="Stops" automaticallyAdjustsScrollViewInsets="NO" id="SDC-Hg-th3" customClass="StopsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JKE-p3-mfy"/>
                         <viewControllerLayoutGuide type="bottom" id="8Zg-c6-SCP"/>
@@ -542,8 +542,30 @@ Helsinki Tram Challenge</string>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="INN-I3-CUW" secondAttribute="trailing" id="9Hu-wR-6Y7"/>
+                            <constraint firstItem="INN-I3-CUW" firstAttribute="top" secondItem="JKE-p3-mfy" secondAttribute="bottom" id="S4F-At-y2E"/>
+                            <constraint firstItem="INN-I3-CUW" firstAttribute="leading" secondItem="sXF-By-cYV" secondAttribute="leading" id="SpI-SO-omF"/>
+                            <constraint firstItem="INN-I3-CUW" firstAttribute="bottom" secondItem="8Zg-c6-SCP" secondAttribute="top" id="WdW-5A-cZE"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9Hu-wR-6Y7"/>
+                                <exclude reference="S4F-At-y2E"/>
+                                <exclude reference="SpI-SO-omF"/>
+                                <exclude reference="WdW-5A-cZE"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="9Hu-wR-6Y7"/>
+                                <include reference="S4F-At-y2E"/>
+                                <include reference="SpI-SO-omF"/>
+                                <include reference="WdW-5A-cZE"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stops" image="stops" id="y57-cz-EmV"/>
+                    <navigationItem key="navigationItem" title="Stops" id="EcQ-Xx-wZx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="scrollView" destination="INN-I3-CUW" id="cRY-12-GOZ"/>
@@ -551,7 +573,7 @@ Helsinki Tram Challenge</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbc-Fn-8Xl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1182" y="-341"/>
+            <point key="canvasLocation" x="-2160" y="-313"/>
         </scene>
         <!--Leaderboard-->
         <scene sceneID="t6b-1S-9gk">
@@ -566,12 +588,12 @@ Helsinki Tram Challenge</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Leaderboard" image="leaderboard" id="xXt-Wq-voy"/>
+                    <navigationItem key="navigationItem" id="doU-jI-RTa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqZ-qK-euM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1057.5" y="651"/>
+            <point key="canvasLocation" x="-139.5" y="651"/>
         </scene>
         <!--Challenge-->
         <scene sceneID="MMX-YG-CiQ">
@@ -594,7 +616,73 @@ Helsinki Tram Challenge</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yID-EJ-cwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-312" y="672"/>
+            <point key="canvasLocation" x="606" y="672"/>
+        </scene>
+        <!--Leaderboard-->
+        <scene sceneID="s7L-G0-5lY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UgF-6R-0R4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Leaderboard" image="leaderboard" id="xXt-Wq-voy"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="byq-UP-URP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Er1-AZ-n3j" kind="relationship" relationship="rootViewController" id="1Zg-Va-O3W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYX-BW-yIH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1057.5" y="651"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="otN-Tq-aKP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QkQ-dI-tpN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="acW-dT-cKf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LtV-Mt-MBo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="Tsa-57-6Gi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZAH-PT-aE2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1668" y="-320"/>
+        </scene>
+        <!--Stops-->
+        <scene sceneID="sdy-t6-Xln">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="awI-AB-KM9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Stops" image="stops" id="y57-cz-EmV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X7y-fQ-J2J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SDC-Hg-th3" kind="relationship" relationship="rootViewController" id="Q8n-d8-R0E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fWX-wq-URi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1182" y="-341"/>
         </scene>
     </scenes>
     <resources>

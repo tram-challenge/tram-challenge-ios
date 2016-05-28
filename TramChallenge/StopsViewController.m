@@ -18,16 +18,15 @@
 
 @implementation StopsViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
+- (void)viewDidLayoutSubviews {
     NSUInteger numberOfPages = [[RouteData routeNames] count];
+    
+    NSLog(@"%f", self.scrollView.frame.size.height);
 
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.contentSize = CGSizeMake(numberOfPages * self.scrollView.frame.size.width, self.scrollView.frame.size.height);
-    [self.view addSubview:self.scrollView];
     
     self.PageControlBtns = [[NSMutableArray alloc] init];
 
@@ -68,8 +67,8 @@
         }];
         
         [self.scrollView addSubview:page];
-
-        UIButton *pageControlBtn = [[UIButton alloc] initWithFrame:CGRectMake(x_coord + i * (btnSize + btnMargin), self.scrollView.frame.size.height - 20, btnSize, btnSize)];
+        
+        UIButton *pageControlBtn = [[UIButton alloc] initWithFrame:CGRectMake(x_coord + i * (btnSize + btnMargin), self.scrollView.frame.size.height + 24, btnSize, btnSize)];
         pageControlBtn.alpha = i == 0 ? 1 : 0.4;
         pageControlBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14.0];
         [pageControlBtn setTitle:routeName forState:UIControlStateNormal];
