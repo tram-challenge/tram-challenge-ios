@@ -52,7 +52,7 @@
 
 - (CGSize)preferredContentSize
 {
-    return CGSizeMake(50, [self lines].count * 42);
+    return CGSizeMake(40, [self lines].count * 42);
 }
 
 #pragma mark - UITableViewDataSource + UITableViewDelegate
@@ -110,10 +110,10 @@
             button.tc_titleColor = [UIColor blackColor];
             button.titleLabel.font = [UIFont systemFontOfSize:16];
             button.titleLabel.numberOfLines = 0;
-            button.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+            button.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
             button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
             button.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 10);
-            button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
             button.userInteractionEnabled = NO;
             [self.contentView addSubview:button];
             button;
@@ -155,6 +155,7 @@
     self.button.alpha = selected ? 1.0 : 0.4;
 
     self.button.layer.backgroundColor = [RouteData colorForRouteName:lineName].CGColor;
+    self.button.layer.cornerRadius = 5;
 }
 
 

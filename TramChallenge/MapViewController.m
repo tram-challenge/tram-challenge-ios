@@ -56,10 +56,10 @@
     });
 
     self.filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.filterButton.frame = CGRectMake(22, 0, 70, 40);
+    self.filterButton.frame = CGRectMake(10, 22, 40, 40);
     self.filterButton.tintColor = [UIColor blackColor];
     [self.filterButton addTarget:self action:@selector(showFilters:) forControlEvents:UIControlEventTouchUpInside];
-    self.filterButton.tc_title = @"Lines";
+    [self.filterButton setImage:[UIImage imageNamed:@"tramsbutton"] forState:UIControlStateNormal];
     [self.mapView addSubview:self.filterButton];
 }
 
@@ -122,16 +122,8 @@
 
 - (IBAction)showFilters:(id)sender
 {
-    BOOL wasShowingFilters = self.showingFilters;
-
-    if (wasShowingFilters) {
-        if (self.filterListOverlay) {
-            [UIView animateWithDuration:0.2 animations:^{
-                self.filterListOverlay.alpha = 0;
-            } completion:^(BOOL finished) {
-                [self.filterListOverlay removeFromSuperview];
-            }];
-        }
+    if (self.showingFilters) {
+        [self dismissActiveCallout];
         return;
     }
 
@@ -150,7 +142,7 @@
         view;
     });
 
-    CGRect rect = CGRectOffset([self.view convertRect:self.filterButton.bounds fromView:self.mapView], 0, 8);
+    CGRect rect = CGRectOffset([self.view convertRect:self.filterButton.bounds fromView:self.mapView], 16, 26);
     [callout presentCalloutFromRect:rect inView:self.view constrainedToView:self.view animated:YES];
 
     self.activeCallout = callout;
