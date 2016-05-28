@@ -74,13 +74,20 @@ static RouteData *_RouteData;
 {
     self.routes = [NSMutableDictionary dictionary];
     for (NSString *name in [self.class routeNames]) {
-        self.routes[name] = [TCTramRoute new];
+        TCTramRoute *route = [TCTramRoute new];
+        route.routeName = name;
+        self.routes[name] = route;
     }
 }
 
 - (NSArray<TCTramStop *> *)stopsForRoute:(NSString *)routeName
 {
     return self.routes[routeName].stops;
+}
+
+- (TCTramRoute *)routeForRouteName:(NSString *)name
+{
+    return self.routes[name];
 }
 
 - (NSArray *)coordsForRoute:(NSString *)routeName

@@ -8,6 +8,21 @@
 
 #import "TCTramStop.h"
 
+@interface TCTramStop ()
+
+@end
+
 @implementation TCTramStop
+
+- (void)markVisited
+{
+    _visited = YES;
+}
+
+
+- (void)markUnvisited
+{
+    _visited = NO;
+}
 
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class TCTramStop;
+@class TCTramStop, TCTramRoute;
 
 @interface RouteData : NSObject
 
@@ -22,5 +22,6 @@
 - (void)fetchStopsSuccess:(void (^)())successBlock;
 - (NSArray<TCTramStop *> *)stopsForRoute:(NSString *)routeName;
 
+- (TCTramRoute *)routeForRouteName:(NSString *)name;
 
 @end

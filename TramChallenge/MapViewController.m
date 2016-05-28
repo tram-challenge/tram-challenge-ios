@@ -148,10 +148,11 @@
     [[RouteData instance] fetchStopsSuccess:^{
         self.annotations = [NSMutableDictionary dictionary];
         for (NSString *name in [RouteData routeNames]) {
+            TCTramRoute *route = [[RouteData instance] routeForRouteName:name];
             self.annotations[name] = [NSMutableArray array];
             for (TCTramStop *stop in [[RouteData instance] stopsForRoute:name]) {
                 TCAnnotation *annotation = [[TCAnnotation alloc] initWithCoordinate:stop.coord title:stop.name];
-                annotation.color = [RouteData colorForRouteName:name];
+                annotation.color = [route colorForStop:stop];
                 [self.mapView addAnnotation:annotation];
                 [self.annotations[name] addObject:annotation];
             }
