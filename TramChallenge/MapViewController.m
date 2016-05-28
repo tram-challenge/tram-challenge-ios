@@ -103,7 +103,7 @@
     [self.mapView addGestureRecognizer:tap];
 
     [[RouteData instance] fetchStopsSuccess:^{
-
+        lg(@"%@", [[RouteData instance] stopsForRoute:@"1A"]);
     }];
 }
 

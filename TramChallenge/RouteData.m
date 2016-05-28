@@ -51,6 +51,7 @@ static RouteData *_RouteData;
                 [self.routes[route] addObject:stop];
             }
         }
+        successBlock();
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIAlertView showWithTitle:NSLocalizedString(@"Communication error", nil)
@@ -70,6 +71,11 @@ static RouteData *_RouteData;
     for (NSString *name in [self.class routeNames]) {
         self.routes[name] = [NSMutableArray array];
     }
+}
+
+- (NSArray<TCTramStop *> *)stopsForRoute:(NSString *)routeName
+{
+    return self.routes[routeName];
 }
 
 - (NSArray *)coordsForRoute:(NSString *)routeName

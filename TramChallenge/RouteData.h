@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface RouteData : NSObject
+@class TCTramStop;
 
-//- (void)fetchRoutes
+@interface RouteData : NSObject
 
 + (RouteData *)instance;
 
@@ -20,5 +20,7 @@
 + (UIColor *)colorForRouteName:(NSString *)routeName;
 
 - (void)fetchStopsSuccess:(void (^)())successBlock;
+- (NSArray<TCTramStop *> *)stopsForRoute:(NSString *)routeName;
+
 
 @end
