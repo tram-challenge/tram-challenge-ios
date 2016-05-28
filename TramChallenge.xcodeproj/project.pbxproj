@@ -41,6 +41,7 @@
 		CFDD7DCF1CF9ACE100460757 /* AttemptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DCE1CF9ACE100460757 /* AttemptViewController.m */; };
 		CFDD7DD51CF9B15800460757 /* TCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DD41CF9B15800460757 /* TCTabBarController.m */; };
 		CFDD7DD81CF9B33200460757 /* ChallengeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DD71CF9B33200460757 /* ChallengeNavigationController.m */; };
+		7C1FFDD91CF9AFD0009AD02A /* StopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1FFDD81CF9AFD0009AD02A /* StopsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,8 @@
 		CFDD7DD41CF9B15800460757 /* TCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTabBarController.m; sourceTree = "<group>"; };
 		CFDD7DD61CF9B33200460757 /* ChallengeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeNavigationController.h; sourceTree = "<group>"; };
 		CFDD7DD71CF9B33200460757 /* ChallengeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeNavigationController.m; sourceTree = "<group>"; };
+		7C1FFDD71CF9AFD0009AD02A /* StopsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopsViewController.h; sourceTree = "<group>"; };
+		7C1FFDD81CF9AFD0009AD02A /* StopsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +198,8 @@
 				CFDD7DD41CF9B15800460757 /* TCTabBarController.m */,
 				CFDD7DD61CF9B33200460757 /* ChallengeNavigationController.h */,
 				CFDD7DD71CF9B33200460757 /* ChallengeNavigationController.m */,
+				7C1FFDD71CF9AFD0009AD02A /* StopsViewController.h */,
+				7C1FFDD81CF9AFD0009AD02A /* StopsViewController.m */,
 			);
 			path = TramChallenge;
 			sourceTree = "<group>";
@@ -495,6 +500,7 @@
 				3AD8F1CA1CF998AC00C48237 /* TCAPIAdaptor.m in Sources */,
 				3AD8F1431CEE4D6100C48237 /* main.m in Sources */,
 				CFDD7DD51CF9B15800460757 /* TCTabBarController.m in Sources */,
+				7C1FFDD91CF9AFD0009AD02A /* StopsViewController.m in Sources */,
 				3AD8F1C11CF8C23900C48237 /* TramLineSelectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -65,7 +65,7 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
                                         <rect key="frame" x="61" y="0.0" width="198" height="41"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Welcome to the 
+                                        <string key="text">Welcome to the
 Helsinki Tram Challenge</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -317,7 +317,7 @@ Helsinki Tram Challenge</string>
         <!--Stops-->
         <scene sceneID="ehL-cb-r6Q">
             <objects>
-                <viewController title="Stops" id="SDC-Hg-th3" sceneMemberID="viewController">
+                <viewController title="Stops" id="SDC-Hg-th3" customClass="StopsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JKE-p3-mfy"/>
                         <viewControllerLayoutGuide type="bottom" id="8Zg-c6-SCP"/>
@@ -325,10 +325,18 @@ Helsinki Tram Challenge</string>
                     <view key="view" contentMode="scaleToFill" id="sXF-By-cYV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="stops" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INN-I3-CUW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Stops" image="stops" id="y57-cz-EmV"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="scrollView" destination="INN-I3-CUW" id="cRY-12-GOZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbc-Fn-8Xl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
