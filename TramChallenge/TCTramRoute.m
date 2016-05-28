@@ -42,4 +42,15 @@
     return color;
 }
 
+- (void)sort
+{
+    [self.stops sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        TCTramStop *s1 = obj1;
+        TCTramStop *s2 = obj2;
+        NSInteger pos1 = [s1.stop_positions[self.routeName] integerValue];
+        NSInteger pos2 = [s2.stop_positions[self.routeName] integerValue];
+        return pos1 > pos2 ? NSOrderedAscending : NSOrderedDescending;
+    }];
+}
+
 @end

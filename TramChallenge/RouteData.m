@@ -45,12 +45,18 @@ static RouteData *_RouteData;
             stop.stop_numbers = stopDict[@"stop_numbers"];
             stop.hsl_ids = stopDict[@"hsl_ids"];
             stop.links = stopDict[@"links"];
+            stop.stop_positions = [NSDictionary tc_cast:stopDict[@"stop_positions"]];
             CLLocationCoordinate2D coord =  {.latitude =  [stopDict[@"latitude"] floatValue], .longitude =  [stopDict[@"longitude"] floatValue]};
             stop.coord = coord;
             for (NSString *route in [NSArray tc_cast:stopDict[@"routes"]]) {
                 [self.routes[route].stops addObject:stop];
             }
         }
+
+        for (NSString *routeName in [self.class routeNames]) {
+            [[self routeForRouteName:routeName] sort];
+        }
+
         successBlock();
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
         dispatch_async(dispatch_get_main_queue(), ^{

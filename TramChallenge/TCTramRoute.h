@@ -18,4 +18,6 @@
 
 - (UIColor *)colorForStop:(TCTramStop *)stop;
 
+- (void)sort;
+
 @end
