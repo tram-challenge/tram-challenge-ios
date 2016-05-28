@@ -20,6 +20,18 @@ static NSString * const apiURL = @"https://dev.tramchallenge.com";
 
 @implementation TCAPIAdaptor
 
+static TCAPIAdaptor *_TCAPIAdaptor;
+
++ (TCAPIAdaptor *)instance
+{
+    static dispatch_once_t pred;
+
+    dispatch_once(&pred, ^{
+        _TCAPIAdaptor = [[self alloc] init];
+    });
+    return _TCAPIAdaptor;
+}
+
 - (void)getRoutesWithSuccess:(void (^)(NSArray *routes))successBlock
                             failure:(TCErrorBlock)failureBlock
 {

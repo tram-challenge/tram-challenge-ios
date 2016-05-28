@@ -11,10 +11,21 @@
 
 @implementation RouteData
 
-+ (NSArray *)coordsForRoute:(NSString *)routeName
+static RouteData *_RouteData;
+
++ (RouteData *)instance
+{
+    static dispatch_once_t pred;
+
+    dispatch_once(&pred, ^{
+        _RouteData = [[self alloc] init];
+    });
+    return _RouteData;
+}
+
+- (NSArray *)coordsForRoute:(NSString *)routeName
 {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:routeName ofType:@".coords.txt"];
-    lg(@"%@", filePath);
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     return json[@"line"];

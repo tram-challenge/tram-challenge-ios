@@ -13,7 +13,9 @@
 
 //- (void)fetchRoutes
 
-+ (NSArray *)coordsForRoute:(NSString *)routeName;
++ (RouteData *)instance;
+
+- (NSArray *)coordsForRoute:(NSString *)routeName;
 + (NSArray *)routeNames;
 + (UIColor *)colorForRouteName:(NSString *)routeName;
 
