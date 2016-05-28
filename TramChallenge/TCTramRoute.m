@@ -10,4 +10,13 @@
 
 @implementation TCTramRoute
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _stops = [NSMutableArray array];
+    }
+    return self;
+}
+
 @end

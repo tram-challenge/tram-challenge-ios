@@ -10,10 +10,11 @@
 #import "TCUtilities.h"
 #import "TCAPIAdaptor.h"
 #import "TCTramStop.h"
+#import "TCTramRoute.h"
 
 @interface RouteData ()
 
-@property (nonatomic) NSMutableDictionary<NSString *, NSMutableArray<TCTramStop *> *> *routes;
+@property (nonatomic) NSMutableDictionary<NSString *, TCTramRoute *> *routes;
 
 @end
 
@@ -47,7 +48,7 @@ static RouteData *_RouteData;
             CLLocationCoordinate2D coord =  {.latitude =  [stopDict[@"latitude"] floatValue], .longitude =  [stopDict[@"longitude"] floatValue]};
             stop.coord = coord;
             for (NSString *route in [NSArray tc_cast:stopDict[@"routes"]]) {
-                [self.routes[route] addObject:stop];
+                [self.routes[route].stops addObject:stop];
             }
         }
         successBlock();
@@ -73,13 +74,13 @@ static RouteData *_RouteData;
 {
     self.routes = [NSMutableDictionary dictionary];
     for (NSString *name in [self.class routeNames]) {
-        self.routes[name] = [NSMutableArray array];
+        self.routes[name] = [TCTramRoute new];
     }
 }
 
 - (NSArray<TCTramStop *> *)stopsForRoute:(NSString *)routeName
 {
-    return self.routes[routeName];
+    return self.routes[routeName].stops;
 }
 
 - (NSArray *)coordsForRoute:(NSString *)routeName

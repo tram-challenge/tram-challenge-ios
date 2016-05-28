@@ -10,4 +10,6 @@
 
 @interface TCTramRoute : NSObject
 
+@property (nonatomic) NSMutableArray *stops;
+
 @end
