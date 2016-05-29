@@ -10,6 +10,7 @@
 #import "TCUtilities.h"
 #import "TCTabBarController.h"
 #import "AttemptViewController.h"
+#import "ChallengeNavigationController.h"
 @import CloudKit;
 
 @interface AppDelegate ()
@@ -76,7 +77,9 @@
     UIAlertAction* finishAction = [UIAlertAction actionWithTitle:@"Finish" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
         TCTabBarController *controller = (TCTabBarController *)self.window.rootViewController;
         controller.selectedIndex = 0;
-        [(AttemptViewController *)controller.selectedViewController challengeCompleted];
+        ChallengeNavigationController *challengeNavController = (ChallengeNavigationController *)controller.selectedViewController;
+
+        [(AttemptViewController *)challengeNavController.visibleViewController challengeCompleted];
     }];
     UIAlertAction* noAction = [UIAlertAction actionWithTitle:@"Not completed yet" style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * action) {}];
