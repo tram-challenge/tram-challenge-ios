@@ -56,11 +56,12 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     } failure:failureBlock];
 }
 
-- (void)startAttempt:(void (^)())successBlock
-            failure:(void (^)())failureBlock
+- (void)startAttemptForNickname:(NSString *)nickname
+                        success:(void (^)())successBlock
+                        failure:(void (^)())failureBlock
 {
     NSString *path = @"api/attempts";
-    NSDictionary *params = @{@"icloud_user_id" : [self cloudID]};
+    NSDictionary *params = @{@"icloud_user_id" : [self cloudID], @"nickname" : nickname};
     [self post:path with:params success:^(AFHTTPRequestOperation *operation, id result) {
         NSDictionary *dict = [NSDictionary tc_cast:result];
         self.attemptID = dict[@"id"];

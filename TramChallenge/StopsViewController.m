@@ -163,6 +163,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [self selectStop:cell];
     [self updateVisitedStops];
+    [self checkCompleteness];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -293,6 +294,12 @@
                 [self deselectStop:cell];
             }
         }
+    }
+}
+
+- (void)checkCompleteness {
+    if (RouteData.instance.visitedStops.count == RouteData.instance.stops.count) {
+
     }
 }
 

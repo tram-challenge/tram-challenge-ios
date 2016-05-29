@@ -40,6 +40,7 @@
 		7C1FFDD91CF9AFD0009AD02A /* StopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1FFDD81CF9AFD0009AD02A /* StopsViewController.m */; };
 		C609100BEC42073636CF7C40 /* Pods_TramChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5F9192E7DED712CD1A069C /* Pods_TramChallenge.framework */; };
 		CF7648691CFA0F1F002DE158 /* LeaderboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7648681CFA0F1F002DE158 /* LeaderboardController.m */; };
+		CF76486E1CFAF37F002DE158 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF76486D1CFAF37E002DE158 /* SafariServices.framework */; };
 		CFDD7DCF1CF9ACE100460757 /* AttemptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DCE1CF9ACE100460757 /* AttemptViewController.m */; };
 		CFDD7DD51CF9B15800460757 /* TCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DD41CF9B15800460757 /* TCTabBarController.m */; };
 		CFDD7DD81CF9B33200460757 /* ChallengeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD7DD71CF9B33200460757 /* ChallengeNavigationController.m */; };
@@ -116,6 +117,7 @@
 		7C1FFDD81CF9AFD0009AD02A /* StopsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopsViewController.m; sourceTree = "<group>"; };
 		CF7648671CFA0F1F002DE158 /* LeaderboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardController.h; sourceTree = "<group>"; };
 		CF7648681CFA0F1F002DE158 /* LeaderboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardController.m; sourceTree = "<group>"; };
+		CF76486D1CFAF37E002DE158 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		CFDD7DCD1CF9ACE100460757 /* AttemptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttemptViewController.h; sourceTree = "<group>"; };
 		CFDD7DCE1CF9ACE100460757 /* AttemptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttemptViewController.m; sourceTree = "<group>"; };
 		CFDD7DD31CF9B15800460757 /* TCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTabBarController.h; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF76486E1CFAF37F002DE158 /* SafariServices.framework in Frameworks */,
 				3AD8F1C71CF8CA1B00C48237 /* CloudKit.framework in Frameworks */,
 				3AD8F1781CEE5CA000C48237 /* MapKit.framework in Frameworks */,
 				C609100BEC42073636CF7C40 /* Pods_TramChallenge.framework in Frameworks */,
@@ -274,6 +277,7 @@
 		C89E7406104B6BE82C72A3A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF76486D1CFAF37E002DE158 /* SafariServices.framework */,
 				6D5F9192E7DED712CD1A069C /* Pods_TramChallenge.framework */,
 			);
 			name = Frameworks;

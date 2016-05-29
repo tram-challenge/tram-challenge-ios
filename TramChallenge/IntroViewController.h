@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IntroViewController : UIViewController
+@interface IntroViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *startChallengeButton;
+@property (weak, nonatomic) IBOutlet UITextField *nicknameField;
 
 @end
 
