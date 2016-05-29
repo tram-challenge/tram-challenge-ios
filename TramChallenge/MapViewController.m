@@ -95,7 +95,7 @@
     UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(3, 3, 14, 14) cornerRadius: 4];
     [self.color setFill];
     [roundedRectanglePath fill];
-    [self.color setStroke];
+    [[UIColor blackColor] setStroke];
     roundedRectanglePath.lineWidth = 1;
     [roundedRectanglePath stroke];
 
