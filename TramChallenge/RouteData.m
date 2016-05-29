@@ -153,6 +153,25 @@ static RouteData *_RouteData;
     return @[@"1", @"1A", @"2", @"3", @"4", @"4T", @"6", @"6T", @"7A", @"7B", @"8", @"9", @"10"];
 }
 
++ (NSString *) descriptionForRouteName:(NSString *)routeName
+{
+    return (NSString *)(@{
+      @"1" : @"Kauppatori - Käpylä",
+      @"1A" : @"Eira - Kauppatori - Käpylä",
+      @"2"  : @"Olympiaterminaali - Kamppi (M) - Töölö - Nordenskiöldinkatu",
+      @"3"  : @"Olympiaterminaali - Kallio - Nordenskiöldinkatu",
+      @"4" : @"Katajanokka - Munkkiniemi",
+      @"4T" : @"Katajanokka (terminaali) - Munkkiniemi",
+      @"6" : @"Hietalahti - Rautatieasema - Arabia",
+      @"6T" : @"Länsiterminaali - Rautatieasema - Arabia",
+      @"7A" : @"Senaatintori - Töölö - Pasila (asema) - Senaatintori",
+      @"7B" : @"Senaatintori - Pasila (asema) - Töölö - Senaatintori",
+      @"8"  : @"Jätkäsaari - Töölö – Arabia",
+      @"9"  : @"Länsiterminaali - Rautatieasema - Pasila",
+      @"10" : @"Kirurgi - Pikku Huopalahti"
+    }[routeName]);
+}
+
 + (UIColor *)colorForRouteName:(NSString *)routeName
 {
     return (UIColor *)(@{
