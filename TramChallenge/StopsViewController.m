@@ -88,7 +88,7 @@
             NSString *endStop = stops[stops.count-1].name;
             titleLbl.text = [NSString stringWithFormat:@"%@ - %@", startStop, endStop];
 
-            UITableView *tableView = [[UITableView alloc] initWithFrame: CGRectMake(20, 80, self.scrollView.frame.size.width, self.scrollView.frame.size.height - 120) style:UITableViewStylePlain];
+            UITableView *tableView = [[UITableView alloc] initWithFrame: CGRectMake(20, 80, self.scrollView.frame.size.width, self.scrollView.frame.size.height - 130) style:UITableViewStylePlain];
             tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
             tableView.delegate = self;
             tableView.dataSource = self;
