@@ -58,7 +58,16 @@
 
         if (error) {
             lg(@"[%@] Error loading CloudKit user: %@", self.class, error);
-            self.cloudID = @"Anon";
+
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+            NSString *uuid = [defaults stringForKey:@"uuid"];
+            if (uuid == nil) {
+                uuid = [[NSUUID UUID] UUIDString];
+                [defaults setObject:uuid forKey:@"uuid"];
+                [defaults synchronize];
+            }
+            self.cloudID = uuid;
         }
 
         if (recordID) {
