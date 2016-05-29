@@ -36,6 +36,12 @@
     return [self.leaderboard count];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setBackgroundColor: indexPath.row % 2 == 0 ? [UIColor whiteColor] : [UIColor colorWithRed:0 green:0.6 blue:0.36 alpha:0.030]];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:15.0];
+    cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:15.0];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"LeaderboardCell"];
     NSDictionary *team = [self.leaderboard objectAtIndex:indexPath.row];
