@@ -235,6 +235,8 @@
 
 - (void)updateVeh
 {
+    if (!self.vehAnnotations) self.vehAnnotations = [NSMutableDictionary dictionary];
+
     NSMutableArray *seen = [NSMutableArray array];
     [[TCAPIAdaptor instance] tramPositions:^(NSDictionary *pos) {
         for (NSString *vehID in pos) {
@@ -252,7 +254,6 @@
                 newAnnotation.color = [RouteData colorForRouteName:routeName];
                 [self.mapView addAnnotation:newAnnotation];
                 self.vehAnnotations[vehID] = newAnnotation;
-                [self.mapView addAnnotation:newAnnotation];
                 [seen addObject:vehID];
             }
         }
@@ -266,6 +267,7 @@
             }
         }
         self.vehAnnotations = newVehAnnotations;
+        [self filterLiveTrams:self.filterListViewer];
     }];
 }
 
@@ -324,6 +326,7 @@
 
 - (void)lineListDidChangeSelection:(TramLineSelectionViewController *)list
 {
+    // Better to this with set operations?
     if (list.selectedLines.count) {
         for (NSString *lineName in [RouteData routeNames]) {
             if (![list.selectedLines containsObject:lineName]) {
@@ -358,6 +361,23 @@
                     [self.mapView addAnnotation:annotation];
                 }
             }
+        }
+    }
+
+    [self filterLiveTrams:list];
+}
+
+- (void)filterLiveTrams:(TramLineSelectionViewController *)list
+{
+    for (TCVehAnnotation *annotation in [self.vehAnnotations allValues]) {
+        if (list.selectedLines.count) {
+            if ([list.selectedLines containsObject:annotation.title]) {
+                [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+            } else {
+                [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+            }
+        } else {
+            [[self.mapView viewForAnnotation:annotation] setHidden:NO];
         }
     }
 }
@@ -441,6 +461,7 @@
         pinvehView.canShowCallout = YES;
         pinvehView.backgroundColor = [UIColor clearColor];
         pinvehView.title = ((TCVehAnnotation *)annotation).title;
+        pinvehView.layer.zPosition = 3; // in front of stops
         [pinvehView setNeedsDisplay];
         return pinvehView;
     } else {
