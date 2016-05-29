@@ -24,6 +24,7 @@
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readonly, copy) NSString *title;
 @property (nonatomic) UIColor *color;
+@property (nonatomic) TCTramStop *stop;
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title;
 @end
 
@@ -43,13 +44,15 @@
 
 @interface TCAnnotationView : MKAnnotationView
 @property (nonatomic) UIColor *color;
+@property (nonatomic) TCTramStop *stop;
 @end
 
 @implementation TCAnnotationView
 - (void)drawRect:(CGRect)rect
 {
     UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(3, 3, 14, 14)];
-    [[UIColor whiteColor] setFill];
+    if (self.stop.visited) [self.color setFill];
+    else [[UIColor whiteColor] setFill];
     [ovalPath fill];
     [self.color setStroke];
     ovalPath.lineWidth = 5;
@@ -92,7 +95,7 @@
     UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(3, 3, 14, 14) cornerRadius: 4];
     [self.color setFill];
     [roundedRectanglePath fill];
-    [self.color setStroke];
+    [[UIColor blackColor] setStroke];
     roundedRectanglePath.lineWidth = 1;
     [roundedRectanglePath stroke];
 
@@ -216,6 +219,7 @@
             for (TCTramStop *stop in [[RouteData instance] stopsForRoute:name]) {
                 TCAnnotation *annotation = [[TCAnnotation alloc] initWithCoordinate:stop.coord title:stop.name];
                 annotation.color = [route colorForStop:stop];
+                annotation.stop = stop;
                 [self.mapView addAnnotation:annotation];
                 [self.annotations[name] addObject:annotation];
             }
@@ -235,6 +239,8 @@
 
 - (void)updateVeh
 {
+    if (!self.vehAnnotations) self.vehAnnotations = [NSMutableDictionary dictionary];
+
     NSMutableArray *seen = [NSMutableArray array];
     [[TCAPIAdaptor instance] tramPositions:^(NSDictionary *pos) {
         for (NSString *vehID in pos) {
@@ -252,7 +258,6 @@
                 newAnnotation.color = [RouteData colorForRouteName:routeName];
                 [self.mapView addAnnotation:newAnnotation];
                 self.vehAnnotations[vehID] = newAnnotation;
-                [self.mapView addAnnotation:newAnnotation];
                 [seen addObject:vehID];
             }
         }
@@ -266,6 +271,7 @@
             }
         }
         self.vehAnnotations = newVehAnnotations;
+        [self filterLiveTrams:self.filterListViewer];
     }];
 }
 
@@ -324,6 +330,7 @@
 
 - (void)lineListDidChangeSelection:(TramLineSelectionViewController *)list
 {
+    // Better to this with set operations?
     if (list.selectedLines.count) {
         for (NSString *lineName in [RouteData routeNames]) {
             if (![list.selectedLines containsObject:lineName]) {
@@ -358,6 +365,23 @@
                     [self.mapView addAnnotation:annotation];
                 }
             }
+        }
+    }
+
+    [self filterLiveTrams:list];
+}
+
+- (void)filterLiveTrams:(TramLineSelectionViewController *)list
+{
+    for (TCVehAnnotation *annotation in [self.vehAnnotations allValues]) {
+        if (list.selectedLines.count) {
+            if ([list.selectedLines containsObject:annotation.title]) {
+                [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+            } else {
+                [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+            }
+        } else {
+            [[self.mapView viewForAnnotation:annotation] setHidden:NO];
         }
     }
 }
@@ -427,6 +451,7 @@
         pinView = (TCAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
         if (pinView == nil) pinView = [[TCAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID];
         pinView.color = ((TCAnnotation *)annotation).color;
+        pinView.stop = ((TCAnnotation *)annotation).stop;
         pinView.frame = CGRectMake(0, 0, 25, 25);
         pinView.canShowCallout = YES;
         pinView.backgroundColor = [UIColor clearColor];
@@ -441,6 +466,7 @@
         pinvehView.canShowCallout = YES;
         pinvehView.backgroundColor = [UIColor clearColor];
         pinvehView.title = ((TCVehAnnotation *)annotation).title;
+        pinvehView.layer.zPosition = 3; // in front of stops
         [pinvehView setNeedsDisplay];
         return pinvehView;
     } else {

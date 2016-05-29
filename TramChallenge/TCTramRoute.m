@@ -24,9 +24,11 @@
 - (UIColor *)colorForStop:(TCTramStop *)stop
 {
     UIColor *baseColor = [RouteData colorForRouteName:self.routeName];
-    if (stop.visited) {
-        return [self setSaturation:baseColor amount:0.15];
-    }
+
+// Not changing colour of stops for now, indicating visited ones by being filled in
+//    if (stop.visited) {
+//        return [self setSaturation:baseColor amount:0.15];
+//    }
     return baseColor;
 }
 

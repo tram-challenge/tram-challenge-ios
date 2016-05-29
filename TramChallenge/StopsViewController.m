@@ -73,7 +73,7 @@
 
         [page addSubview:numberLbl];
 
-        UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(70, 20.0, page.frame.size.width-20.0, 40.0)];
+        UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(70, 20.0, page.frame.size.width-80, 40.0)];
         titleLbl.textColor = [RouteData colorForRouteName: routeName];
         titleLbl.font = [UIFont boldSystemFontOfSize:18.0];
         [page addSubview:titleLbl];
@@ -84,9 +84,12 @@
                 [stops addObject:stop];
             }
             [self.routes setObject:stops forKey:[NSString stringWithFormat:@"%d", i]];
-            NSString *startStop = stops[0].name;
-            NSString *endStop = stops[stops.count-1].name;
-            titleLbl.text = [NSString stringWithFormat:@"%@ - %@", startStop, endStop];
+            
+            titleLbl.text = [RouteData descriptionForRouteName:routeName];
+            if ([titleLbl.text length] > 30) {
+                titleLbl.numberOfLines = 0;
+                [titleLbl sizeToFit];
+            }
 
             UITableView *tableView = [[UITableView alloc] initWithFrame: CGRectMake(20, 80, self.scrollView.frame.size.width, self.scrollView.frame.size.height - 130) style:UITableViewStylePlain];
             tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;

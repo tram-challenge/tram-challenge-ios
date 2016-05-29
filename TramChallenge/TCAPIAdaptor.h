@@ -25,6 +25,9 @@ typedef void (^TCErrorBlock)(NSError *error, NSInteger status, NSDictionary *inf
 - (void)startAttemptForNickname:(NSString *)nickname
                         success:(void (^)())successBlock
                         failure:(void (^)())failureBlock;
+- (void)getLeaderboardWithSuccess:(void (^)(NSArray *leaderboard))successBlock
+                     failure:(TCErrorBlock)failureBlock;
+
 - (void)abortAttempt:(void (^)())successBlock
              failure:(void (^)())failureBlock;
 
