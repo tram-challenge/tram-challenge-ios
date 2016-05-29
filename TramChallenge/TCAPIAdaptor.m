@@ -56,6 +56,17 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     } failure:failureBlock];
 }
 
+- (void)getLeaderboardWithSuccess:(void (^)(NSArray *leaderboard))successBlock
+                           failure:(TCErrorBlock)failureBlock
+{
+    NSString *path = @"api/leaderboard.json";
+    
+    [self get:path with:nil success:^(AFHTTPRequestOperation *operation, id result) {
+        NSArray *leaderboard = [NSArray tc_cast:result];
+        successBlock(leaderboard);
+    } failure:failureBlock];
+}
+
 - (void)startAttempt:(void (^)())successBlock
             failure:(void (^)())failureBlock
 {
