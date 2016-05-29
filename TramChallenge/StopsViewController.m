@@ -162,12 +162,14 @@
     [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag-100]] objectAtIndex:indexPath.row] markVisited];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [self selectStop:cell];
+    [self updateVisitedStops];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag-100]] objectAtIndex:indexPath.row] markUnvisited];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [self deselectStop:cell];
+    [self updateVisitedStops];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -282,10 +284,13 @@
         for (int j = 0; j < stops.count; j++) {
             TCTramStop *stop = stops[j];
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:0];
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             if (stop.visited) {
                 [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+                [self selectStop:cell];
             } else {
                 [tableView deselectRowAtIndexPath:indexPath animated:NO];
+                [self deselectStop:cell];
             }
         }
     }
