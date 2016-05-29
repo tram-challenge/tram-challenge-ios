@@ -65,6 +65,9 @@
     UIAlertAction* yesAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive
                                                           handler:^(UIAlertAction * action) {
                                                               [[TCAPIAdaptor instance] abortAttempt:^{
+                                                                  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                                                  [defaults setBool:NO forKey:@"in_progress"];
+                                                                  [defaults synchronize];
                                                                   [[RouteData instance] clearVisitedStops];
                                                                   [self.navigationController popToRootViewControllerAnimated:NO];
                                                               } failure:^{}];
@@ -103,6 +106,9 @@
 - (void)challengeCompleted {
     [self.timeElapsedLabel pause];
     [self.abortChallengeButton setTitle:@"DONE" forState:UIControlStateNormal];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:NO forKey:@"in_progress"];
+    [defaults synchronize];
 }
 
 

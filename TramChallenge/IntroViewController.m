@@ -23,7 +23,10 @@
     
     self.startChallengeButton.layer.cornerRadius = 8;
 
-    [self setButtonStatus:NO];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *nickname = [defaults stringForKey:@"nickname"];
+    self.nicknameField.text = nickname;
+    [self setButtonStatus:self.nicknameField.text.length > 0];
 
     [self.nicknameField addTarget:self
                   action:@selector(textFieldDidChange:)
@@ -32,9 +35,27 @@
     [[RouteData instance] fetchStopsSuccess:^{}];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    if ([defaults boolForKey:@"in_progress"]) {
+        [self.startChallengeButton setTitle:@"Resume Challenge" forState:UIControlStateNormal];
+    } else {
+        [self.startChallengeButton setTitle:@"Start Challenge" forState:UIControlStateNormal];
+    }
+}
+
 - (IBAction)startChallenge:(id)sender {
     [self setButtonStatus:NO];
     [self.nicknameField resignFirstResponder];
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.nicknameField.text forKey:@"nickname"];
+    [defaults setBool:YES forKey:@"in_progress"];
+    [defaults synchronize];
+
 
     [[TCAPIAdaptor instance] startAttemptForNickname:self.nicknameField.text success:^() {
         // NEARLY complete challenge TEMP
