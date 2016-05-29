@@ -13,6 +13,7 @@
 @interface AttemptViewController : UIViewController
 
 - (IBAction)abortChallenge:(id)sender;
+- (void)challengeCompleted;
 
 @property (weak, nonatomic) IBOutlet UIButton *abortChallengeButton;
 @property (weak, nonatomic) IBOutlet UIView *statsView;

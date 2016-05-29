@@ -94,5 +94,10 @@
     }
 }
 
+- (void)challengeCompleted {
+    [self.timeElapsedLabel pause];
+    [self.abortChallengeButton setTitle:@"DONE" forState:UIControlStateNormal];
+}
+
 
 @end
