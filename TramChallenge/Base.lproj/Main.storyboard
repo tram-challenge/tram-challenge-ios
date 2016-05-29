@@ -786,6 +786,9 @@ Helsinki Tram Challenge</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Leaderboard" id="3b6-DR-B6h"/>
+                    <connections>
+                        <outlet property="tableView" destination="pZL-vp-8SW" id="S2G-N9-OLS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZ9-el-Kv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
