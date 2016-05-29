@@ -142,6 +142,10 @@
     cell.textLabel.text = [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row] name];
     cell.imageView.image = [UIImage imageNamed:@"stop-unvisited.png"];
     cell.imageView.highlightedImage = [UIImage imageNamed:@"stop-visited.png"];
+    UIView *transparentBackground = [[UIView alloc] initWithFrame:cell.bounds];
+    transparentBackground.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    transparentBackground.backgroundColor = [UIColor clearColor];
+    cell.selectedBackgroundView = transparentBackground;
     return cell;
 }
 
