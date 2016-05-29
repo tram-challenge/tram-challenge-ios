@@ -20,6 +20,9 @@
     _visited = YES;
     [[TCAPIAdaptor instance] markVisited:self.id success:^{
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self markVisited];
+        });
     }];
 }
 
@@ -28,6 +31,9 @@
     _visited = NO;
     [[TCAPIAdaptor instance] markUnvisited:self.id success:^{
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self markUnvisited];
+        });
     }];
 }
 
