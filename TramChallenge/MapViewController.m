@@ -24,6 +24,7 @@
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readonly, copy) NSString *title;
 @property (nonatomic) UIColor *color;
+@property (nonatomic) TCTramStop *stop;
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title;
 @end
 
@@ -43,13 +44,15 @@
 
 @interface TCAnnotationView : MKAnnotationView
 @property (nonatomic) UIColor *color;
+@property (nonatomic) TCTramStop *stop;
 @end
 
 @implementation TCAnnotationView
 - (void)drawRect:(CGRect)rect
 {
     UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(3, 3, 14, 14)];
-    [[UIColor whiteColor] setFill];
+    if (self.stop.visited) [self.color setFill];
+    else [[UIColor whiteColor] setFill];
     [ovalPath fill];
     [self.color setStroke];
     ovalPath.lineWidth = 5;
@@ -216,6 +219,7 @@
             for (TCTramStop *stop in [[RouteData instance] stopsForRoute:name]) {
                 TCAnnotation *annotation = [[TCAnnotation alloc] initWithCoordinate:stop.coord title:stop.name];
                 annotation.color = [route colorForStop:stop];
+                annotation.stop = stop;
                 [self.mapView addAnnotation:annotation];
                 [self.annotations[name] addObject:annotation];
             }
@@ -447,6 +451,7 @@
         pinView = (TCAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
         if (pinView == nil) pinView = [[TCAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID];
         pinView.color = ((TCAnnotation *)annotation).color;
+        pinView.stop = ((TCAnnotation *)annotation).stop;
         pinView.frame = CGRectMake(0, 0, 25, 25);
         pinView.canShowCallout = YES;
         pinView.backgroundColor = [UIColor clearColor];
