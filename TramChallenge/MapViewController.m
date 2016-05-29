@@ -60,7 +60,7 @@
 #pragma mark - Veh annotation class
 
 @interface TCVehAnnotation : NSObject <MKAnnotation>
-@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readonly, copy) NSString *title;
 @property (nonatomic) UIColor *color;
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title;
@@ -82,17 +82,27 @@
 
 @interface TCVehAnnotationView : MKAnnotationView
 @property (nonatomic) UIColor *color;
+@property (nonatomic) NSString *title;
 @end
 
 @implementation TCVehAnnotationView
 - (void)drawRect:(CGRect)rect
 {
-    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(3, 3, 14, 14)];
-    [[UIColor whiteColor] setFill];
-    [ovalPath fill];
+    //// Rounded Rectangle Drawing
+    UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(3, 3, 14, 14) cornerRadius: 4];
+    [self.color setFill];
+    [roundedRectanglePath fill];
     [self.color setStroke];
-    ovalPath.lineWidth = 5;
-    [ovalPath stroke];
+    roundedRectanglePath.lineWidth = 1;
+    [roundedRectanglePath stroke];
+
+
+    CGRect textRect = CGRectMake(3, 5, 14, 14);
+    NSMutableParagraphStyle* textStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+    [textStyle setAlignment: NSTextAlignmentCenter];
+    NSDictionary* textFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"Helvetica" size: 9], NSForegroundColorAttributeName: [UIColor whiteColor], NSParagraphStyleAttributeName: textStyle};
+
+    [self.title drawInRect: textRect withAttributes: textFontAttributes];
 }
 @end
 
@@ -117,7 +127,7 @@
 @property (nonatomic) UIBarButtonItem *filterButton;
 @property (nonatomic, weak) SMCalloutView *activeCallout;
 
-@property (nonatomic) NSTimer *vehTimer;
+@property (nonatomic, strong) NSTimer *vehTimer;
 
 @end
 
@@ -215,8 +225,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.vehTimer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(updateVeh) userInfo:nil repeats:YES];
-    [self.vehTimer fire];
+    self.vehTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(updateVeh) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -228,28 +237,29 @@
 {
     NSMutableArray *seen = [NSMutableArray array];
     [[TCAPIAdaptor instance] tramPositions:^(NSDictionary *pos) {
-        lg(@"%@", pos);
         for (NSString *vehID in pos) {
-            TCVehAnnotation *annotation = self.vehAnnotations[vehID];
             NSArray *data = [NSArray tc_cast:pos[vehID]];
-            CLLocationCoordinate2D coord = {.latitude = [data[0] floatValue], .longitude =  [data[1] floatValue]};
             NSString *longName = [NSString tc_cast:data[2]];
             NSString *routeName = [longName substringFromIndex:3];
+            TCVehAnnotation *annotation = self.vehAnnotations[vehID];
+            CLLocationCoordinate2D coord = {.latitude = [data[0] floatValue], .longitude =  [data[1] floatValue]};
+
             if (annotation) {
-                [seen addObject:annotation];
                 annotation.coordinate = coord;
-            } else {
+                [seen addObject:vehID];
+            } else if ([[RouteData routeNames] containsObject:routeName]) {
                 TCVehAnnotation *newAnnotation = [[TCVehAnnotation alloc] initWithCoordinate:coord title:routeName];
+                newAnnotation.color = [RouteData colorForRouteName:routeName];
                 [self.mapView addAnnotation:newAnnotation];
                 self.vehAnnotations[vehID] = newAnnotation;
                 [self.mapView addAnnotation:newAnnotation];
-                [seen addObject:newAnnotation];
+                [seen addObject:vehID];
             }
         }
-        NSMutableDictionary<NSString *, TCVehAnnotation *> *newVehAnnotations;
+        NSMutableDictionary<NSString *, TCVehAnnotation *> *newVehAnnotations = [NSMutableDictionary dictionary];
         for (NSString *vehID in self.vehAnnotations) {
             TCVehAnnotation *annotation = self.vehAnnotations[vehID];
-            if ([seen containsObject:annotation]) {
+            if ([seen containsObject:vehID]) {
                 newVehAnnotations[vehID] = annotation;
             } else {
                 [self.mapView removeAnnotation:annotation];
@@ -430,6 +440,7 @@
         pinvehView.frame = CGRectMake(0, 0, 25, 25);
         pinvehView.canShowCallout = YES;
         pinvehView.backgroundColor = [UIColor clearColor];
+        pinvehView.title = ((TCVehAnnotation *)annotation).title;
         [pinvehView setNeedsDisplay];
         return pinvehView;
     } else {
