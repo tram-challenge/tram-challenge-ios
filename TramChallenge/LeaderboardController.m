@@ -16,16 +16,25 @@
 
 @implementation LeaderboardController
 
+- (void) loadLeaderboard
+{
+    [[TCAPIAdaptor instance] getLeaderboardWithSuccess:^(NSArray *leaderboard) {
+        self.leaderboard = leaderboard;
+        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    } failure:^(NSError *error, NSInteger status, NSDictionary *info) {}];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.leaderboard = [[NSMutableArray alloc] init];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [[TCAPIAdaptor instance] getLeaderboardWithSuccess:^(NSArray *leaderboard) {
-        self.leaderboard = leaderboard;
-        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-    } failure:^(NSError *error, NSInteger status, NSDictionary *info) {}];
+    [self loadLeaderboard];
+}
 
+-(void) viewWillAppear: (BOOL) animated
+{
+    [self loadLeaderboard];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
