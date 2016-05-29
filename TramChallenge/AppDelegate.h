@@ -18,5 +18,7 @@
 
 @property (nonatomic) NSString *cloudID;
 
+- (void)completed;
+
 @end
 

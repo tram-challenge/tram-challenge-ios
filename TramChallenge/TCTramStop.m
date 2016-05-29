@@ -8,6 +8,8 @@
 
 #import "TCTramStop.h"
 #import "TCAPIAdaptor.h"
+#import "RouteDAta.h"
+#import "AppDelegate.h"
 
 @interface TCTramStop ()
 
@@ -19,6 +21,10 @@
 {
     _visited = YES;
     [[TCAPIAdaptor instance] markVisited:self.id success:^{
+        if ([[RouteData instance] visitedStops].count == [[RouteData instance] stops].count) {
+            AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [delegate completed];
+        }
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self markVisited];

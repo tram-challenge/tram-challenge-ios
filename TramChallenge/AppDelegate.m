@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "TCUtilities.h"
+#import "TCTabBarController.h"
+#import "AttemptViewController.h"
 @import CloudKit;
 
 @interface AppDelegate ()
@@ -63,6 +65,27 @@
             self.cloudID = recordID.recordName;
         }
     }];
+}
+
+- (void)completed
+{
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Challenge completed"
+                                                                   message:@"Looks like you visited all the stops!"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* finishAction = [UIAlertAction actionWithTitle:@"Finish" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+        TCTabBarController *controller = (TCTabBarController *)self.window.rootViewController;
+        controller.selectedIndex = 0;
+        [(AttemptViewController *)controller.selectedViewController challengeCompleted];
+    }];
+    UIAlertAction* noAction = [UIAlertAction actionWithTitle:@"Not completed yet" style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * action) {}];
+
+    [alert addAction:finishAction];
+    [alert addAction:noAction];
+
+    [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:^{}];
+
 }
 
 @end
