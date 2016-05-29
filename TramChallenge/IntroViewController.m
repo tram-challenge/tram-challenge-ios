@@ -38,12 +38,12 @@
 
     [[TCAPIAdaptor instance] startAttemptForNickname:self.nicknameField.text success:^() {
         // NEARLY complete challenge TEMP
-        NSSet<TCTramStop *> *stops = [[RouteData instance] stops];
-        BOOL skip = YES;
-        for (TCTramStop *stop in stops) {
-            if (!skip) [stop markVisited];
-            skip = NO;
-        }
+//        NSSet<TCTramStop *> *stops = [[RouteData instance] stops];
+//        BOOL skip = YES;
+//        for (TCTramStop *stop in stops) {
+//            if (!skip) [stop markVisited];
+//            skip = NO;
+//        }
         // TEMP
 
         [self performSegueWithIdentifier:@"StartChallengeSegue" sender:sender];
