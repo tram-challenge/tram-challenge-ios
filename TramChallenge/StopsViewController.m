@@ -12,7 +12,9 @@
 #import "TCTramStop.h"
 #import "TCAPIAdaptor.h"
 
-@interface StopsViewController () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface StopsViewController () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource> {
+    BOOL _setup;
+}
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic) NSMutableArray *PageControlBtns;
 @property (nonatomic) NSMutableDictionary *routes;
@@ -20,7 +22,25 @@
 
 @implementation StopsViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    _setup = NO;
+}
+
 - (void)viewDidLayoutSubviews {
+    [self setup];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self updateVisitedStops];
+}
+
+- (void)setup {
+    if (_setup) {
+        return;
+    }
+    _setup = YES;
+
     NSUInteger numberOfPages = [[RouteData routeNames] count];
     
     self.scrollView.delegate = self;
@@ -76,7 +96,7 @@
             tableView.allowsMultipleSelection = YES;
             tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             tableView.showsVerticalScrollIndicator = NO;
-            tableView.tag = i;
+            tableView.tag = i + 100;
             [page addSubview:tableView];
         }];
         
@@ -96,6 +116,8 @@
         
         [self.PageControlBtns addObject:pageControlBtn];
     }
+    
+    [self updateVisitedStops];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -105,7 +127,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] count];
+    return [[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag-100]] count];
 }
 
 - (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -122,11 +144,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row] markVisited];
+    [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag-100]] objectAtIndex:indexPath.row] markVisited];
+    [self updateVisitedStops];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-        [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row] markUnvisited];
+        [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag-100]] objectAtIndex:indexPath.row] markUnvisited];
+    [self updateVisitedStops];
 }
 
 
@@ -139,7 +163,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    cell.textLabel.text = [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row] name];
+    cell.textLabel.text = [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag-100]] objectAtIndex:indexPath.row] name];
     cell.imageView.image = [UIImage imageNamed:@"stop-unvisited.png"];
     cell.imageView.highlightedImage = [UIImage imageNamed:@"stop-visited.png"];
     UIView *transparentBackground = [[UIView alloc] initWithFrame:cell.bounds];
@@ -183,6 +207,26 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)updateVisitedStops {
+    NSUInteger numberOfPages = [[RouteData routeNames] count];
+
+    for (int i = 0; i < numberOfPages; i++) {
+        UITableView *tableView = [self.view viewWithTag:i+100];
+        
+        NSArray *stops = [self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag-100]];
+        
+        for (int j = 0; j < stops.count; j++) {
+            TCTramStop *stop = stops[j];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:0];
+            if (stop.visited) {
+                [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            } else {
+                [tableView deselectRowAtIndexPath:indexPath animated:NO];
+            }
+        }
+    }
 }
 
 /*

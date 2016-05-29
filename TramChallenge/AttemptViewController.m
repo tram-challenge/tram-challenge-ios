@@ -59,6 +59,7 @@
     UIAlertAction* yesAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive
                                                           handler:^(UIAlertAction * action) {
                                                               [[TCAPIAdaptor instance] abortAttempt:^{
+                                                                  [[RouteData instance] clearVisitedStops];
                                                                   [self.navigationController popToRootViewControllerAnimated:NO];
                                                               } failure:^{}];
                                                           }];
@@ -74,13 +75,13 @@
 
 - (void)setTotalStops:(NSInteger)totalStops {
     _totalStops = totalStops;
-    self.totalStopsLabel.text = [NSString stringWithFormat:@"%d", totalStops];
+    self.totalStopsLabel.text = [NSString stringWithFormat:@"%ld", (long)totalStops];
     [self updateProgress];
 }
 
 - (void)setStopsVisited:(NSInteger)stopsVisited {
     _stopsVisited = stopsVisited;
-    self.stopsVisitedLabel.text = [NSString stringWithFormat:@"%d", stopsVisited];
+    self.stopsVisitedLabel.text = [NSString stringWithFormat:@"%ld", (long)stopsVisited];
     [self updateProgress];
 }
 

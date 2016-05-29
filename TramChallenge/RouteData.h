@@ -31,5 +31,6 @@
  Does not send to backend, just marks locally
  */
 - (void)markStopAsVisited:(NSString *)stopID;
+- (void)clearVisitedStops;
 
 @end
