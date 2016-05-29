@@ -53,6 +53,7 @@
 
 - (IBAction)abortChallenge:(id)sender {
     if (RouteData.instance.unvisitedStops.count == 0) {
+        [[RouteData instance] clearVisitedStops];
         [self.navigationController popToRootViewControllerAnimated:NO];
         return;
     }
