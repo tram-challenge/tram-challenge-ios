@@ -52,6 +52,11 @@
 }
 
 - (IBAction)abortChallenge:(id)sender {
+    if (RouteData.instance.unvisitedStops.count == 0) {
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        return;
+    }
+
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Abort Challenge"
                                                                    message:@"Are you sure you want to abort the challenge?"
                                                             preferredStyle:UIAlertControllerStyleAlert];
