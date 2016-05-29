@@ -22,24 +22,24 @@
 
 - (void)viewDidLayoutSubviews {
     NSUInteger numberOfPages = [[RouteData routeNames] count];
-    
+
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.contentSize = CGSizeMake(numberOfPages * self.scrollView.frame.size.width, self.scrollView.frame.size.height);
-    
+
     self.PageControlBtns = [[NSMutableArray alloc] init];
     self.routes = [[NSMutableDictionary alloc] init];
 
     int btnSize = 22;
     int btnMargin = 2;
     int x_coord = (self.view.frame.size.width - (btnSize + btnMargin) * numberOfPages) / 2.0;
-    
+
     for (int i = 0; i < numberOfPages; i++) {
-        
+
         NSString *routeName = [[RouteData routeNames] objectAtIndex: i];
         NSMutableArray<TCTramStop *> *stops = [[NSMutableArray alloc] init];
-        
+
         UIView *page = [[UIView alloc] initWithFrame:CGRectMake(self.scrollView.frame.size.width * i, 0.0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
 
         UILabel *numberLbl = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
@@ -52,14 +52,14 @@
         numberLbl.textAlignment = NSTextAlignmentCenter;
 
         [page addSubview:numberLbl];
-        
+
         UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(70, 20.0, page.frame.size.width-20.0, 40.0)];
         titleLbl.textColor = [RouteData colorForRouteName: routeName];
         titleLbl.font = [UIFont boldSystemFontOfSize:18.0];
         [page addSubview:titleLbl];
-        
+
         [[RouteData instance] fetchStopsSuccess:^{
-            
+
             for (TCTramStop *stop in [[RouteData instance] stopsForRoute:routeName]) {
                 [stops addObject:stop];
             }
@@ -67,7 +67,7 @@
             NSString *startStop = stops[0].name;
             NSString *endStop = stops[stops.count-1].name;
             titleLbl.text = [NSString stringWithFormat:@"%@ - %@", startStop, endStop];
-            
+
             UITableView *tableView = [[UITableView alloc] initWithFrame: CGRectMake(20, 80, self.scrollView.frame.size.width, self.scrollView.frame.size.height - 120) style:UITableViewStylePlain];
             tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
             tableView.delegate = self;
@@ -79,21 +79,21 @@
             tableView.tag = i;
             [page addSubview:tableView];
         }];
-        
+
         [self.scrollView addSubview:page];
-        
+
         UIButton *pageControlBtn = [[UIButton alloc] initWithFrame:CGRectMake(x_coord + i * (btnSize + btnMargin), self.scrollView.frame.size.height + 24, btnSize, btnSize)];
         pageControlBtn.alpha = i == 0 ? 1 : 0.4;
         pageControlBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14.0];
         [pageControlBtn setTitle:routeName forState:UIControlStateNormal];
         [pageControlBtn setTag:i + 2000];
         pageControlBtn.layer.cornerRadius = 4;
-        
+
         pageControlBtn.backgroundColor = [RouteData colorForRouteName: routeName];
         [pageControlBtn addTarget:self action:@selector(onPageControlBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
-        
+
         [self.view addSubview:pageControlBtn];
-        
+
         [self.PageControlBtns addObject:pageControlBtn];
     }
 }
@@ -109,7 +109,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     UITableViewCell *cell = (UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     UIView *transparentBackground = [[UIView alloc] initWithFrame:cell.bounds];
     transparentBackground.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -121,27 +121,90 @@
     return [[TCAPIAdaptor instance] attemptInProgress];
 }
 
+- (void)selectStop:(UITableViewCell *)cell
+{
+    UIView *whiteBulletView = [cell viewWithTag:1];
+    cell.imageView.alpha = 1;
+    whiteBulletView.hidden = YES;
+}
+
+- (void)deselectStop:(UITableViewCell *) cell
+{
+    UIView *whiteBulletView = [cell viewWithTag:1];
+    cell.imageView.alpha = 0.5;
+    whiteBulletView.hidden = NO;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row] markVisited];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self selectStop:cell];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-        [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row] markUnvisited];
+    [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row] markUnvisited];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self deselectStop:cell];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"StopsTableCell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
+    NSString *stopName = [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row] name];
+    NSString *routeName = [[RouteData routeNames] objectAtIndex: (long)tableView.tag];
+
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+
+        int bullet = 32;
+
+        CGRect bulletRect = CGRectMake(0, 0, bullet, bullet);
+        UIGraphicsBeginImageContext(bulletRect.size);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+
+        CGContextSetFillColorWithColor(context, [RouteData colorForRouteName: routeName].CGColor);
+        CGContextFillRect(context, bulletRect);
+
+        UIImage *bulletImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+
+        cell.imageView.image = bulletImage;
+        cell.imageView.alpha = 0.5;
+        cell.imageView.layer.cornerRadius = bullet / 2;
+        cell.imageView.layer.masksToBounds = YES;
+
+        CGRect inner = CGRectMake(0, 0, bullet, bullet);
+        UIGraphicsBeginImageContext(inner.size);
+        CGContextRef innerContext = UIGraphicsGetCurrentContext();
+
+        CGContextSetFillColorWithColor(innerContext, [UIColor whiteColor].CGColor);
+        CGContextFillRect(innerContext, inner);
+
+        UIImage *innerImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+
+        UIImageView *whiteBulletView = [[UIImageView alloc] init];
+        whiteBulletView.frame = CGRectMake(bullet / 4, bullet / 4, bullet / 2, bullet / 2);
+        whiteBulletView.image = innerImage;
+        whiteBulletView.layer.cornerRadius = bullet / 4;
+        whiteBulletView.layer.masksToBounds = YES;
+        whiteBulletView.alpha = 1;
+        whiteBulletView.tag = 1;
+        [cell.imageView addSubview:whiteBulletView];
+
+        cell.textLabel.textColor = [RouteData colorForRouteName: routeName];
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:16.0];
     }
-    cell.textLabel.text = [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag]] objectAtIndex:indexPath.row] name];
-    cell.imageView.image = [UIImage imageNamed:@"stop-unvisited.png"];
-    cell.imageView.highlightedImage = [UIImage imageNamed:@"stop-visited.png"];
+    
+    if ([[tableView indexPathsForSelectedRows] containsObject: indexPath]) {
+        [self selectStop:cell];
+    } else {
+        [self deselectStop:cell];
+    }
+    
+    cell.textLabel.text = stopName;
     UIView *transparentBackground = [[UIView alloc] initWithFrame:cell.bounds];
     transparentBackground.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     transparentBackground.backgroundColor = [UIColor clearColor];
@@ -160,11 +223,11 @@
 -(void)onPageControlBtnPressed:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    
+
     int tag = (int)button.tag - 2000;
-    
+
     [self.scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width * tag, 0) animated:YES];
-    
+
     [self SetActivePageControlWithIndex:tag];
 }
 
