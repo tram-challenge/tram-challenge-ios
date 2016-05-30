@@ -11,6 +11,7 @@
 #import "RouteData.h"
 @import SafariServices;
 #import "TCTramStop.h"
+#import "LocationManager.h"
 
 @interface IntroViewController ()
 
@@ -56,6 +57,8 @@
     [defaults setBool:YES forKey:@"in_progress"];
     [defaults synchronize];
 
+    [[LocationManager instance] start];
+    [[LocationManager instance] attemptPermission];
 
     [[TCAPIAdaptor instance] startAttemptForNickname:self.nicknameField.text success:^() {
         // NEARLY complete challenge TEMP

@@ -13,9 +13,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-/** updated by the map view, for use in calculating distances */
-@property (nonatomic) CLLocation *userLocation;
-
 @property (nonatomic) NSString *cloudID;
 
 - (void)completed;

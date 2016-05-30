@@ -17,6 +17,7 @@
 #import "TCTramRoute.h"
 #import "TCTramStop.h"
 #import "TCAPIAdaptor.h"
+#import "LocationManager.h"
 
 #pragma mark - Annotation class
 
@@ -112,11 +113,10 @@
 
 #pragma mark - MapViewController
 
-@interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, TramLineSelectionDelegate, UIGestureRecognizerDelegate>
+@interface MapViewController () <MKMapViewDelegate, TramLineSelectionDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) MKMapView *mapView;
 
-@property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) BOOL userLocationUpdated;
 
 @property (nonatomic) NSMutableDictionary<NSString *, MKPolyline *> *overlays;
@@ -176,22 +176,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.locationManager = [CLLocationManager new];
-    self.locationManager.delegate = self;
-
     self.userLocationUpdated = NO;
+
+    [[LocationManager instance] registerMapViewController:self];
+    [[LocationManager instance] start];
 
     CLLocationCoordinate2D coord = {.latitude =  60.1799, .longitude =  24.9384};
     MKCoordinateSpan span = {.latitudeDelta =  0.1, .longitudeDelta =  0.1};
     MKCoordinateRegion region = {coord, span};
     [self.mapView setRegion:region];
-
-    [self updateForAuthorizationStatus:[CLLocationManager authorizationStatus]];
-
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
-    }
-
 
     for (NSString *name in [RouteData routeNames]) {
         NSArray *coords = [[RouteData instance] coordsForRoute:name];
@@ -235,6 +228,12 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.vehTimer invalidate];
+}
+
+- (void)setShowsUserLocation:(BOOL)showsUserLocation
+{
+    _showsUserLocation = showsUserLocation;
+    self.mapView.showsUserLocation = showsUserLocation;
 }
 
 - (void)updateVeh
@@ -386,29 +385,10 @@
     }
 }
 
-#pragma mark - CLLocationManagerDelegate
-
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
-{
-    [self updateForAuthorizationStatus:status];
-}
-
-- (void)updateForAuthorizationStatus:(CLAuthorizationStatus)status
-{
-    if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
-        self.mapView.showsUserLocation = YES;
-    }
-}
-
 #pragma mark - MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-
-    delegate.userLocation = [[CLLocation alloc] initWithLatitude:userLocation.coordinate.latitude
-                                                       longitude:userLocation.coordinate.longitude];
-
     if (self.userLocationUpdated) return;
 
     MKCoordinateRegion region;

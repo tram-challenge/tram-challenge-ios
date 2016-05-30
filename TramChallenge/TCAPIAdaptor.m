@@ -11,6 +11,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "AppDelegate.h"
 #import "RouteData.h"
+#import "LocationManager.h"
 
 static NSString * const apiURL = @"https://tramchallenge.com";
 static NSString *const digitransportURL = @"https://api.digitransit.fi";
@@ -112,9 +113,9 @@ static TCAPIAdaptor *_TCAPIAdaptor;
             failure:(TCErrorBlock)failureBlock
 {
     NSString *path = [NSString stringWithFormat:@"api/stops/%@", stopID];
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    double latitude = delegate.userLocation.coordinate.latitude;
-    double longitude = delegate.userLocation.coordinate.longitude;
+    LocationManager *locationManager = [LocationManager instance];
+    double latitude = locationManager.userLocation.coordinate.latitude;
+    double longitude = locationManager.userLocation.coordinate.longitude;
     NSDictionary *params = @{@"stop" : @{
                                      @"visited" : @YES,
                                      @"user_lat"  : @(latitude),
