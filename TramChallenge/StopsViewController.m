@@ -12,6 +12,29 @@
 #import "TCTramStop.h"
 #import "TCAPIAdaptor.h"
 
+#pragma mark - Stop cell
+
+static NSString *simpleTableIdentifier = @"StopsTableCell";
+#define TCCELL_TOP_TAG 5
+#define TCCELL_BOTTOM_TAG 6
+#define TCLINE_WIDTH 10
+
+@interface TCStopCell : UITableViewCell
+@end
+@implementation TCStopCell
+- (void) layoutSubviews
+{
+    [super layoutSubviews];
+    CGRect imageViewFrame = self.imageView.frame;
+    CGSize s = imageViewFrame.size;
+    CGPoint p = imageViewFrame.origin;
+    UIView *top = [self viewWithTag:TCCELL_TOP_TAG];
+    top.frame = CGRectMake(p.x + s.width / 2 - TCLINE_WIDTH / 2, 0, TCLINE_WIDTH, 10);
+    UIView *bottom = [self viewWithTag:TCCELL_BOTTOM_TAG];
+    bottom.frame = CGRectMake(p.x + s.width / 2 - TCLINE_WIDTH / 2, 34, TCLINE_WIDTH, 10);
+}
+@end
+
 #pragma mark - View for line
 
 @interface TCLineView : UIView
@@ -193,14 +216,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"StopsTableCell";
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    TCStopCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     NSString *stopName = [[[self.routes valueForKey: [NSString stringWithFormat:@"%ld",(long)tableView.tag-100]] objectAtIndex:indexPath.row] name];
     NSString *routeName = [[RouteData routeNames] objectAtIndex: (long)tableView.tag-100];
 
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[TCStopCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
 
         int bullet = 32;
 
@@ -241,12 +262,12 @@
         TCLineView *top = [[TCLineView alloc] initWithFrame:CGRectMake(26, 0, 11, 10)];
         top.fillColor = [RouteData colorForRouteName: routeName];
         [cell.contentView addSubview:top];
-        top.tag = 5;
+        top.tag = TCCELL_TOP_TAG;
 
         TCLineView *bottom = [[TCLineView alloc] initWithFrame:CGRectMake(26, 34, 11, 10)];
         bottom.fillColor = [RouteData colorForRouteName: routeName];
         [cell.contentView insertSubview:bottom aboveSubview:cell.imageView];
-        bottom.tag = 6;
+        bottom.tag = TCCELL_BOTTOM_TAG;
 
         cell.textLabel.textColor = [RouteData colorForRouteName: routeName];
         cell.textLabel.font = [UIFont boldSystemFontOfSize:16.0];
