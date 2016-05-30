@@ -150,7 +150,7 @@ static RouteData *_RouteData;
 
 + (NSArray<NSString *> *)routeNames
 {
-    return @[@"1", @"1A", @"2", @"3", @"4", @"4T", @"6", @"6T", @"7A", @"7B", @"8", @"9", @"10"];
+    return @[@"1", @"1A", @"2", @"3", @"4", @"4T", /*@"5",*/ @"6", @"6T", @"7A", @"7B", @"8", @"9", @"10"];
 }
 
 + (NSString *) descriptionForRouteName:(NSString *)routeName
@@ -162,6 +162,7 @@ static RouteData *_RouteData;
       @"3"  : @"Olympiaterminaali - Kallio - Nordenskiöldinkatu",
       @"4" : @"Katajanokka - Munkkiniemi",
       @"4T" : @"Katajanokka (terminaali) - Munkkiniemi",
+      @"5" : @"Katajanokka (terminaali) - Rautatieasema",
       @"6" : @"Hietalahti - Rautatieasema - Arabia",
       @"6T" : @"Länsiterminaali - Rautatieasema - Arabia",
       @"7A" : @"Senaatintori - Töölö - Pasila (asema) - Senaatintori",
@@ -175,20 +176,26 @@ static RouteData *_RouteData;
 + (UIColor *)colorForRouteName:(NSString *)routeName
 {
     return (UIColor *)(@{
-      @"1" : [UIColor colorWithRed:0.50 green:0.75 blue:0.88 alpha:1.0],
-      @"1A" : [UIColor colorWithRed:0.50 green:0.75 blue:0.88 alpha:1.0],
-      @"2"  : [UIColor colorWithRed:0.00 green:0.65 blue:0.39 alpha:1.0],
-      @"3"  : [UIColor colorWithRed:0.55 green:0.78 blue:0.59 alpha:1.0],
-      @"4" : [UIColor colorWithRed:0.79 green:0.11 blue:0.31 alpha:1.0],
-      @"4T" : [UIColor colorWithRed:0.79 green:0.11 blue:0.31 alpha:1.0],
-      @"6" : [UIColor colorWithRed:0.58 green:0.27 blue:0.59 alpha:1.0],
-      @"6T" : [UIColor colorWithRed:0.58 green:0.27 blue:0.59 alpha:1.0],
-      @"7A" : [UIColor colorWithRed:0.97 green:0.68 blue:0.17 alpha:1.0],
-      @"7B" : [UIColor colorWithRed:0.97 green:0.68 blue:0.17 alpha:1.0],
-      @"8"  : [UIColor colorWithRed:0.80 green:0.47 blue:0.15 alpha:1.0],
-      @"9"  : [UIColor colorWithRed:0.80 green:0.09 blue:0.53 alpha:1.0],
-      @"10" : [UIColor colorWithRed:0.77 green:0.73 blue:0.17 alpha:1.0]
+      @"1" : [UIColor colorWithRed:0.50 green:0.72 blue:0.82 alpha:1.0],
+      @"1A" : [UIColor colorWithRed:0.50 green:0.72 blue:0.82 alpha:1.0],
+      @"2"  : [UIColor colorWithRed:0.34 green:0.54 blue:0.32 alpha:1.0],
+      @"3"  : [UIColor colorWithRed:0.55 green:0.75 blue:0.57 alpha:1.0],
+      @"4" : [UIColor colorWithRed:0.67 green:0.24 blue:0.30 alpha:1.0],
+      @"4T" : [UIColor colorWithRed:0.67 green:0.24 blue:0.30 alpha:1.0],
+      @"5" : [UIColor colorWithRed:0.78 green:0.50 blue:0.65 alpha:1.0],
+      @"6" : [UIColor colorWithRed:0.49 green:0.27 blue:0.51 alpha:1.0],
+      @"6T" : [UIColor colorWithRed:0.49 green:0.27 blue:0.51 alpha:1.0],
+      @"7A" : [UIColor colorWithRed:0.90 green:0.68 blue:0.17 alpha:1.0],
+      @"7B" : [UIColor colorWithRed:0.90 green:0.68 blue:0.17 alpha:1.0],
+      @"8"  : [UIColor colorWithRed:0.71 green:0.46 blue:0.15 alpha:1.0],
+      @"9"  : [UIColor colorWithRed:0.68 green:0.27 blue:0.47 alpha:1.0],
+      @"10" : [UIColor colorWithRed:0.58 green:0.58 blue:0.22 alpha:1.0]
       }[routeName]);
+}
+
++ (NSArray *)reversedRoutes
+{
+    return @[@"1A", @"4", @"6", @"6T", @"7B", @"10"];
 }
 
 @end

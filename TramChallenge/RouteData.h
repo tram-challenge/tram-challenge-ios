@@ -19,6 +19,7 @@
 + (NSArray *)routeNames;
 + (UIColor *)colorForRouteName:(NSString *)routeName;
 + (NSString *) descriptionForRouteName:(NSString *)routeName;
++ (NSArray *)reversedRoutes;
 
 - (void)fetchStopsSuccess:(void (^)())successBlock;
 - (NSArray<TCTramStop *> *)stopsForRoute:(NSString *)routeName;

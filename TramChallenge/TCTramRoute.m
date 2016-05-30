@@ -58,7 +58,7 @@
 
 - (BOOL)reverse
 {
-    NSArray *reversers = @[@"1A", @"4", @"6", @"6T", @"7B", @"10"];
+    NSArray *reversers = [RouteData reversedRoutes];
     return [reversers containsObject:[self routeName]];
 }
 
