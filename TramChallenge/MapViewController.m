@@ -295,31 +295,19 @@
 - (IBAction)showFilters:(id)sender
 {
     if (self.showingFilters) {
-        [self dismissActiveCallout];
+        [self dismissFilters];
         return;
     }
 
-    SMCalloutView *callout = [SMCalloutView new];
-    callout.permittedArrowDirection = SMCalloutArrowDirectionUp;
+    CGSize preferredContentSize = self.filterListViewer.preferredContentSize;
+    CGFloat height = MIN(preferredContentSize.height, self.view.height - 114);
+    self.filterListViewer.view.frame = CGRectMake(2, 67, preferredContentSize.width, height);
 
-    callout.contentView = ({
-        UIView *view = [UIView new];
-        CGSize preferredContentSize = self.filterListViewer.preferredContentSize;
-        CGFloat height = MIN(preferredContentSize.height, self.view.height - 104);
-        view.frame = CGRectMake(0, 0, preferredContentSize.width, height);
-        [view addSubview:self.filterListViewer.view];
-        self.filterListViewer.view.frame = CGRectInset(view.bounds, -10, -10);
-        self.filterListViewer.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        self.filterListViewer.tableView.clipsToBounds = NO;
-        view;
-    });
-
-// TODO: Find a way to get the rect from the barbuttonitem
-//    CGRect rect = CGRectOffset([self.view convertRect:self.filterButton.bounds fromView:self.mapView], 16, 26);
-    CGRect rect = CGRectMake(0,0,50,50); // Fudged for now
-    [callout presentCalloutFromRect:rect inView:self.view constrainedToView:self.view animated:YES];
-
-    self.activeCallout = callout;
+    self.filterListViewer.view.alpha = 0;
+    [self.view addSubview:self.filterListViewer.view];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.filterListViewer.view.alpha = 1;
+    }];
     self.showingFilters = YES;
 }
 
@@ -458,16 +446,17 @@
 
 - (void)mapViewTapped:(UITapGestureRecognizer *)sender
 {
-    if (self.showingFilters) {
-        [self dismissActiveCallout];
-    }
+    [self dismissFilters];
 }
 
-- (void)dismissActiveCallout
+- (void)dismissFilters
 {
-    if (self.activeCallout) {
-        [self.activeCallout dismissCalloutAnimated:YES];
-        self.activeCallout = nil;
+    if (self.showingFilters) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.filterListViewer.view.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.filterListViewer.view removeFromSuperview];
+        }];
     }
 
     self.showingFilters = NO;

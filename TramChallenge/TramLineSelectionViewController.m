@@ -11,6 +11,9 @@
 #import "TCUtilities.h"
 #import <Masonry/Masonry.h>
 
+#define TC_TRAMLINECELL_HEIGHT 39
+#define TC_TRAMLINECELL_WIDTH 60
+
 @interface TramLineCell : UITableViewCell
 
 @property (nonatomic) UIButton *button;
@@ -33,26 +36,22 @@
     return NO;
 }
 
-- (NSArray<NSString *> *)lines
-{
-    return [RouteData routeNames];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     UITableView *tableView = self.tableView;
-    tableView.rowHeight = 42;
+    tableView.rowHeight = TC_TRAMLINECELL_HEIGHT;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.showsVerticalScrollIndicator = NO;
+    tableView.backgroundColor = [UIColor clearColor];
 
     [tableView registerClass:TramLineCell.class forCellReuseIdentifier:NSStringFromClass(TramLineCell.class)];
 }
 
 - (CGSize)preferredContentSize
 {
-    return CGSizeMake(40, [self lines].count * 42);
+    return CGSizeMake(TC_TRAMLINECELL_WIDTH, [RouteData routeNames].count * TC_TRAMLINECELL_HEIGHT);
 }
 
 #pragma mark - UITableViewDataSource + UITableViewDelegate
@@ -64,30 +63,35 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self lines].count;
+    return [RouteData routeNames].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger lineIndex = indexPath.row;
-    NSString *lineName = [self lines][lineIndex];
+    NSString *lineName = [RouteData routeNames][lineIndex];
     BOOL selected = self.selectedLines.count ? [self.selectedLines containsObject:lineName] : YES;
 
     TramLineCell *cell = [TramLineCell tc_cast:[tableView dequeueReusableCellWithIdentifier:NSStringFromClass(TramLineCell.class) forIndexPath:indexPath]];
     [cell configureWithLineName:lineName selected:selected];
-    cell.separator.hidden = (indexPath.row == [self lines].count - 1);
+    cell.separator.hidden = YES;
+
+    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [UIView new];
+    cell.selectedBackgroundView = [UIView new];
+
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *lineName = [self lines][indexPath.row];
+    NSString *lineName = [RouteData routeNames][indexPath.row];
 
     if ([self.selectedLines containsObject:lineName]) {
         self.selectedLines = [self.selectedLines tc_setByRemovingObject:lineName];
     } else {
         self.selectedLines = [(self.selectedLines ?: [NSSet set]) setByAddingObject:lineName];
-        if (self.selectedLines.count == [self lines].count) {
+        if (self.selectedLines.count == [RouteData routeNames].count) {
             self.selectedLines = nil;
         }
     }
@@ -105,8 +109,11 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.frame = CGRectMake(0, 0, TC_TRAMLINECELL_WIDTH, TC_TRAMLINECELL_HEIGHT);
+        self.contentView.backgroundColor = [UIColor clearColor];
         _button = ({
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.frame = self.frame;
             button.tc_titleColor = [UIColor whiteColor];
             button.titleLabel.font = [UIFont boldSystemFontOfSize:16];
             button.titleLabel.numberOfLines = 0;
@@ -118,41 +125,16 @@
             [self.contentView addSubview:button];
             button;
         });
-        _separator = ({
-            UIView *view = [UIView new];
-            view.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
-            [self.contentView addSubview:view];
-            view;
-        });
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
-}
-
-- (void)updateConstraints
-{
-    [self.button mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView);
-    }];
-
-    [self.separator mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.and.right.and.bottom.equalTo(self.contentView);
-        make.height.equalTo(@(1 / UIScreen.mainScreen.scale));
-    }];
-
-    [super updateConstraints];
-}
-
-+ (BOOL)requiresConstraintBasedLayout
-{
-    return YES;
 }
 
 - (void)configureWithLineName:(NSString *)lineName
                          selected:(BOOL)selected
 {
     self.button.tc_title = lineName;
-    self.button.alpha = selected ? 1.0 : 0.4;
+    self.button.alpha = selected ? 1.0 : 0.35;
 
     self.button.layer.backgroundColor = [RouteData colorForRouteName:lineName].CGColor;
     self.button.layer.cornerRadius = 5;
