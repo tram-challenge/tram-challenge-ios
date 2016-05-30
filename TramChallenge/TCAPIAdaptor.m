@@ -112,7 +112,14 @@ static TCAPIAdaptor *_TCAPIAdaptor;
             failure:(TCErrorBlock)failureBlock
 {
     NSString *path = [NSString stringWithFormat:@"api/stops/%@", stopID];
-    NSDictionary *params = @{@"stop" : @{@"visited" : @YES},
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    double latitude = delegate.userLocation.coordinate.latitude;
+    double longitude = delegate.userLocation.coordinate.longitude;
+    NSDictionary *params = @{@"stop" : @{
+                                     @"visited" : @YES,
+                                     @"user_lat"  : @(latitude),
+                                     @"user_long" : @(longitude),
+                                         },
                              @"icloud_user_id" : [self cloudID]};
     [self put:path with:params success:^(AFHTTPRequestOperation *operation, id result) {
         lg(@"stop visited ok");
