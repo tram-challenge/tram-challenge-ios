@@ -12,7 +12,6 @@
 #import "AppDelegate.h"
 #import "RouteData.h"
 #import "TramLineSelectionViewController.h"
-#import <SMCalloutView/SMCalloutView.h>
 #import "TCUtilities.h"
 #import "TCTramRoute.h"
 #import "TCTramStop.h"
@@ -128,7 +127,6 @@
 @property (nonatomic) BOOL showingFilters;
 
 @property (nonatomic) UIBarButtonItem *filterButton;
-@property (nonatomic, weak) SMCalloutView *activeCallout;
 
 @property (nonatomic, strong) NSTimer *vehTimer;
 
