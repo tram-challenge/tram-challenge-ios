@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,38 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="challenge" translatesAutoresizingMaskIntoConstraints="NO" id="Ij4-eE-AoU">
+                                <rect key="frame" x="-33" y="80" width="666" height="440"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ij4-eE-AoU" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="1ZN-2D-shf"/>
+                            <constraint firstItem="Ij4-eE-AoU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9YR-Pd-cV1"/>
+                            <constraint firstItem="Ij4-eE-AoU" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="H5P-et-rDV"/>
+                            <constraint firstItem="Ij4-eE-AoU" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="Jjb-0i-72Q"/>
+                            <constraint firstItem="Ij4-eE-AoU" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="MDO-K9-IWn"/>
+                            <constraint firstItem="Ij4-eE-AoU" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="OmK-2H-FWg"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Ij4-eE-AoU" secondAttribute="bottom" id="W3T-g6-dj3"/>
+                            <constraint firstItem="Llm-lL-Icb" firstAttribute="bottom" secondItem="Ij4-eE-AoU" secondAttribute="top" id="b6U-6l-eK3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ij4-eE-AoU" secondAttribute="trailing" id="dSw-Ht-0of"/>
+                            <constraint firstItem="Ij4-eE-AoU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="p5R-7z-m6Q"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Ij4-eE-AoU" secondAttribute="bottom" id="p7U-Sg-KXO"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="b6U-6l-eK3"/>
+                                <exclude reference="1ZN-2D-shf"/>
+                                <exclude reference="H5P-et-rDV"/>
+                                <exclude reference="Jjb-0i-72Q"/>
+                                <exclude reference="MDO-K9-IWn"/>
+                                <exclude reference="OmK-2H-FWg"/>
+                                <exclude reference="dSw-Ht-0of"/>
+                                <exclude reference="W3T-g6-dj3"/>
+                                <exclude reference="p7U-Sg-KXO"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +56,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="challenge" width="666" height="440"/>
+    </resources>
 </document>
