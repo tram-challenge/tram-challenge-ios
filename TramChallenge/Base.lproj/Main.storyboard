@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -326,6 +326,7 @@ Helsinki Tram Challenge</string>
                     <connections>
                         <outlet property="nicknameField" destination="WMV-f4-Vug" id="ECA-ws-gn2"/>
                         <outlet property="startChallengeButton" destination="c8L-9H-Z3T" id="hpk-Qd-Mmx"/>
+                        <outlet property="tramImage" destination="M2e-XU-N61" id="CzZ-bM-k6R"/>
                         <segue destination="bk0-dL-rfo" kind="show" identifier="StartChallengeSegue" animates="NO" id="yTL-VL-0cZ"/>
                     </connections>
                 </viewController>
@@ -555,7 +556,7 @@ Helsinki Tram Challenge</string>
                                         <real key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
-                                        <color key="value" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="0.50751431297709926" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="emptyLineColor">
                                         <color key="value" red="0.85490196078431369" green="0.86274509803921573" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
@@ -658,6 +659,7 @@ Helsinki Tram Challenge</string>
                     </view>
                     <connections>
                         <outlet property="abortChallengeButton" destination="dMK-rz-0RB" id="ci4-a9-XxY"/>
+                        <outlet property="progressBarView" destination="Hiq-eC-uqO" id="efP-Et-YLp"/>
                         <outlet property="progressView" destination="Hiq-eC-uqO" id="JrT-J7-5Cl"/>
                         <outlet property="statsView" destination="5mf-XI-f6b" id="1i9-Nf-82v"/>
                         <outlet property="stopsVisitedLabel" destination="PYm-Wg-Th0" id="HJg-M4-N8z"/>
@@ -753,11 +755,11 @@ Helsinki Tram Challenge</string>
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6o8-sd-0Bx" id="wIR-59-wXo">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3qe-dP-wZc">
-                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -767,7 +769,7 @@ Helsinki Tram Challenge</string>
                                             </variation>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5vJ-5b-zgE">
-                                            <rect key="frame" x="541" y="12" width="44" height="20.5"/>
+                                            <rect key="frame" x="541" y="11" width="44" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>

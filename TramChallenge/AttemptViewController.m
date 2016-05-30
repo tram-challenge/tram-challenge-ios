@@ -10,6 +10,13 @@
 #import "RouteData.h"
 #import "TCAPIAdaptor.h"
 #import "TCTramStop.h"
+#import <MBCircularProgressBar/MBCircularProgressBarView.h>
+
+@interface AttemptViewController ()
+
+@property (weak, nonatomic) IBOutlet MBCircularProgressBarView *progressBarView;
+
+@end
 
 @implementation AttemptViewController
 
@@ -38,6 +45,10 @@
     self.stopsVisited = 0;
     
     self.totalStopsLabel.text = @"";
+
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    if (screenHeight >= 550) self.progressBarView.progressColor = [self.progressBarView.progressColor colorWithAlphaComponent:1];
 
     [[RouteData instance] fetchStopsSuccess:^{
         self.totalStops = RouteData.instance.stops.count;

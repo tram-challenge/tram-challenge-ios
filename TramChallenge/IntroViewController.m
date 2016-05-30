@@ -15,6 +15,8 @@
 
 @interface IntroViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *tramImage;
+
 @end
 
 @implementation IntroViewController
@@ -32,6 +34,11 @@
     [self.nicknameField addTarget:self
                   action:@selector(textFieldDidChange:)
         forControlEvents:UIControlEventEditingChanged];
+
+    // Hide the image of the tram if needed, it collides with the rules link on iPhone 4
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    if (screenHeight < 550) self.tramImage.hidden = YES;
 
     [[RouteData instance] fetchStopsSuccess:^{}];
 }
@@ -58,7 +65,10 @@
     [defaults synchronize];
 
     [[LocationManager instance] start];
-    [[LocationManager instance] attemptPermission];
+    // avoid transition collision with presentation of dialog by waiting to check this
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[LocationManager instance] attemptPermission];
+    });
 
     [[TCAPIAdaptor instance] startAttemptForNickname:self.nicknameField.text success:^() {
         // NEARLY complete challenge TEMP
