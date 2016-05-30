@@ -12,6 +12,23 @@
 #import "TCTramStop.h"
 #import "TCAPIAdaptor.h"
 
+#pragma mark - View for line
+
+@interface TCLineView : UIView
+@property (nonatomic) UIColor *fillColor;
+@end
+@implementation TCLineView
+- (void)drawRect:(CGRect)rect {
+    CGContextRef context = UIGraphicsGetCurrentContext ();
+    CGFloat r,g,b,a;
+    [self.fillColor getRed:&r green:&g blue:&b alpha:&a];
+    CGContextSetRGBFillColor(context, r, g, b, a);
+    CGContextFillRect (context, self.bounds);
+}
+@end
+
+#pragma mark - StopsViewController
+
 @interface StopsViewController () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource> {
     BOOL _setup;
 }
@@ -149,14 +166,12 @@
 - (void)selectStop:(UITableViewCell *)cell
 {
     UIView *whiteBulletView = [cell viewWithTag:1];
-    cell.imageView.alpha = 1;
     whiteBulletView.hidden = YES;
 }
 
 - (void)deselectStop:(UITableViewCell *) cell
 {
     UIView *whiteBulletView = [cell viewWithTag:1];
-    cell.imageView.alpha = 0.5;
     whiteBulletView.hidden = NO;
 }
 
@@ -200,7 +215,7 @@
         UIGraphicsEndImageContext();
 
         cell.imageView.image = bulletImage;
-        cell.imageView.alpha = 0.5;
+        cell.imageView.alpha = 1;
         cell.imageView.layer.cornerRadius = bullet / 2;
         cell.imageView.layer.masksToBounds = YES;
 
@@ -223,6 +238,16 @@
         whiteBulletView.tag = 1;
         [cell.imageView addSubview:whiteBulletView];
 
+        TCLineView *top = [[TCLineView alloc] initWithFrame:CGRectMake(26, 0, 11, 10)];
+        top.fillColor = [RouteData colorForRouteName: routeName];
+        [cell.contentView addSubview:top];
+        top.tag = 5;
+
+        TCLineView *bottom = [[TCLineView alloc] initWithFrame:CGRectMake(26, 34, 11, 10)];
+        bottom.fillColor = [RouteData colorForRouteName: routeName];
+        [cell.contentView insertSubview:bottom aboveSubview:cell.imageView];
+        bottom.tag = 6;
+
         cell.textLabel.textColor = [RouteData colorForRouteName: routeName];
         cell.textLabel.font = [UIFont boldSystemFontOfSize:16.0];
     }
@@ -232,7 +257,15 @@
     } else {
         [self deselectStop:cell];
     }
-    
+
+    // hide line at top of first cell and bottom of last
+    if ([indexPath row] > 0) [cell viewWithTag:5].hidden = NO;
+    else [cell viewWithTag:5].hidden = YES;
+    NSInteger rowsAmount = [tableView numberOfRowsInSection:[indexPath section]];
+    if ([indexPath row] < rowsAmount - 1) [cell viewWithTag:6].hidden = NO;
+    else [cell viewWithTag:6].hidden = YES;
+
+
     cell.textLabel.text = stopName;
     UIView *transparentBackground = [[UIView alloc] initWithFrame:cell.bounds];
     transparentBackground.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
