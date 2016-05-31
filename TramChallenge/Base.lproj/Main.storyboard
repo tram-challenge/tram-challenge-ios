@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -61,11 +61,11 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6yv-wz-isK">
-                                <rect key="frame" x="20" y="40" width="240" height="373"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6yv-wz-isK">
+                                <rect key="frame" x="180" y="48" width="240" height="391"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                        <rect key="frame" x="21" y="0.0" width="198" height="41"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
+                                        <rect key="frame" x="21" y="0.0" width="198" height="42"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="YrP-U0-lUv"/>
@@ -75,25 +75,12 @@ Helsinki Tram Challenge</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="YrP-U0-lUv"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="YrP-U0-lUv"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
-                                            <rect key="frame" x="61" y="0.0" width="198" height="0.0"/>
-                                        </variation>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hr-3P-UPP">
-                                        <rect key="frame" x="0.0" y="41" width="240" height="128"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hr-3P-UPP">
+                                        <rect key="frame" x="0.0" y="76" width="240" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WMV-f4-Vug">
-                                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                                <rect key="frame" x="0.0" y="20" width="240" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                                 <connections>
@@ -101,7 +88,7 @@ Helsinki Tram Challenge</string>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lw5-Hj-Q3Y">
-                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -117,39 +104,9 @@ Helsinki Tram Challenge</string>
                                             <constraint firstAttribute="bottom" secondItem="WMV-f4-Vug" secondAttribute="bottom" id="qLA-4d-e2F"/>
                                             <constraint firstItem="WMV-f4-Vug" firstAttribute="top" secondItem="Lw5-Hj-Q3Y" secondAttribute="bottom" constant="4" id="wii-ut-hjc"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="WMV-f4-Vug"/>
-                                                <exclude reference="Lw5-Hj-Q3Y"/>
-                                            </mask>
-                                            <mask key="constraints">
-                                                <exclude reference="lei-1g-Zrf"/>
-                                                <exclude reference="erp-wC-9Zu"/>
-                                                <exclude reference="nnE-tK-QRf"/>
-                                                <exclude reference="qLA-4d-e2F"/>
-                                                <exclude reference="wii-ut-hjc"/>
-                                                <exclude reference="aJs-2A-xFU"/>
-                                                <exclude reference="gsg-bB-HCh"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="subviews">
-                                                <include reference="WMV-f4-Vug"/>
-                                                <include reference="Lw5-Hj-Q3Y"/>
-                                            </mask>
-                                            <mask key="constraints">
-                                                <include reference="lei-1g-Zrf"/>
-                                                <include reference="erp-wC-9Zu"/>
-                                                <include reference="nnE-tK-QRf"/>
-                                                <include reference="qLA-4d-e2F"/>
-                                                <include reference="wii-ut-hjc"/>
-                                                <include reference="aJs-2A-xFU"/>
-                                                <include reference="gsg-bB-HCh"/>
-                                            </mask>
-                                        </variation>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8L-9H-Z3T">
-                                        <rect key="frame" x="56" y="169" width="128" height="60"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8L-9H-Z3T">
+                                        <rect key="frame" x="0.0" y="160" width="240" height="60"/>
                                         <color key="backgroundColor" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="Fwb-Tj-amy"/>
@@ -162,50 +119,27 @@ Helsinki Tram Challenge</string>
                                         <state key="disabled">
                                             <color key="titleColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Fwb-Tj-amy"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="Fwb-Tj-amy"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="67" y="146" width="186" height="45"/>
-                                        </variation>
                                         <connections>
                                             <action selector="startChallenge:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="deG-u6-dpO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ww-rr-Uv4">
-                                        <rect key="frame" x="83" y="229" width="75" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ww-rr-Uv4">
+                                        <rect key="frame" x="80" y="254" width="80" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="GzY-xx-6YO"/>
                                         </constraints>
                                         <state key="normal" title="View Rules">
                                             <color key="titleColor" red="0.0" green="0.60392156860000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="GzY-xx-6YO"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="GzY-xx-6YO"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <action selector="viewRules:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="IS1-0Q-bhu"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="374-O5-CNB">
-                                        <rect key="frame" x="63" y="259" width="114" height="114"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="374-O5-CNB">
+                                        <rect key="frame" x="39" y="318" width="162" height="73"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by digitransit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ulg-b9-48f">
-                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <rect key="frame" x="-4" y="52" width="170" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Bhk-BN-lof"/>
                                                     <constraint firstAttribute="width" constant="170" id="S5v-Lj-w6W"/>
@@ -213,67 +147,23 @@ Helsinki Tram Challenge</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="Bhk-BN-lof"/>
-                                                        <exclude reference="S5v-Lj-w6W"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="widthClass=compact">
-                                                    <mask key="constraints">
-                                                        <include reference="Bhk-BN-lof"/>
-                                                        <include reference="S5v-Lj-w6W"/>
-                                                    </mask>
-                                                </variation>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="tramsbutton" translatesAutoresizingMaskIntoConstraints="NO" id="M2e-XU-N61">
-                                                <rect key="frame" x="20" y="20" width="74" height="74"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tramsbutton" translatesAutoresizingMaskIntoConstraints="NO" id="M2e-XU-N61">
+                                                <rect key="frame" x="59" y="0.0" width="44" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="74" id="4tW-Dz-ybc">
-                                                        <variation key="widthClass=compact" constant="44"/>
-                                                    </constraint>
-                                                    <constraint firstAttribute="width" constant="74" id="O8f-Yq-9a0">
-                                                        <variation key="widthClass=compact" constant="44"/>
-                                                    </constraint>
+                                                    <constraint firstAttribute="height" constant="44" id="4tW-Dz-ybc"/>
+                                                    <constraint firstAttribute="width" constant="44" id="O8f-Yq-9a0"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Ulg-b9-48f" secondAttribute="bottom" constant="11" id="7e7-Ee-hce">
-                                                <variation key="widthClass=compact" constant="0.0"/>
-                                            </constraint>
+                                            <constraint firstAttribute="bottom" secondItem="Ulg-b9-48f" secondAttribute="bottom" id="7e7-Ee-hce"/>
                                             <constraint firstItem="Ulg-b9-48f" firstAttribute="centerX" secondItem="374-O5-CNB" secondAttribute="centerX" id="99g-y8-5a5"/>
                                             <constraint firstItem="Ulg-b9-48f" firstAttribute="leading" secondItem="374-O5-CNB" secondAttribute="leading" constant="-4" id="B1a-xw-T6l"/>
-                                            <constraint firstItem="Ulg-b9-48f" firstAttribute="top" secondItem="M2e-XU-N61" secondAttribute="bottom" constant="11" id="Oen-z6-HFu">
-                                                <variation key="widthClass=compact" constant="8"/>
-                                            </constraint>
+                                            <constraint firstItem="Ulg-b9-48f" firstAttribute="top" secondItem="M2e-XU-N61" secondAttribute="bottom" constant="8" id="Oen-z6-HFu"/>
                                             <constraint firstItem="M2e-XU-N61" firstAttribute="centerX" secondItem="Ulg-b9-48f" secondAttribute="centerX" id="SQG-bB-xhO"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="Ulg-b9-48f"/>
-                                            </mask>
-                                            <mask key="constraints">
-                                                <exclude reference="7e7-Ee-hce"/>
-                                                <exclude reference="99g-y8-5a5"/>
-                                                <exclude reference="B1a-xw-T6l"/>
-                                                <exclude reference="Oen-z6-HFu"/>
-                                                <exclude reference="SQG-bB-xhO"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="subviews">
-                                                <include reference="Ulg-b9-48f"/>
-                                            </mask>
-                                            <mask key="constraints">
-                                                <include reference="7e7-Ee-hce"/>
-                                                <include reference="99g-y8-5a5"/>
-                                                <include reference="B1a-xw-T6l"/>
-                                                <include reference="Oen-z6-HFu"/>
-                                                <include reference="SQG-bB-xhO"/>
-                                            </mask>
-                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -281,23 +171,6 @@ Helsinki Tram Challenge</string>
                                     <constraint firstItem="4hr-3P-UPP" firstAttribute="leading" secondItem="6yv-wz-isK" secondAttribute="leading" id="P90-Cn-HvY"/>
                                     <constraint firstItem="374-O5-CNB" firstAttribute="top" secondItem="8Ww-rr-Uv4" secondAttribute="bottom" constant="34" id="wYw-HW-fXN"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="P90-Cn-HvY"/>
-                                        <exclude reference="3sD-hI-vMI"/>
-                                        <exclude reference="wYw-HW-fXN"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact" alignment="center" axis="vertical">
-                                    <mask key="constraints">
-                                        <include reference="P90-Cn-HvY"/>
-                                        <include reference="3sD-hI-vMI"/>
-                                        <include reference="wYw-HW-fXN"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="40" y="48" width="320" height="191"/>
-                                </variation>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -306,20 +179,6 @@ Helsinki Tram Challenge</string>
                             <constraint firstItem="6yv-wz-isK" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="48" id="Bpt-Ix-8m6"/>
                             <constraint firstItem="6yv-wz-isK" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="mVa-8t-WLS"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Bpt-Ix-8m6"/>
-                                <exclude reference="mVa-8t-WLS"/>
-                                <exclude reference="4jn-DZ-PKL"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="Bpt-Ix-8m6"/>
-                                <include reference="mVa-8t-WLS"/>
-                                <include reference="4jn-DZ-PKL"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Tram Challenge" id="MKV-q1-nE9"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -332,7 +191,7 @@ Helsinki Tram Challenge</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1693.5" y="672"/>
+            <point key="canvasLocation" x="1693.4999999999998" y="671.99999999999989"/>
         </scene>
         <!--Tram Challenge-->
         <scene sceneID="eOE-gV-8H2">
@@ -347,7 +206,7 @@ Helsinki Tram Challenge</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMK-rz-0RB">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="408" y="436" width="168" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="168" id="Cfa-tF-8V7"/>
                                     <constraint firstAttribute="height" constant="33" id="TqO-Ax-r7q"/>
@@ -358,77 +217,41 @@ Helsinki Tram Challenge</string>
                                 <state key="normal" title="ABORT CHALLENGE">
                                     <color key="titleColor" red="0.5607843137254902" green="0.55686274509803924" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Cfa-tF-8V7"/>
-                                        <exclude reference="TqO-Ax-r7q"/>
-                                        <exclude reference="Wo2-KR-Lei"/>
-                                        <exclude reference="mYa-8e-hdC"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Cfa-tF-8V7"/>
-                                        <include reference="TqO-Ax-r7q"/>
-                                        <include reference="Wo2-KR-Lei"/>
-                                        <include reference="mYa-8e-hdC"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <action selector="abortChallenge:" destination="bk0-dL-rfo" eventType="touchUpInside" id="yA5-ft-dW0"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5mf-XI-f6b">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <rect key="frame" x="24" y="266" width="552" height="116"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kge-05-wA0">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <rect key="frame" x="0.0" y="57" width="552" height="2"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="JRG-FM-mri"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="JRG-FM-mri"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="JRG-FM-mri"/>
-                                            </mask>
-                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTX-QY-9bO">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <rect key="frame" x="275" y="58" width="2" height="58"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="2" id="1ee-Q8-hjp"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="1ee-Q8-hjp"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="1ee-Q8-hjp"/>
-                                            </mask>
-                                        </variation>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYm-Wg-Th0">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <rect key="frame" x="118" y="68" width="40.5" height="38.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="134" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fv-tc-whu">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <rect key="frame" x="383" y="66" width="61" height="41"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nfl-zO-YZu" customClass="MZTimerLabel">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <rect key="frame" x="203" y="10" width="146" height="38.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -450,75 +273,27 @@ Helsinki Tram Challenge</string>
                                     <constraint firstItem="Nfl-zO-YZu" firstAttribute="centerY" secondItem="5mf-XI-f6b" secondAttribute="centerY" multiplier="0.5" id="tHN-BZ-aGD"/>
                                     <constraint firstItem="VTX-QY-9bO" firstAttribute="centerX" secondItem="5mf-XI-f6b" secondAttribute="centerX" id="uZT-ID-mKS"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="kge-05-wA0"/>
-                                        <exclude reference="VTX-QY-9bO"/>
-                                        <exclude reference="PYm-Wg-Th0"/>
-                                        <exclude reference="7Fv-tc-whu"/>
-                                        <exclude reference="Nfl-zO-YZu"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <exclude reference="NzI-pp-weB"/>
-                                        <exclude reference="H7l-uB-quJ"/>
-                                        <exclude reference="ieU-uU-HLf"/>
-                                        <exclude reference="4og-ls-6xi"/>
-                                        <exclude reference="tHN-BZ-aGD"/>
-                                        <exclude reference="bEh-Zi-F0Y"/>
-                                        <exclude reference="hwS-SZ-HIh"/>
-                                        <exclude reference="XFY-b8-1lJ"/>
-                                        <exclude reference="bBd-bd-Bgg"/>
-                                        <exclude reference="uZT-ID-mKS"/>
-                                        <exclude reference="Fy5-5I-2mR"/>
-                                        <exclude reference="Ij9-fB-uEs"/>
-                                        <exclude reference="VcO-vU-GwT"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="subviews">
-                                        <include reference="kge-05-wA0"/>
-                                        <include reference="VTX-QY-9bO"/>
-                                        <include reference="PYm-Wg-Th0"/>
-                                        <include reference="7Fv-tc-whu"/>
-                                        <include reference="Nfl-zO-YZu"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="NzI-pp-weB"/>
-                                        <include reference="H7l-uB-quJ"/>
-                                        <include reference="ieU-uU-HLf"/>
-                                        <include reference="4og-ls-6xi"/>
-                                        <include reference="tHN-BZ-aGD"/>
-                                        <include reference="bEh-Zi-F0Y"/>
-                                        <include reference="hwS-SZ-HIh"/>
-                                        <include reference="XFY-b8-1lJ"/>
-                                        <include reference="bBd-bd-Bgg"/>
-                                        <include reference="uZT-ID-mKS"/>
-                                        <include reference="Fy5-5I-2mR"/>
-                                        <include reference="Ij9-fB-uEs"/>
-                                        <include reference="VcO-vU-GwT"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time elapsed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3K-N4-aM4">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <rect key="frame" x="24" y="243" width="77.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="textColor" red="0.71372549019607845" green="0.72156862745098038" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stops visited" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="As5-AX-K9J">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <rect key="frame" x="24" y="390" width="75.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="textColor" red="0.71372549019999998" green="0.72156862749999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total stops" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aez-Ww-IqB">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <rect key="frame" x="512" y="390" width="64" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="textColor" red="0.71372549019999998" green="0.72156862749999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hiq-eC-uqO" customClass="MBCircularProgressBarView">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <rect key="frame" x="200" y="24" width="200" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Hiq-eC-uqO" secondAttribute="height" multiplier="1:1" id="BDT-25-FWt"/>
@@ -568,24 +343,17 @@ Helsinki Tram Challenge</string>
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="BDT-25-FWt"/>
-                                        <exclude reference="UGo-Ng-5AM"/>
-                                        <exclude reference="dZS-xf-0rK"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="BDT-25-FWt"/>
-                                        <include reference="UGo-Ng-5AM"/>
-                                        <include reference="dZS-xf-0rK"/>
-                                    </mask>
-                                </variation>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark stops as you visit them in the Stops tab" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO3-vL-hON">
+                                <rect key="frame" x="24" y="454" width="376" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" red="0.71372549019999998" green="0.72156862749999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fO3-vL-hON" firstAttribute="baseline" secondItem="dMK-rz-0RB" secondAttribute="baseline" constant="8" id="1Dq-7s-cbx"/>
                             <constraint firstItem="As5-AX-K9J" firstAttribute="leading" secondItem="5mf-XI-f6b" secondAttribute="leading" id="736-oO-M6d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5mf-XI-f6b" secondAttribute="trailing" constant="4" id="7Mp-fZ-Lzs"/>
                             <constraint firstItem="Hiq-eC-uqO" firstAttribute="centerX" secondItem="qOj-Kx-lai" secondAttribute="centerX" id="AgJ-qR-DTa"/>
@@ -595,68 +363,23 @@ Helsinki Tram Challenge</string>
                             <constraint firstItem="As5-AX-K9J" firstAttribute="top" secondItem="5mf-XI-f6b" secondAttribute="bottom" constant="8" id="HNg-dd-sPR"/>
                             <constraint firstItem="U3K-N4-aM4" firstAttribute="leading" secondItem="5mf-XI-f6b" secondAttribute="leading" id="TEQ-Ti-lbX"/>
                             <constraint firstItem="5mf-XI-f6b" firstAttribute="top" secondItem="Hiq-eC-uqO" secondAttribute="bottom" constant="42" id="YqV-IE-SkC"/>
+                            <constraint firstItem="fO3-vL-hON" firstAttribute="leading" secondItem="As5-AX-K9J" secondAttribute="leading" id="dsS-e8-aRX"/>
                             <constraint firstItem="dMK-rz-0RB" firstAttribute="top" secondItem="5mf-XI-f6b" secondAttribute="bottom" constant="54" id="fm9-at-WAz"/>
                             <constraint firstItem="5mf-XI-f6b" firstAttribute="top" secondItem="U3K-N4-aM4" secondAttribute="bottom" constant="8" id="kyO-ap-b85"/>
                             <constraint firstItem="5mf-XI-f6b" firstAttribute="leading" secondItem="qOj-Kx-lai" secondAttribute="leadingMargin" constant="4" id="mjY-ri-yqi"/>
                             <constraint firstItem="Aez-Ww-IqB" firstAttribute="trailing" secondItem="5mf-XI-f6b" secondAttribute="trailing" id="rrX-59-xC8"/>
+                            <constraint firstItem="dMK-rz-0RB" firstAttribute="leading" secondItem="fO3-vL-hON" secondAttribute="trailing" constant="8" id="v5I-30-bta"/>
                             <constraint firstItem="Aez-Ww-IqB" firstAttribute="top" secondItem="5mf-XI-f6b" secondAttribute="bottom" constant="8" id="vd4-KS-C92"/>
+                            <constraint firstItem="fO3-vL-hON" firstAttribute="leading" secondItem="As5-AX-K9J" secondAttribute="trailing" constant="-75.5" id="xtM-yw-iOZ"/>
                             <constraint firstItem="Hiq-eC-uqO" firstAttribute="top" secondItem="SvR-CI-2nk" secondAttribute="bottom" constant="24" id="yiJ-he-Qaa"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="dMK-rz-0RB"/>
-                                <exclude reference="5mf-XI-f6b"/>
-                                <exclude reference="U3K-N4-aM4"/>
-                                <exclude reference="As5-AX-K9J"/>
-                                <exclude reference="Aez-Ww-IqB"/>
-                                <exclude reference="Hiq-eC-uqO"/>
-                            </mask>
                             <mask key="constraints">
-                                <exclude reference="GPm-lC-igr"/>
-                                <exclude reference="fm9-at-WAz"/>
-                                <exclude reference="rrX-59-xC8"/>
-                                <exclude reference="vd4-KS-C92"/>
-                                <exclude reference="736-oO-M6d"/>
-                                <exclude reference="HNg-dd-sPR"/>
-                                <exclude reference="TEQ-Ti-lbX"/>
-                                <exclude reference="AvF-FI-eqI"/>
-                                <exclude reference="7Mp-fZ-Lzs"/>
-                                <exclude reference="AzG-Rv-5AI"/>
-                                <exclude reference="YqV-IE-SkC"/>
-                                <exclude reference="kyO-ap-b85"/>
-                                <exclude reference="mjY-ri-yqi"/>
-                                <exclude reference="AgJ-qR-DTa"/>
-                                <exclude reference="yiJ-he-Qaa"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="dMK-rz-0RB"/>
-                                <include reference="5mf-XI-f6b"/>
-                                <include reference="U3K-N4-aM4"/>
-                                <include reference="As5-AX-K9J"/>
-                                <include reference="Aez-Ww-IqB"/>
-                                <include reference="Hiq-eC-uqO"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="GPm-lC-igr"/>
-                                <include reference="fm9-at-WAz"/>
-                                <include reference="rrX-59-xC8"/>
-                                <include reference="vd4-KS-C92"/>
-                                <include reference="736-oO-M6d"/>
-                                <include reference="HNg-dd-sPR"/>
-                                <include reference="TEQ-Ti-lbX"/>
-                                <include reference="AvF-FI-eqI"/>
-                                <include reference="7Mp-fZ-Lzs"/>
-                                <include reference="AzG-Rv-5AI"/>
-                                <include reference="YqV-IE-SkC"/>
-                                <include reference="kyO-ap-b85"/>
-                                <include reference="mjY-ri-yqi"/>
-                                <include reference="AgJ-qR-DTa"/>
-                                <include reference="yiJ-he-Qaa"/>
+                                <exclude reference="xtM-yw-iOZ"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="cLp-dx-3cj"/>
                     <connections>
                         <outlet property="abortChallengeButton" destination="dMK-rz-0RB" id="ci4-a9-XxY"/>
                         <outlet property="progressBarView" destination="Hiq-eC-uqO" id="efP-Et-YLp"/>
@@ -690,7 +413,7 @@ Helsinki Tram Challenge</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="702" y="-392"/>
+            <point key="canvasLocation" x="702" y="-391.99999999999994"/>
         </scene>
         <!--Stops-->
         <scene sceneID="ehL-cb-r6Q">
@@ -704,8 +427,8 @@ Helsinki Tram Challenge</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="stops" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INN-I3-CUW">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="stops" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INN-I3-CUW">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -715,22 +438,6 @@ Helsinki Tram Challenge</string>
                             <constraint firstItem="INN-I3-CUW" firstAttribute="leading" secondItem="sXF-By-cYV" secondAttribute="leading" id="SpI-SO-omF"/>
                             <constraint firstItem="INN-I3-CUW" firstAttribute="bottom" secondItem="8Zg-c6-SCP" secondAttribute="top" id="WdW-5A-cZE"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="9Hu-wR-6Y7"/>
-                                <exclude reference="S4F-At-y2E"/>
-                                <exclude reference="SpI-SO-omF"/>
-                                <exclude reference="WdW-5A-cZE"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="9Hu-wR-6Y7"/>
-                                <include reference="S4F-At-y2E"/>
-                                <include reference="SpI-SO-omF"/>
-                                <include reference="WdW-5A-cZE"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Stops" id="EcQ-Xx-wZx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -755,28 +462,22 @@ Helsinki Tram Challenge</string>
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6o8-sd-0Bx" id="wIR-59-wXo">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3qe-dP-wZc">
-                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact">
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            </variation>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5vJ-5b-zgE">
-                                            <rect key="frame" x="541" y="11" width="44" height="21"/>
+                                            <rect key="frame" x="543.5" y="12" width="41.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact">
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            </variation>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -794,7 +495,7 @@ Helsinki Tram Challenge</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZ9-el-Kv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-244.5" y="672"/>
+            <point key="canvasLocation" x="-244.5" y="671.99999999999989"/>
         </scene>
         <!--Challenge-->
         <scene sceneID="MMX-YG-CiQ">
@@ -817,7 +518,7 @@ Helsinki Tram Challenge</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yID-EJ-cwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="606" y="672"/>
+            <point key="canvasLocation" x="606" y="671.99999999999989"/>
         </scene>
         <!--Leaderboard-->
         <scene sceneID="s7L-G0-5lY">
@@ -840,7 +541,7 @@ Helsinki Tram Challenge</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYX-BW-yIH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1057.5" y="651"/>
+            <point key="canvasLocation" x="-1057.5" y="650.99999999999989"/>
         </scene>
         <!--Map-->
         <scene sceneID="otN-Tq-aKP">
