@@ -242,8 +242,10 @@
     [[TCAPIAdaptor instance] tramPositions:^(NSDictionary *pos) {
         for (NSString *vehID in pos) {
             NSArray *data = [NSArray tc_cast:pos[vehID]];
+            // this string is in +1000 format - e.g. 1001, 1007A, 1010
             NSString *longName = [NSString tc_cast:data[2]];
-            NSString *routeName = [longName substringFromIndex:3];
+            unichar third = [longName characterAtIndex:2];
+            NSString *routeName = [longName substringFromIndex:(third == '1' ? 2 : 3)];
             TCVehAnnotation *annotation = self.vehAnnotations[vehID];
             CLLocationCoordinate2D coord = {.latitude = [data[0] floatValue], .longitude =  [data[1] floatValue]};
 
