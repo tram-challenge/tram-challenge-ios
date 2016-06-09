@@ -13,6 +13,10 @@
 #import "ChallengeNavigationController.h"
 @import CloudKit;
 
+#if DEBUG
+#import <SimulatorStatusMagic/SDStatusBarManager.h>
+#endif
+
 @interface AppDelegate ()
 
 @end
@@ -25,6 +29,10 @@
     // Override point for customization after application launch.
 
     [self fetchCloudID];
+
+    #if DEBUG
+    [[SDStatusBarManager sharedInstance] enableOverrides];
+    #endif
 
     return YES;
 }
