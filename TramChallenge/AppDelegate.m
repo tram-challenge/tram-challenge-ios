@@ -12,6 +12,7 @@
 #import "AttemptViewController.h"
 #import "ChallengeNavigationController.h"
 @import CloudKit;
+#import <HockeySDK/HockeySDK.h>
 
 @interface AppDelegate ()
 
@@ -24,6 +25,10 @@
     [self.window setTintColor:[UIColor colorWithRed:0 green:0.6 blue:0.36 alpha:1]];
     // Override point for customization after application launch.
 
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"35b5ce51ddb941e69449c7decb6d7536"];
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
+    
     [self fetchCloudID];
 
     return YES;
