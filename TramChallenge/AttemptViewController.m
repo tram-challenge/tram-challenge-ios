@@ -11,6 +11,7 @@
 #import "TCAPIAdaptor.h"
 #import "TCTramStop.h"
 #import <MBCircularProgressBar/MBCircularProgressBarView.h>
+#import "TCUtilities.h"
 
 @interface AttemptViewController ()
 
@@ -38,6 +39,14 @@
     self.totalStopsLabel.font = [UIFont monospacedDigitSystemFontOfSize:34 weight:UIFontWeightBold];
     self.stopsVisitedLabel.font = [UIFont monospacedDigitSystemFontOfSize:34 weight:UIFontWeightBold];
     
+    self.timeElapsedLabel.shouldCountBeyondHHLimit = YES;
+    
+    double elapsed = TCAPIAdaptor.instance.elapsedTime.doubleValue;
+    lg(@"Elapsed time: %f", elapsed);
+    if (elapsed > 24 * 60 * 60) {
+        [self timeLimitExceeded];
+        return;
+    }
     [self.timeElapsedLabel setStopWatchTime:TCAPIAdaptor.instance.elapsedTime.doubleValue];
     [self.timeElapsedLabel start];
     
@@ -54,6 +63,28 @@
         self.totalStops = RouteData.instance.stops.count;
         self.stopsVisited = RouteData.instance.visitedStops.count;
     }];
+}
+
+- (void)timeLimitExceeded
+{
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Time limit exceeded"
+                                                                   message:@"The challenge cannot exceed 24 hours, please start a new challenge."
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive
+                                                      handler:^(UIAlertAction * action) {
+                                                          [[TCAPIAdaptor instance] abortAttempt:^{
+                                                              NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                                              [defaults setBool:NO forKey:@"in_progress"];
+                                                              [defaults synchronize];
+                                                              [[RouteData instance] clearVisitedStops];
+                                                              [self.navigationController popToRootViewControllerAnimated:NO];
+                                                          } failure:^{}];
+                                                      }];
+    
+    [alert addAction:okAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
