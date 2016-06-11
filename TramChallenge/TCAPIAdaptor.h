@@ -44,4 +44,6 @@ typedef void (^TCErrorBlock)(NSError *error, NSInteger status, NSDictionary *inf
  */
 - (void)tramPositions:(void (^)(NSDictionary *))successBlock;
 
+- (void)subscribeToTramPositions;
+
 @end

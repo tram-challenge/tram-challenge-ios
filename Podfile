@@ -10,4 +10,5 @@ target "TramChallenge" do
   pod 'UIAlertView+Blocks', '~> 0.8.1'
   pod 'MBCircularProgressBar'
   pod 'MZTimerLabel'
+  pod 'MQTTClient'
 end

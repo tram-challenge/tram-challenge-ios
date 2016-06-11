@@ -12,14 +12,15 @@
 #import "AppDelegate.h"
 #import "RouteData.h"
 #import "LocationManager.h"
+#import <MQTTClient/MQTTClient.h>
 
 static NSString * const apiURL = @"https://tramchallenge.com";
 static NSString *const digitransportURL = @"https://api.digitransit.fi";
 
-@interface TCAPIAdaptor ()
+@interface TCAPIAdaptor () <MQTTSessionDelegate>
 
 @property (nonatomic) NSInteger spinnerCount;
-
+@property (nonatomic) MQTTSession *mqttSession;
 @end
 
 @implementation TCAPIAdaptor
@@ -32,6 +33,16 @@ static TCAPIAdaptor *_TCAPIAdaptor;
 
     dispatch_once(&pred, ^{
         _TCAPIAdaptor = [[self alloc] init];
+        
+        MQTTCFSocketTransport *transport = [[MQTTCFSocketTransport alloc] init];
+        transport.host = @"mqtt.hsl.fi";
+        transport.port = 1883;
+        
+        _TCAPIAdaptor.mqttSession = [[MQTTSession alloc] init];
+        _TCAPIAdaptor.mqttSession.transport = transport;
+        
+        _TCAPIAdaptor.mqttSession.delegate = _TCAPIAdaptor;
+        [_TCAPIAdaptor.mqttSession connectAndWaitTimeout:30];
     });
     return _TCAPIAdaptor;
 }
@@ -163,6 +174,52 @@ static TCAPIAdaptor *_TCAPIAdaptor;
     }];
 }
 
+- (void)subscribeToTramPositions
+{
+    [self.mqttSession subscribeToTopic:@"/hfp/journey/tram/#" atLevel:2 subscribeHandler:^(NSError *error, NSArray<NSNumber *> *gQoss){
+        if (error) {
+            NSLog(@"Subscription failed %@", error.localizedDescription);
+        } else {
+            NSLog(@"Subscription sucessfull! Granted Qos: %@", gQoss);
+        }
+    }];
+}
+
+- (void)newMessage:(MQTTSession *)session data:(NSData *)data onTopic:(NSString *)topic qos:(MQTTQosLevel)qos retained:(BOOL)retained mid:(unsigned int)mid
+{
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if (error != nil) {
+        NSLog(@"Error parsing MQTT JSON.");
+        return;
+    }
+// data looks like this
+//    {
+//        VP =     {
+//            desi = 7B;
+//            dir = 1;
+//            dl = 0;
+//            hdg = 162;
+//            jrn = XXX;
+//            lat = "60.187901";
+//            line = XXX;
+//            long = "24.918663";
+//            oday = "2016-06-11";
+//            odo = 5248;
+//            oper = XXX;
+//            source = "hsl live";
+//            spd = "4.17";
+//            start = 1546;
+//            "stop_index" = 1;
+//            tsi = 1465648393;
+//            tst = "2016-06-11T12:33:13.000Z";
+//            veh = RHKL00121;
+//        };
+//    }
+    
+    NSDictionary *vp = json[@"VP"];
+    
+}
 
 #pragma mark - HTTP interface
 

@@ -221,6 +221,8 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     self.vehTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(updateVeh) userInfo:nil repeats:YES];
+    
+    [[TCAPIAdaptor instance] subscribeToTramPositions];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

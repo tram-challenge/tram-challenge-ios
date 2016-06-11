@@ -20,8 +20,20 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - CocoaLumberjack (2.3.0):
+    - CocoaLumberjack/Default (= 2.3.0)
+    - CocoaLumberjack/Extensions (= 2.3.0)
+  - CocoaLumberjack/Core (2.3.0)
+  - CocoaLumberjack/Default (2.3.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.3.0):
+    - CocoaLumberjack/Default
   - Masonry (0.6.4)
   - MBCircularProgressBar (0.3.2)
+  - MQTTClient (0.7.8):
+    - MQTTClient/Core (= 0.7.8)
+  - MQTTClient/Core (0.7.8):
+    - CocoaLumberjack
   - MZTimerLabel (0.5.4)
   - UIAlertView+Blocks (0.8.1)
 
@@ -29,16 +41,19 @@ DEPENDENCIES:
   - AFNetworking (~> 2.4)
   - Masonry (~> 0.5)
   - MBCircularProgressBar
+  - MQTTClient
   - MZTimerLabel
   - UIAlertView+Blocks (~> 0.8.1)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MBCircularProgressBar: da24e75aa8a231564f10eb8d6d942fa78343486c
+  MQTTClient: be89741654eccf5a57eb62f4ef0fd57e0e19aa17
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   UIAlertView+Blocks: 45c3d3b7194906702d3e9a14c7ece5581505646d
 
-PODFILE CHECKSUM: c6ad5475cd68ba7cb724e4fe2d184af07fe9592c
+PODFILE CHECKSUM: 5ec8e9e994b6616cb7c5fda96e0d3832a933d336
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1
