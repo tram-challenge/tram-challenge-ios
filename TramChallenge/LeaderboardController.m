@@ -10,7 +10,6 @@
 #import "TCAPIAdaptor.h"
 
 @interface LeaderboardController () <UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *leaderboard;
 @end
 
