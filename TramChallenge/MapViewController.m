@@ -17,6 +17,7 @@
 #import "TCTramStop.h"
 #import "TCAPIAdaptor.h"
 #import "LocationManager.h"
+#import <MQTTClient/MQTTClient.h>
 
 #pragma mark - Annotation class
 
@@ -112,7 +113,7 @@
 
 #pragma mark - MapViewController
 
-@interface MapViewController () <MKMapViewDelegate, TramLineSelectionDelegate, UIGestureRecognizerDelegate>
+@interface MapViewController () <MKMapViewDelegate, TramLineSelectionDelegate, UIGestureRecognizerDelegate, MQTTSessionDelegate>
 
 @property (nonatomic) MKMapView *mapView;
 
@@ -129,6 +130,8 @@
 @property (nonatomic) UIBarButtonItem *filterButton;
 
 @property (nonatomic, strong) NSTimer *vehTimer;
+
+@property (nonatomic, strong) MQTTSession *mqttSession;
 
 @end
 
@@ -220,18 +223,56 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.vehTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(updateVeh) userInfo:nil repeats:YES];
+//    self.vehTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(updateVeh) userInfo:nil repeats:YES];
+    MQTTCFSocketTransport *transport = [[MQTTCFSocketTransport alloc] init];
+    transport.host = @"mqtt.hsl.fi";
+    transport.port = 1883;
+
+    self.mqttSession = [[MQTTSession alloc] init];
+    self.mqttSession.transport = transport;
+    self.mqttSession.delegate=self;
+    [self.mqttSession connectAndWaitTimeout:30];
+    [self.mqttSession subscribeTopic:@"/hfp/journey/tram/#"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.vehTimer invalidate];
+    [self.mqttSession unsubscribeTopic:@"/hfp/journey/tram/#"];
+    [self.mqttSession disconnect];
 }
 
 - (void)setShowsUserLocation:(BOOL)showsUserLocation
 {
     _showsUserLocation = showsUserLocation;
     self.mapView.showsUserLocation = showsUserLocation;
+}
+
+- (void)newMessage:(MQTTSession *)session data:(NSData *)data onTopic:(NSString *)topic qos:(MQTTQosLevel)qos retained:(BOOL)retained mid:(unsigned int)mid
+{
+    if (!self.vehAnnotations) self.vehAnnotations = [NSMutableDictionary dictionary];
+
+    NSDictionary *pos = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:NULL];
+    NSLog(@"%@", pos);
+    NSString *vehID = pos[@"VP"][@"veh"];
+
+    NSString *routeName = pos[@"VP"][@"desi"];
+    float lat = [pos[@"VP"][@"lat"] floatValue];
+    float lon = [pos[@"VP"][@"long"] floatValue];
+
+    TCVehAnnotation *annotation = self.vehAnnotations[vehID];
+    CLLocationCoordinate2D coord = {.latitude = lat, .longitude = lon};
+
+    if (annotation) {
+        annotation.coordinate = coord;
+    } else if ([[RouteData routeNames] containsObject:routeName]) {
+        TCVehAnnotation *newAnnotation = [[TCVehAnnotation alloc] initWithCoordinate:coord title:routeName];
+        newAnnotation.color = [RouteData colorForRouteName:routeName];
+        [self.mapView addAnnotation:newAnnotation];
+        self.vehAnnotations[vehID] = newAnnotation;
+    }
+
+    [self filterLiveTrams:self.filterListViewer];
+
 }
 
 - (void)updateVeh
