@@ -150,7 +150,7 @@ static RouteData *_RouteData;
 
 + (NSArray<NSString *> *)routeNames
 {
-    return @[@"1", @"1A", @"2", @"3", @"4", @"4T", /*@"5",*/ @"6", @"6T", @"7A", @"7B", @"8", @"9", @"10"];
+    return @[@"1", @"1A", @"2", @"3", @"4", /*@"4T",*/ @"5", @"6", @"6T", @"7A", @"7B", @"8", @"9", @"10"];
 }
 
 + (NSString *) descriptionForRouteName:(NSString *)routeName
