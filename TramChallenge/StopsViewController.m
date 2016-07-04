@@ -58,6 +58,7 @@ static NSString *simpleTableIdentifier = @"StopsTableCell";
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic) NSMutableArray *PageControlBtns;
 @property (nonatomic) NSMutableDictionary *routes;
+@property (nonatomic) NSDate *lastStopSelectedDate;
 @end
 
 @implementation StopsViewController
@@ -183,7 +184,25 @@ static NSString *simpleTableIdentifier = @"StopsTableCell";
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[TCAPIAdaptor instance] attemptInProgress];
+    if (![[TCAPIAdaptor instance] attemptInProgress]) return NO;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+    // can always deselect
+    if (cell.isSelected) {
+        self.lastStopSelectedDate = nil;
+        return YES;
+    }
+
+    BOOL result = NO;
+    // first time or after deselect
+    if (!self.lastStopSelectedDate) result = YES;
+    
+    // stop additional selections for 15s
+    NSDate *limitDate = [self.lastStopSelectedDate dateByAddingTimeInterval:15];
+    if ([[NSDate date] compare:limitDate] == NSOrderedDescending) result = YES;
+
+    if (result) self.lastStopSelectedDate = [NSDate date];
+    return result;
 }
 
 - (void)selectStop:(UITableViewCell *)cell
