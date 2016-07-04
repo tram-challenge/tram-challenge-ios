@@ -234,6 +234,16 @@
     self.mapView.showsUserLocation = showsUserLocation;
 }
 
+BOOL tramIsInDepot(CLLocationCoordinate2D tramCoord) {
+    CLLocationCoordinate2D topLeftCorner = {60.219057, 24.967089};
+    CLLocationCoordinate2D bottomRightCorner = {60.211808, 24.977046};
+    MKMapPoint topLeftPoint = MKMapPointForCoordinate(topLeftCorner);
+    MKMapPoint bottomRightPoint = MKMapPointForCoordinate(bottomRightCorner);
+    MKMapRect mapRect = MKMapRectMake(topLeftPoint.x, topLeftPoint.y, bottomRightPoint.x - topLeftPoint.x, bottomRightPoint.y - topLeftPoint.y);
+    MKMapPoint tramPoint = MKMapPointForCoordinate(tramCoord);
+    return MKMapRectContainsPoint(mapRect, tramPoint);
+}
+
 - (void)updateVeh
 {
     if (!self.vehAnnotations) self.vehAnnotations = [NSMutableDictionary dictionary];
@@ -248,6 +258,8 @@
             NSString *routeName = [longName substringFromIndex:(third == '1' ? 2 : 3)];
             TCVehAnnotation *annotation = self.vehAnnotations[vehID];
             CLLocationCoordinate2D coord = {.latitude = [data[0] floatValue], .longitude =  [data[1] floatValue]};
+            
+            if (tramIsInDepot(coord)) continue;
 
             if (annotation) {
                 annotation.coordinate = coord;
