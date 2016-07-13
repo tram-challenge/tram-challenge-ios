@@ -197,8 +197,8 @@ static NSString *simpleTableIdentifier = @"StopsTableCell";
     // first time or after deselect
     if (!self.lastStopSelectedDate) result = YES;
     
-    // stop additional selections for 15s
-    NSDate *limitDate = [self.lastStopSelectedDate dateByAddingTimeInterval:15];
+    // stop additional selections for 3s
+    NSDate *limitDate = [self.lastStopSelectedDate dateByAddingTimeInterval:3];
     if ([[NSDate date] compare:limitDate] == NSOrderedDescending) result = YES;
 
     if (result) self.lastStopSelectedDate = [NSDate date];
