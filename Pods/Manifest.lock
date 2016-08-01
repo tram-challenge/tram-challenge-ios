@@ -21,8 +21,9 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Masonry (0.6.4)
-  - MBCircularProgressBar (0.3.2)
+  - MBCircularProgressBar (0.3.4)
   - MZTimerLabel (0.5.4)
+  - SimulatorStatusMagic (1.8)
   - UIAlertView+Blocks (0.8.1)
 
 DEPENDENCIES:
@@ -30,15 +31,17 @@ DEPENDENCIES:
   - Masonry (~> 0.5)
   - MBCircularProgressBar
   - MZTimerLabel
+  - SimulatorStatusMagic (~> 1.8)
   - UIAlertView+Blocks (~> 0.8.1)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
-  MBCircularProgressBar: da24e75aa8a231564f10eb8d6d942fa78343486c
+  MBCircularProgressBar: ff3b8e2f441214d9ee122a24ba0d4d00cc7de881
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
+  SimulatorStatusMagic: 4dbf0faa0208e9ac0d56cea06eaa5f7a5f3d02fb
   UIAlertView+Blocks: 45c3d3b7194906702d3e9a14c7ece5581505646d
 
-PODFILE CHECKSUM: c6ad5475cd68ba7cb724e4fe2d184af07fe9592c
+PODFILE CHECKSUM: b00c7a7337213fdee06f77e9d3a6cb79baa34cbe
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

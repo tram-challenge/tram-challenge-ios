@@ -1,8 +1,8 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking" "$PODS_CONFIGURATION_BUILD_DIR/MBCircularProgressBar" "$PODS_CONFIGURATION_BUILD_DIR/MZTimerLabel" "$PODS_CONFIGURATION_BUILD_DIR/Masonry" "$PODS_CONFIGURATION_BUILD_DIR/UIAlertView+Blocks"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking" "$PODS_CONFIGURATION_BUILD_DIR/MBCircularProgressBar" "$PODS_CONFIGURATION_BUILD_DIR/MZTimerLabel" "$PODS_CONFIGURATION_BUILD_DIR/Masonry" "$PODS_CONFIGURATION_BUILD_DIR/SimulatorStatusMagic" "$PODS_CONFIGURATION_BUILD_DIR/UIAlertView+Blocks"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking/AFNetworking.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MBCircularProgressBar/MBCircularProgressBar.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MZTimerLabel/MZTimerLabel.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/Masonry/Masonry.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/UIAlertView+Blocks/UIAlertView_Blocks.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "MBCircularProgressBar" -framework "MZTimerLabel" -framework "Masonry" -framework "UIAlertView_Blocks"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking/AFNetworking.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MBCircularProgressBar/MBCircularProgressBar.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MZTimerLabel/MZTimerLabel.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/Masonry/Masonry.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SimulatorStatusMagic/SimulatorStatusMagic.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/UIAlertView+Blocks/UIAlertView_Blocks.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "MBCircularProgressBar" -framework "MZTimerLabel" -framework "Masonry" -framework "SimulatorStatusMagic" -framework "UIAlertView_Blocks"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods

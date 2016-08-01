@@ -14,6 +14,10 @@
 @import CloudKit;
 #import <HockeySDK/HockeySDK.h>
 
+#if DEBUG
+#import <SimulatorStatusMagic/SDStatusBarManager.h>
+#endif
+
 @interface AppDelegate ()
 
 @end
@@ -30,6 +34,10 @@
     [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
     
     [self fetchCloudID];
+
+    #if DEBUG
+    [[SDStatusBarManager sharedInstance] enableOverrides];
+    #endif
 
     return YES;
 }
