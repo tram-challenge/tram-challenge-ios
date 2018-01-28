@@ -116,7 +116,7 @@ static NSString *simpleTableIdentifier = @"StopsTableCell";
 
         UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(70, 20.0, page.frame.size.width-80, 40.0)];
         titleLbl.textColor = [RouteData colorForRouteName: routeName];
-        titleLbl.font = [UIFont boldSystemFontOfSize:18.0];
+        titleLbl.font = [UIFont boldSystemFontOfSize:14.0];
         [page addSubview:titleLbl];
 
         [[RouteData instance] fetchStopsSuccess:^{

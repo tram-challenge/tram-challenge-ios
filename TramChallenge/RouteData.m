@@ -150,52 +150,46 @@ static RouteData *_RouteData;
 
 + (NSArray<NSString *> *)routeNames
 {
-    return @[@"1", @"1A", @"2", @"3", @"4", /*@"4T",*/ @"5", @"6", @"6T", @"7A", @"7B", @"8", @"9", @"10"];
+    return @[@"1", @"2", @"3", @"4", @"5", @"6", @"6T", @"7", @"8", @"9", @"10"];
 }
 
 + (NSString *) descriptionForRouteName:(NSString *)routeName
 {
     return (NSString *)(@{
-      @"1" : @"Kauppatori - Käpylä",
-      @"1A" : @"Eira - Kauppatori - Käpylä",
-      @"2"  : @"Olympiaterminaali - Kamppi (M) - Töölö - Nordenskiöldinkatu",
-      @"3"  : @"Olympiaterminaali - Kallio - Nordenskiöldinkatu",
-      @"4" : @"Katajanokka - Munkkiniemi",
-      @"4T" : @"Katajanokka (terminaali) - Munkkiniemi",
-      @"5" : @"Katajanokka (terminaali) - Rautatieasema",
-      @"6" : @"Hietalahti - Rautatieasema - Arabia",
-      @"6T" : @"Länsiterminaali - Rautatieasema - Arabia",
-      @"7A" : @"Senaatintori - Töölö - Pasila (asema) - Senaatintori",
-      @"7B" : @"Senaatintori - Pasila (asema) - Töölö - Senaatintori",
-      @"8"  : @"Jätkäsaari - Töölö – Arabia",
-      @"9"  : @"Länsiterminaali - Rautatieasema - Pasila",
-      @"10" : @"Kirurgi - Pikku Huopalahti"
+      @"1" : @"Eira — Lasipalatsi — Töölö — Sörnäinen — Käpylä",
+      @"2"  : @"Olympiaterminaali — Kauppatori — Lasipalatsi — Töölö — Eläintarha — Länsi-Pasila",
+      @"3"  : @"Olympiaterminaali — Eira — Rautatieasema — Hakaniemi — Meilahti",
+      @"4" : @"Katajanokka — Mannerheimintie — Munkkiniemi",
+      @"5" : @"Katajanokan terminaali — Rautatieasema",
+      @"6" : @"Hietalahti — Rautatieasema — Sörnäinen — Arabia",
+      @"6T" : @"Länsiterminaali — Hietalahti — Rautatieasema — Sörnäinen — Arabia",
+      @"7" : @"Länsiterminaali — Kamppi — Rautatieasema — Kruununhaka — Sörnäinen – Länsi-Pasila",
+      @"8"  : @"Jätkäsaari — Ruoholahti — Töölö — Sörnäinen — Arabia",
+      @"9"  : @"Jätkäsaari — Kamppi — Rautatieasema — Kallio — Länsi-Pasila",
+      @"10" : @"Kirurgi — Mannerheimintie — Pikku Huopalahti"
     }[routeName]);
 }
 
 + (UIColor *)colorForRouteName:(NSString *)routeName
 {
     return (UIColor *)(@{
-      @"1" : [UIColor colorWithRed:0.50 green:0.72 blue:0.82 alpha:1.0],
-      @"1A" : [UIColor colorWithRed:0.50 green:0.72 blue:0.82 alpha:1.0],
-      @"2"  : [UIColor colorWithRed:0.34 green:0.54 blue:0.32 alpha:1.0],
-      @"3"  : [UIColor colorWithRed:0.55 green:0.75 blue:0.57 alpha:1.0],
-      @"4" : [UIColor colorWithRed:0.67 green:0.24 blue:0.30 alpha:1.0],
-      @"4T" : [UIColor colorWithRed:0.67 green:0.24 blue:0.30 alpha:1.0],
-      @"5" : [UIColor colorWithRed:0.78 green:0.50 blue:0.65 alpha:1.0],
-      @"6" : [UIColor colorWithRed:0.49 green:0.27 blue:0.51 alpha:1.0],
-      @"6T" : [UIColor colorWithRed:0.49 green:0.27 blue:0.51 alpha:1.0],
-      @"7A" : [UIColor colorWithRed:0.90 green:0.68 blue:0.17 alpha:1.0],
-      @"7B" : [UIColor colorWithRed:0.90 green:0.68 blue:0.17 alpha:1.0],
-      @"8"  : [UIColor colorWithRed:0.71 green:0.46 blue:0.15 alpha:1.0],
-      @"9"  : [UIColor colorWithRed:0.68 green:0.27 blue:0.47 alpha:1.0],
-      @"10" : [UIColor colorWithRed:0.58 green:0.58 blue:0.22 alpha:1.0]
+      @"1" : [UIColor colorWithRed:0.22 green:0.69 blue:0.82 alpha:1.0],
+      @"2"  : [UIColor colorWithRed:0.45 green:0.69 blue:0.33 alpha:1.0],
+      @"3"  : [UIColor colorWithRed:0.0 green:0.48 blue:0.70 alpha:1.0],
+      @"4" : [UIColor colorWithRed:0.79 green:0.24 blue:0.35 alpha:1.0],
+      @"5" : [UIColor colorWithRed:0.39 green:0.39 blue:0.39 alpha:1.0],
+      @"6" : [UIColor colorWithRed:0.43 green:0.36 blue:0.58 alpha:1.0],
+      @"6T" : [UIColor colorWithRed:0.43 green:0.36 blue:0.58 alpha:1.0],
+      @"7" : [UIColor colorWithRed:0.70 green:0.18 blue:0.47 alpha:1.0],
+      @"8"  : [UIColor colorWithRed:0.0 green:0.59 blue:0.38 alpha:1.0],
+      @"9"  : [UIColor colorWithRed:0.86 green:0.59 blue:0.70 alpha:1.0],
+      @"10" : [UIColor colorWithRed:0.91 green:0.66 blue:0.32 alpha:1.0]
       }[routeName]);
 }
 
 + (NSArray *)reversedRoutes
 {
-    return @[@"1A", @"4", @"6", @"6T", @"7B", @"10"];
+    return @[@"1", @"4", @"6", @"6T", @"7", @"10"];
 }
 
 @end
