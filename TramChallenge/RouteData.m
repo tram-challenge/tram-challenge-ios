@@ -189,7 +189,7 @@ static RouteData *_RouteData;
 
 + (NSArray *)reversedRoutes
 {
-    return @[@"1", @"4", @"6", @"6T", @"7", @"10"];
+    return @[@"1", @"2", @"3", @"4", @"6", @"7", @"9", @"10"];
 }
 
 @end
