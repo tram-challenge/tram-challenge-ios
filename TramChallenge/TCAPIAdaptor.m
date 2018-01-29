@@ -148,14 +148,17 @@ static TCAPIAdaptor *_TCAPIAdaptor;
 
 - (void)tramPositions:(void (^)(NSDictionary *))successBlock
 {
-    NSString *path = @"realtime/vehicle-positions/v1/hfp/journey/tram/#";
+    NSString *path = @"realtime/vehicle-positions/v1/hfp/journey/tram/+/";
     [self getDigitransport:path with:nil success:^(AFHTTPRequestOperation *operation, id result) {
         NSDictionary *dict = [NSDictionary tc_cast:result];
         NSMutableDictionary *resDict = [NSMutableDictionary dictionary];
         for (NSString *key in dict) {
             NSDictionary *itemDict = [NSDictionary tc_cast:dict[key]];
             NSDictionary *item = [NSDictionary tc_cast:itemDict[@"VP"]];
-            resDict[item[@"veh"]] = @[item[@"lat"], item[@"long"], item[@"line"]];
+            NSArray *components = [key componentsSeparatedByString:@"/"];
+            if (components.count > 5) {
+                resDict[item[@"veh"]] = @[item[@"lat"], item[@"long"], components[5]];
+            }
         }
         successBlock(resDict);
     } failure:^(NSError *error, NSInteger status, NSDictionary *info) {

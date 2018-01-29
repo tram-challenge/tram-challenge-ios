@@ -220,7 +220,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.vehTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(updateVeh) userInfo:nil repeats:YES];
+    self.vehTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateVeh) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
