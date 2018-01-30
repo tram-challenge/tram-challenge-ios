@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3A265647201E7C9F00DEA173 /* 7.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3A265646201E7C9F00DEA173 /* 7.coords.txt */; };
+		3AC877E020210D5A0030F110 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC877DF20210D5A0030F110 /* HockeySDK.framework */; };
+		3AC877E420210E450030F110 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC877E320210E450030F110 /* CloudKit.framework */; };
 		3AD8F1431CEE4D6100C48237 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1421CEE4D6100C48237 /* main.m */; };
 		3AD8F1461CEE4D6100C48237 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1451CEE4D6100C48237 /* AppDelegate.m */; };
 		3AD8F1491CEE4D6100C48237 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1481CEE4D6100C48237 /* MapViewController.m */; };
@@ -24,7 +26,6 @@
 		3AD8F1BE1CF4E19200C48237 /* 10.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1B31CF4E19200C48237 /* 10.coords.txt */; };
 		3AD8F1C11CF8C23900C48237 /* TramLineSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1C01CF8C23900C48237 /* TramLineSelectionViewController.m */; };
 		3AD8F1C41CF8C51A00C48237 /* TCUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1C31CF8C51A00C48237 /* TCUtilities.m */; };
-		3AD8F1C71CF8CA1B00C48237 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD8F1C61CF8CA1B00C48237 /* CloudKit.framework */; };
 		3AD8F1CA1CF998AC00C48237 /* TCAPIAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1C91CF998AC00C48237 /* TCAPIAdaptor.m */; };
 		3AD8F1D81CF9A32700C48237 /* 1.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1CB1CF9A32700C48237 /* 1.coords.txt */; };
 		3AD8F1D91CF9A32700C48237 /* 4.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1CF1CF9A32700C48237 /* 4.coords.txt */; };
@@ -36,8 +37,6 @@
 		3AD8F1E61CF9A88600C48237 /* TCTramRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1E51CF9A88600C48237 /* TCTramRoute.m */; };
 		3AD8F1E91CFC29CB00C48237 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8F1E81CFC29CB00C48237 /* LocationManager.m */; };
 		3AD8F1EB1CFC394200C48237 /* 5.coords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD8F1EA1CFC394200C48237 /* 5.coords.txt */; };
-		3C44B49D1D0C2A270023D65E /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C44B49C1D0C2A270023D65E /* HockeySDK.framework */; };
-		3C44B49F1D0C2ADA0023D65E /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C44B49E1D0C2ADA0023D65E /* HockeySDKResources.bundle */; };
 		7C1FFDD91CF9AFD0009AD02A /* StopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1FFDD81CF9AFD0009AD02A /* StopsViewController.m */; };
 		C609100BEC42073636CF7C40 /* Pods_TramChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5F9192E7DED712CD1A069C /* Pods_TramChallenge.framework */; };
 		CF7648691CFA0F1F002DE158 /* LeaderboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7648681CFA0F1F002DE158 /* LeaderboardController.m */; };
@@ -68,6 +67,8 @@
 		2AD823BB27B49371C63375A0 /* Pods-TramChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TramChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TramChallenge/Pods-TramChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		2C4566A50CFBEF6808DCFA68 /* Pods-TramChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TramChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-TramChallenge/Pods-TramChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		3A265646201E7C9F00DEA173 /* 7.coords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 7.coords.txt; sourceTree = "<group>"; };
+		3AC877DF20210D5A0030F110 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
+		3AC877E320210E450030F110 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3AD8F13E1CEE4D6100C48237 /* TramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD8F1421CEE4D6100C48237 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3AD8F1441CEE4D6100C48237 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,7 +98,6 @@
 		3AD8F1C21CF8C51A00C48237 /* TCUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCUtilities.h; sourceTree = "<group>"; };
 		3AD8F1C31CF8C51A00C48237 /* TCUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCUtilities.m; sourceTree = "<group>"; };
 		3AD8F1C51CF8C9FC00C48237 /* TramChallenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TramChallenge.entitlements; sourceTree = "<group>"; };
-		3AD8F1C61CF8CA1B00C48237 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3AD8F1C81CF998AC00C48237 /* TCAPIAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAPIAdaptor.h; sourceTree = "<group>"; };
 		3AD8F1C91CF998AC00C48237 /* TCAPIAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAPIAdaptor.m; sourceTree = "<group>"; };
 		3AD8F1CB1CF9A32700C48237 /* 1.coords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 1.coords.txt; sourceTree = "<group>"; };
@@ -113,8 +113,6 @@
 		3AD8F1E71CFC29CB00C48237 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		3AD8F1E81CFC29CB00C48237 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		3AD8F1EA1CFC394200C48237 /* 5.coords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 5.coords.txt; sourceTree = "<group>"; };
-		3C44B49C1D0C2A270023D65E /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HockeySDK.framework; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework"; sourceTree = "<group>"; };
-		3C44B49E1D0C2ADA0023D65E /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = HockeySDKResources.bundle; path = "HockeySDK-iOS/HockeySDK.embeddedframework/Resources/HockeySDKResources.bundle"; sourceTree = "<group>"; };
 		6D5F9192E7DED712CD1A069C /* Pods_TramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1FFDD71CF9AFD0009AD02A /* StopsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopsViewController.h; sourceTree = "<group>"; };
 		7C1FFDD81CF9AFD0009AD02A /* StopsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopsViewController.m; sourceTree = "<group>"; };
@@ -134,9 +132,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C44B49D1D0C2A270023D65E /* HockeySDK.framework in Frameworks */,
+				3AC877E420210E450030F110 /* CloudKit.framework in Frameworks */,
+				3AC877E020210D5A0030F110 /* HockeySDK.framework in Frameworks */,
 				CF76486E1CFAF37F002DE158 /* SafariServices.framework in Frameworks */,
-				3AD8F1C71CF8CA1B00C48237 /* CloudKit.framework in Frameworks */,
 				3AD8F1781CEE5CA000C48237 /* MapKit.framework in Frameworks */,
 				C609100BEC42073636CF7C40 /* Pods_TramChallenge.framework in Frameworks */,
 			);
@@ -281,8 +279,8 @@
 		C89E7406104B6BE82C72A3A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3C44B49C1D0C2A270023D65E /* HockeySDK.framework */,
-				3C44B49E1D0C2ADA0023D65E /* HockeySDKResources.bundle */,
+				3AC877E320210E450030F110 /* CloudKit.framework */,
+				3AC877DF20210D5A0030F110 /* HockeySDK.framework */,
 				CF76486D1CFAF37E002DE158 /* SafariServices.framework */,
 				6D5F9192E7DED712CD1A069C /* Pods_TramChallenge.framework */,
 			);
@@ -292,7 +290,6 @@
 		F9E15A01380F59C9AF078400 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3AD8F1C61CF8CA1B00C48237 /* CloudKit.framework */,
 				3AD8F1771CEE5CA000C48237 /* MapKit.framework */,
 				2AD823BB27B49371C63375A0 /* Pods-TramChallenge.debug.xcconfig */,
 				2C4566A50CFBEF6808DCFA68 /* Pods-TramChallenge.release.xcconfig */,
@@ -375,6 +372,9 @@
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};
@@ -429,7 +429,6 @@
 				3AD8F1541CEE4D6100C48237 /* LaunchScreen.storyboard in Resources */,
 				3AD8F1511CEE4D6100C48237 /* Assets.xcassets in Resources */,
 				3AD8F14F1CEE4D6100C48237 /* Main.storyboard in Resources */,
-				3C44B49F1D0C2ADA0023D65E /* HockeySDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +677,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TramChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -696,6 +696,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TramChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

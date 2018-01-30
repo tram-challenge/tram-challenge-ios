@@ -27,7 +27,7 @@
 
     [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"35b5ce51ddb941e69449c7decb6d7536"];
     [[BITHockeyManager sharedHockeyManager] startManager];
-    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
+//    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
     
     [self fetchCloudID];
 
