@@ -146,7 +146,7 @@ static NSString *simpleTableIdentifier = @"StopsTableCell";
 
         [self.scrollView addSubview:page];
 
-        UIButton *pageControlBtn = [[UIButton alloc] initWithFrame:CGRectMake(x_coord + i * (btnSize + btnMargin), self.scrollView.frame.size.height + 24, btnSize, btnSize)];
+        UIButton *pageControlBtn = [[UIButton alloc] initWithFrame:CGRectMake(x_coord + i * (btnSize + btnMargin), self.scrollView.frame.size.height + self.scrollView.frame.origin.y - 34, btnSize, btnSize)];
         pageControlBtn.alpha = i == 0 ? 1 : 0.4;
         pageControlBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14.0];
         [pageControlBtn setTitle:routeName forState:UIControlStateNormal];
