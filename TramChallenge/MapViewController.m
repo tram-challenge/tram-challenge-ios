@@ -313,7 +313,9 @@ BOOL tramIsInDepot(CLLocationCoordinate2D tramCoord) {
 
     CGSize preferredContentSize = self.filterListViewer.preferredContentSize;
     CGFloat height = MIN(preferredContentSize.height, self.view.height - 114);
-    self.filterListViewer.view.frame = CGRectMake(2, 67, preferredContentSize.width, height);
+
+    CGFloat navbarBottom = self.navigationController.navigationBar.frame.size.height + self.navigationController.navigationBar.frame.origin.y;
+    self.filterListViewer.view.frame = CGRectMake(2, navbarBottom + 5, preferredContentSize.width, height);
 
     self.filterListViewer.view.alpha = 0;
     [self.view addSubview:self.filterListViewer.view];
